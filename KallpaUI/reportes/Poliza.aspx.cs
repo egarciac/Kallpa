@@ -85,6 +85,22 @@ namespace KallpaUI.reportes
 
             PolizaDolaresGridView.DataSource = polizas.Where(p => !p.MonedaBase).ToList();
             PolizaDolaresGridView.DataBind();
+
+            PolizaPanel.Visible = true;
+        }
+
+        protected void PolizaSolesGridView_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            switch (e.CommandName)
+            {
+                case "Detalle": DetallePoliza(Convert.ToInt32(e.CommandArgument)); break;
+            }
+        }
+
+        private void DetallePoliza(int idPoliza)
+        {
+            PolizaPanel.Visible = false;
+            DetallePolizaPanel.Visible = true;
         }
     }
 }

@@ -236,6 +236,7 @@
     <Content Include="reportes\html\rep-cuentasco.html" />
     <Content Include="reportes\html\rep-operaciones.html" />
     <Content Include="reportes\html\rep-ordenes.html" />
+    <Content Include="reportes\html\rep-poliza.html" />
     <Content Include="reportes\html\reporte-bienvenida.html" />
     <Content Include="reportes\html\reporte-detalle.html" />
     <Content Include="reportes\login-bienvenida.aspx" />

@@ -121,6 +121,15 @@ namespace KallpaUI.reportes {
         protected global::System.Web.UI.WebControls.ImageButton VisualizarImageButton;
         
         /// <summary>
+        /// PolizaPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PolizaPanel;
+        
+        /// <summary>
         /// PolizaSolesGridView control.
         /// </summary>
         /// <remarks>
@@ -137,5 +146,14 @@ namespace KallpaUI.reportes {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView PolizaDolaresGridView;
+        
+        /// <summary>
+        /// DetallePolizaPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel DetallePolizaPanel;
     }
 }

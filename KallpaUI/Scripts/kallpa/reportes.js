@@ -1,7 +1,4 @@
-﻿function BindEventHandlers() {
-    $('#VisualizarImageButton').on('click', function () {
-        $('#contenedor-reportes').show();
-    });
+﻿function BindEventHandlers() {    
 }
 
 $(function () {

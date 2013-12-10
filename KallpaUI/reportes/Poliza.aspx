@@ -124,14 +124,16 @@
             </div>
         </div>
       </div>
-      <div id="contenedor-reportes" class="contenedor-reportes" style="display:none">
+      <asp:Panel id="PolizaPanel" runat="server" Visible="false" class="contenedor-reportes">
         <div style="overflow:hidden; margin-top:15px;text-align:left;">
             <span class="texto13azul" style="padding-right:10px;">imprimir</span>
             <img src="img/imp.gif" width="21" height="18" />
         </div>
         <div style="overflow:hidden; margin-top:10px;">
             Soles
-            <asp:GridView ID="PolizaSolesGridView" runat="server" AutoGenerateColumns="false" BackColor="#FFFFFF" >
+            <asp:GridView ID="PolizaSolesGridView" runat="server" 
+                AutoGenerateColumns="False" BackColor="White" 
+                onrowcommand="PolizaSolesGridView_RowCommand" >
                 <EmptyDataTemplate>
                     <div>
                         No hay registros que mostrar
@@ -141,12 +143,30 @@
                 <alternatingrowstyle backcolor="White"></alternatingrowstyle>
                 <RowStyle backcolor="#d2d9df" />
                 <Columns>
-                    <asp:BoundField ItemStyle-Width="72" HeaderText="Fecha" DataField="FechaPoliza" />
-                    <asp:BoundField ItemStyle-Width="103" HeaderText="N° Poliza" DataField="NumeroPoliza" />
-                    <asp:BoundField ItemStyle-Width="104" HeaderText="Valor" DataField="Valor" />
-                    <asp:BoundField ItemStyle-Width="81" HeaderText="Cantidad Acciones" DataField="CantidadAcciones" />
-                    <asp:BoundField ItemStyle-Width="111" HeaderText="Monto Neto" DataField="MontoNeto" />
-                    <asp:HyperLinkField ItemStyle-Width="108"  Text="Ver poliza" />
+                    <asp:BoundField ItemStyle-Width="72" HeaderText="Fecha" 
+                        DataField="FechaPoliza" >
+                    <ItemStyle Width="72px" />
+                    </asp:BoundField>
+                    <asp:BoundField ItemStyle-Width="103" HeaderText="N° Poliza" 
+                        DataField="NumeroPoliza" >
+                    <ItemStyle Width="103px" />
+                    </asp:BoundField>
+                    <asp:BoundField ItemStyle-Width="104" HeaderText="Valor" DataField="Valor" >
+                    <ItemStyle Width="104px" />
+                    </asp:BoundField>
+                    <asp:BoundField ItemStyle-Width="81" HeaderText="Cantidad Acciones" 
+                        DataField="CantidadAcciones" >
+                    <ItemStyle Width="81px" />
+                    </asp:BoundField>
+                    <asp:BoundField ItemStyle-Width="111" HeaderText="Monto Neto" 
+                        DataField="MontoNeto" >
+                    <ItemStyle Width="111px" />
+                    </asp:BoundField>
+                    <asp:TemplateField>
+                        <ItemTemplate>
+                            <asp:LinkButton ID="VerPolizaLinkButton" runat="server" CommandName="Detalle" CommandArgument='<%# Bind("IdPoliza") %>'>Ver poliza ></asp:LinkButton>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                 </Columns>
             </asp:GridView>
             <br/><br/>
@@ -166,146 +186,363 @@
                     <asp:BoundField ItemStyle-Width="104" HeaderText="Valor" DataField="Valor" />
                     <asp:BoundField ItemStyle-Width="81" HeaderText="Cantidad Acciones" DataField="CantidadAcciones" />
                     <asp:BoundField ItemStyle-Width="111" HeaderText="Monto Neto" DataField="MontoNeto" />
-                    <asp:HyperLinkField ItemStyle-Width="108" Text="Ver poliza" />
+                    <asp:TemplateField>
+                        <ItemTemplate>
+                            <asp:LinkButton ID="VerPolizaLinkButton" runat="server" CommandName="Detalle" CommandArgument='<%# Bind("IdPoliza") %>'>Ver poliza ></asp:LinkButton>
+                        </ItemTemplate>
+                    </asp:TemplateField>
                 </Columns>
             </asp:GridView>
-            <table width="586" border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF" style="display:none">
-  <tr>
-    <td><table width="586" border="0" cellspacing="2" cellpadding="0">
-      <tr>
-        <td width="73" height="42" align="center" bgcolor="#758a9d"><span class="texto13blanco">Fecha</span></td>
-        <td width="103" align="center" bgcolor="#758a9d"><span class="texto13blanco">N° de Póliza</span></td>
-        <td width="104" align="center" bgcolor="#758a9d"><span class="texto13blanco">Valor</span></td>
-        <td width="81" align="center" bgcolor="#758a9d"><span class="texto13blanco">Cantidad <br />
-          Acciones</span></td>
-        <td width="111" align="center" bgcolor="#758a9d"><span class="texto13blanco">Monto neto</span></td>
-        <td width="108" align="center" bgcolor="#758a9d"><p><span class="texto13blanco">Opciones</span>
-        </p></td>
-        </tr>
-    </table></td>
-  </tr>
-  
-  <tr>
-    <td height="49" >
-     &nbsp;&nbsp; Nuevos Soles
-      </td>
-  </tr>
-  <tr>
-    <td>
-      <table width="586" border="0" cellspacing="2" cellpadding="0">
-        <tr>
-          <td width="73" height="20" align="center" bgcolor="#d2d9df">30/12/2012</td>
-          <td width="103" align="center" bgcolor="#d2d9df">2012-18228</td>
-          <td width="104" align="center" bgcolor="#d2d9df">FERREYC1</td>
-          <td width="81" align="center" bgcolor="#d2d9df">2,772</td>
-          <td width="111" align="center" bgcolor="#d2d9df">S/.5,894.630 </td>
-          <td width="108" align="center" bgcolor="#d2d9df"><p>Ver póliza &gt;</p></td>
-          </tr>
-        </table>
-      </td>
-  </tr>
-  
-  <tr>
-    <td>
-      <table width="586" border="0" cellspacing="2" cellpadding="0">
-        <tr>
-          <td width="73" height="20" align="center">30/12/2012</td>
-          <td width="103" align="center">2012-18228</td>
-          <td width="104" align="center">FERREYC1</td>
-          <td width="81" align="center">2,772</td>
-          <td width="111" align="center">S/.5,839.790</td>
-          <td width="108" align="center"><p>Ver póliza &gt;</p></td>
-          </tr>
-        </table>
-      </td>
-  </tr>
-  <tr>
-    <td>............................................................................................................................................................................</td>
-  </tr>
-  <tr>
-    <td height="49">
-    	&nbsp;&nbsp; Nuevos Soles
-    </td>
-  </tr>
-  <tr>
-    <td><table width="586" border="0" cellspacing="2" cellpadding="0">
-        <tr>
-          <td width="73" height="20" align="center" bgcolor="#d2d9df">30/12/2012</td>
-          <td width="103" align="center" bgcolor="#d2d9df">2012-18228</td>
-          <td width="104" align="center" bgcolor="#d2d9df">RIO</td>
-          <td width="81" align="center" bgcolor="#d2d9df">2,772</td>
-          <td width="111" align="center" bgcolor="#d2d9df">S/.5,894.630 </td>
-          <td width="108" align="center" bgcolor="#d2d9df"><p>Ver póliza &gt;</p></td>
-          </tr>
-        </table></td>
-  </tr>
-  <tr>
-    <td><table width="586" border="0" cellspacing="2" cellpadding="0">
-        <tr>
-          <td width="73" height="20" align="center">30/12/2012</td>
-          <td width="103" align="center">2012-18228</td>
-          <td width="104" align="center">FERREYC1</td>
-          <td width="81" align="center">2,772</td>
-          <td width="111" align="center">S/.5,839.790</td>
-          <td width="108" align="center"><p>Ver póliza &gt;</p></td>
-          </tr>
-        </table></td>
-  </tr>
-  <tr>
-    <td><table width="586" border="0" cellspacing="2" cellpadding="0">
-        <tr>
-          <td width="73" height="20" align="center" bgcolor="#d2d9df">30/12/2012</td>
-          <td width="103" align="center" bgcolor="#d2d9df">2012-18228</td>
-          <td width="104" align="center" bgcolor="#d2d9df">TV</td>
-          <td width="81" align="center" bgcolor="#d2d9df">2,772</td>
-          <td width="111" align="center" bgcolor="#d2d9df">S/.5,894.630 </td>
-          <td width="108" align="center" bgcolor="#d2d9df"><p>Ver póliza &gt;</p></td>
-          </tr>
-        </table></td>
-  </tr>
-  <tr>
-    <td><table width="586" border="0" cellspacing="2" cellpadding="0">
-        <tr>
-          <td width="73" height="20" align="center">30/12/2012</td>
-          <td width="103" align="center">2012-18228</td>
-          <td width="104" align="center">RIO</td>
-          <td width="81" align="center">2,772</td>
-          <td width="111" align="center">S/.5,839.790</td>
-          <td width="108" align="center"><p>Ver póliza &gt;</p></td>
-          </tr>
-        </table></td>
-  </tr>
-  <tr>
-    <td><table width="586" border="0" cellspacing="2" cellpadding="0">
-        <tr>
-          <td width="73" height="20" align="center" bgcolor="#d2d9df">30/12/2012</td>
-          <td width="103" align="center" bgcolor="#d2d9df">2012-18228</td>
-          <td width="104" align="center" bgcolor="#d2d9df">FERREYC1</td>
-          <td width="81" align="center" bgcolor="#d2d9df">2,772</td>
-          <td width="111" align="center" bgcolor="#d2d9df">S/.5,894.630 </td>
-          <td width="108" align="center" bgcolor="#d2d9df"><p>Ver póliza &gt;</p></td>
-          </tr>
-        </table></td>
-  </tr>
-  <tr>
-    <td height="33" valign="top"><table width="586" border="0" cellspacing="2" cellpadding="0">
-        <tr>
-          <td width="73" height="20" align="center">30/12/2012</td>
-          <td width="103" align="center">2012-18228</td>
-          <td width="104" align="center">TV</td>
-          <td width="81" align="center">2,772</td>
-          <td width="111" align="center">S/.5,839.790</td>
-          <td width="108" align="center"><p>Ver póliza &gt;</p></td>
-          </tr>
-        </table></td>
-  </tr>
-  <tr>
-    <td bgcolor="#D2D9DF">&nbsp;</td>
-  </tr>
-</table>
         </div>
         <div class="descrip2"></div>
-      </div>
+      </asp:Panel>
+      <asp:Panel ID="DetallePolizaPanel" runat="server" class="contenedor-reportes" Visible="false">
+        <div style="overflow:hidden">
+            <div style=" float:left; overflow:hidden; width:100px; margin-top:20px;">
+                <span class="texto14azul">
+                    <strong>>&nbsp;Poliza nacional</strong>
+                </span>
+            </div>
+            <div style=" float:left; overflow:hidden; width:100px; margin-top:20px; margin-left:690px;">
+                <span class="texto14plomo">
+                    <strong>>&nbsp;Regresar</strong>
+                </span>
+            </div>
+        </div>
+        <div class="bienvenida-intern2">
+            <div class="cont-poliza">
+            	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td>
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td width="290"><img src="img/logo.jpg" width="290" height="60" /></td>
+                                    <td width="105">&nbsp;</td>
+                                    <td>
+                                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td align="right">RUC:20492942121</td>
+                                            </tr>
+                                            <tr>
+                                                <td align="right">
+                                                    Av. la Encalada 1388 Of. 802. Santiago de Surco<br />
+                                                    Central Telefónica: (01) 630-7500
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="right">
+                                                    <strong>www.kallpasab.com</strong>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left">
+                            <span class="texto18az">
+                                <strong>&nbsp;&nbsp;PÓLIZA NACIONAL</strong>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td height="10"></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                    <td width="50">
+                                        <table width="50" border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td>Póliza #</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Fecha</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td width="30">&nbsp;</td>
+                                    <td width="70">
+                                        <table width="70" border="0" cellspacing="0" cellpadding="0">
+                                            <tr>
+                                                <td align="right">2012-18228</td>
+                                            </tr>
+                                            <tr>
+                                                <td align="right">30/11/2012</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td>Señor(es): 11890 CUEVA GARATE, ELIZABETH DOMITILA</td>
+                                </tr>
+                                <tr>
+                                    <td height="10"></td>
+                                </tr>
+                                <tr>
+                                    <td>Dirección: CALLE IBIS 176/1278 SAN ISIDRO</td>
+                                </tr>
+                                <tr>
+                                    <td height="10"></td>
+                                </tr>
+                                <tr>
+                                    <td>Documento de identidad: D.N.I    06220491</td>
+                                </tr>
+                                <tr>
+                                    <td height="10"></td>
+                                </tr>
+                                <tr>
+                                    <td>Código CAVALI:  11890</td>
+                                </tr>
+                                <tr>
+                                    <td height="5"></td>
+                                </tr>
+                                <tr>
+                                    <td>Cumpliendo con sus intrucciones en  Report del dia de hoy, hemos ejecutado su orden de COMPRA de los siguientes valores:</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td height="20"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table width="597" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td>
+                                        <table width="597" border="0">
+                                            <tr>
+                                                <td width="127" align="center" bgcolor="#758a9c">
+                                                    <strong>VALOR</strong>
+                                                </td>
+                                                <td width="127" align="center" bgcolor="#758a9c" >
+                                                    <strong>CANTIDAD</strong>
+                                                </td>
+                                                <td width="127" align="center" bgcolor="#758a9c">
+                                                    <strong>PRECIO (S/.)</strong>
+                                                </td>
+                                                <td width="160" align="center" bgcolor="#758a9c">
+                                                    <strong>IMPORTE (S/.)</strong>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td valign="top">
+                                        <table width="597" border="0" cellspacing="2" cellpadding="0">
+                                            <tr>
+                                                <td width="127" align="center" bgcolor="#d2d9df">FERREYC1</td>
+                                                <td width="127" align="center" bgcolor="#d2d9df">2,772</td>
+                                                <td width="127" align="center" bgcolor="#d2d9df">2.12604</td>
+                                                <td width="160" align="center" bgcolor="#d2d9df">5,893.37</td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <table width="450" border="0" align="right" cellpadding="0" cellspacing="2">
+                                            <tr>
+                                                <td width="195" align="right">
+                                                    <strong>(S/.)</strong>
+                                                </td>
+                                                <td width="160">
+                                                    <table width="177" border="0" align="right" cellpadding="0" cellspacing="0" >
+                                                        <tr>
+                                                            <td align="center">
+                                                                <strong>5,893.37</strong>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>...............................................................................................................................................................................</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td height="95">&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table width="597" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td valign="top">
+                                        <table width="200" border="0" align="left" cellpadding="0" cellspacing="0">
+                                            <tr>
+                                                <td>
+                                                    <strong>Fecha de Liquidación:</strong> 02/01/2013
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td width="296">
+                                        <table width="296" border="0" cellspacing="0" cellpadding="0" style="border:solid 1px #000000">
+                                            <tr>
+                                                <td style="border:solid 1px #000000">
+                                                    <table width="296" border="0" cellspacing="0" cellpadding="0">
+                                                        <tr>
+                                                            <td>
+                                                                <table width="296" border="0" cellspacing="0" cellpadding="0">
+                                                                    <tr>
+                                                                        <td>&nbsp;&nbsp;Comisión SAB</td>
+                                                                        <td width="90">&nbsp;</td>
+                                                                        <td width="40">0.00</td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td height="11"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <table width="296" border="0" cellspacing="0" cellpadding="0">
+                                                                    <tr>
+                                                                        <td>&nbsp;&nbsp;Contribución CONASEV </td>
+                                                                        <td width="90">&nbsp;</td>
+                                                                        <td width="40">0.29</td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td height="11"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <table width="296" border="0" cellspacing="0" cellpadding="0">
+                                                                    <tr>
+                                                                        <td>&nbsp;&nbsp;Cuota BVL</td>
+                                                                        <td width="90">&nbsp;</td>
+                                                                        <td width="40">0.36</td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td height="11"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <table width="296" border="0" cellspacing="0" cellpadding="0">
+                                                                    <tr>
+                                                                        <td>&nbsp;&nbsp;Fondo de Garantía BVL</td>
+                                                                        <td width="90">&nbsp;</td>
+                                                                        <td width="40">0.00</td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td height="11"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <table width="296" border="0" cellspacing="0" cellpadding="0">
+                                                                    <tr>
+                                                                        <td>&nbsp;&nbsp;Retribución CAVALI</td>
+                                                                        <td width="90">&nbsp;</td>
+                                                                        <td width="40">0.47</td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td height="11"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <table width="296" border="0" cellspacing="0" cellpadding="0">
+                                                                    <tr>
+                                                                        <td>&nbsp;&nbsp;Fondo de Garantía CAVALI</td>
+                                                                        <td width="90">&nbsp;</td>
+                                                                        <td width="40">0.00</td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td height="11"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <table width="296" border="0" cellspacing="0" cellpadding="0">
+                                                                    <tr>
+                                                                        <td>&nbsp;&nbsp;IGV</td>
+                                                                        <td width="90">&nbsp;</td>
+                                                                        <td width="40">0.14</td>
+                                                                    </tr>
+                                                                </table>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td height="44" bgcolor="#758a9c" style="border:solid 1px #000000">
+                                                    <table width="220" border="0" align="right" cellpadding="0" cellspacing="0">
+                                                        <tr>
+                                                            <td>
+                                                                <span class="texto18negro">TOTAL(S/.)</span>
+                                                            </td>
+                                                            <td>
+                                                                <span class="texto18negro">5,894.63</span>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table width="597" border="0" cellspacing="0" cellpadding="0">
+                                <tr>
+                                    <td>
+                                        <strong>KALLPA Securities Sociedad Agente de Bolsa</strong> agradece a Ud. haber solicitado nuestros servicios de intermediación
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+      </asp:Panel>
     </div>
     
     <div class="submenu">
