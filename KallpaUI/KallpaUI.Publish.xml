@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="192.168.1.9" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="Kallpa" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="KallpaWebSite" publishMethod="MSDeploy" replaceMatchingFiles="True" userName="kallpasab\administrador" savePWD="True" userPWD="AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAsfN9JvqAkkmy0PsGTnWRqgAAAAACAAAAAAADZgAAwAAAABAAAACbmlNpYqeZKxyDrHAKyQQTAAAAAASAAACgAAAAEAAAAL6mIRWUqS2xcJcVwGskZEAYAAAAZJhDlTQmmW1pL/cg47Qo4zEQcks92asGFAAAALAFzogzpFD0Aqihz126PSPKocAD" SelectedForPublish="True" />
+</publishData>

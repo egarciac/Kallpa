@@ -1,0 +1,432 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{25534C93-5294-450F-9475-2B50B49A5132}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>KallpaUI</RootNamespace>
+    <AssemblyName>KallpaUI</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <IncludeIisSettings>true</IncludeIisSettings>
+    <PublishDatabaseSettings>
+      <Objects>
+      </Objects>
+    </PublishDatabaseSettings>
+    <DeployIisAppPath>http://192.168.1.9/Kallpa</DeployIisAppPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DeployIisAppPath>http://192.168.1.9:8172/Kallpa</DeployIisAppPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Account\ChangePassword.aspx" />
+    <Content Include="Account\ChangePasswordSuccess.aspx" />
+    <Content Include="Account\Login.aspx" />
+    <Content Include="Account\Register.aspx" />
+    <Content Include="be-our-client.html" />
+    <Content Include="boletin-cierre.html" />
+    <Content Include="boletin-diario.html" />
+    <Content Include="bvl\azul.jpg" />
+    <Content Include="bvl\flecha_roja-b.gif" />
+    <Content Include="bvl\flecha_verde-b.gif" />
+    <Content Include="bvl\style.css" />
+    <Content Include="bvl\traingulo verde.jpg" />
+    <Content Include="bvl\triangulo rojo.jpg" />
+    <Content Include="calendario-semanal.html" />
+    <Content Include="contacto-direcciones.html" />
+    <Content Include="contacto-oportunidades.html" />
+    <Content Include="contacto-telefono.html" />
+    <Content Include="css\kallpa.css" />
+    <Content Include="css\main.css" />
+    <Content Include="css\stilos-reporte-detalle.css" />
+    <Content Include="css\stilos-reporte.css" />
+    <Content Include="css\style.css" />
+    <Content Include="error.html" />
+    <Content Include="Images\iconokallpa.gif" />
+    <Content Include="Images\logo.jpg" />
+    <Content Include="img\banner.jpg" />
+    <Content Include="img\boton-anterior.png" />
+    <Content Include="img\boton-siguiente.png" />
+    <Content Include="img\btn-ingresar.jpg" />
+    <Content Include="img\bullet-azul.png" />
+    <Content Include="img\bullet-verde.png" />
+    <Content Include="img\bullet.jpg" />
+    <Content Include="img\bullet2.jpg" />
+    <Content Include="img\bullet3.jpg" />
+    <Content Include="img\down.jpg" />
+    <Content Include="img\down.png" />
+    <Content Include="img\flecha-interior-derecha.png" />
+    <Content Include="img\flecha-interior-izquierda.png" />
+    <Content Include="img\flecha.jpg" />
+    <Content Include="img\flecha.png" />
+    <Content Include="img\foot.jpg" />
+    <Content Include="img\grafico.jpg" />
+    <Content Include="img\idioma.jpg" />
+    <Content Include="img\interior-derecha.png" />
+    <Content Include="img\interior-izquierda.png" />
+    <Content Include="img\kallpa-securities.jpg" />
+    <Content Include="img\l.jpg" />
+    <Content Include="img\la-empresa.jpg" />
+    <Content Include="img\login1.jpg" />
+    <Content Include="img\login2.png" />
+    <Content Include="img\login3.jpg" />
+    <Content Include="img\login4.png" />
+    <Content Include="img\logo.jpg" />
+    <Content Include="img\mision.jpg" />
+    <Content Include="img\more.jpg" />
+    <Content Include="img\more.png" />
+    <Content Include="img\next.jpg" />
+    <Content Include="img\nosotros.jpg" />
+    <Content Include="img\nosotros1.jpg" />
+    <Content Include="img\nosotros2.jpg" />
+    <Content Include="img\nosotros3.jpg" />
+    <Content Include="img\nuestro-cliente1.jpg" />
+    <Content Include="img\nuestro-cliente2.jpg" />
+    <Content Include="img\nuestro-cliente3.jpg" />
+    <Content Include="img\nuestros-expertos.jpg" />
+    <Content Include="img\panel1.jpg" />
+    <Content Include="img\panel2.jpg" />
+    <Content Include="img\pdf-politica.jpg" />
+    <Content Include="img\pdf-tarifario.jpg" />
+    <Content Include="img\personas-juridicas.jpg" />
+    <Content Include="img\personas-naturales.jpg" />
+    <Content Include="img\prev-next.png" />
+    <Content Include="img\prev.jpg" />
+    <Content Include="img\principal.jpg" />
+    <Content Include="img\punto-blanco.jpg" />
+    <Content Include="img\punto-negro.jpg" />
+    <Content Include="img\que-ofrecemos.jpg" />
+    <Content Include="img\r.jpg" />
+    <Content Include="img\sea-nuestro-cliente-nosotros.jpg" />
+    <Content Include="img\sea-nuestro-cliente.jpg" />
+    <Content Include="img\tit-nosotros.png" />
+    <Content Include="img\tit-nuestro-cliente.png" />
+    <Content Include="img\up.jpg" />
+    <Content Include="indicadores.aspx" />
+    <Content Include="informes-periodicos.html" />
+    <Content Include="js\kallpa.js" />
+    <Content Include="js\main.js" />
+    <Content Include="js\vendor\jquery-1.10.2.min.js" />
+    <Content Include="js\vendor\jquery.cycle2.min.js" />
+    <Content Include="js\vendor\jquery.easing.1.3.js" />
+    <Content Include="js\vendor\modernizr-2.6.2.min.js" />
+    <Content Include="nosotros-accionistas.html" />
+    <Content Include="nosotros-memoria-anual.html" />
+    <Content Include="nosotros-nuestros-expertos-old.html" />
+    <Content Include="nosotros-nuestros-expertos.html" />
+    <Content Include="nosotros-objetivos-estrategicos.html" />
+    <Content Include="nosotros-politica-clientes.html" />
+    <Content Include="nosotros-que-ofrecemos.html" />
+    <Content Include="nosotros-tarifario.html" />
+    <Content Include="nosotros.html" />
+    <Content Include="personas-juridicas.html" />
+    <Content Include="personas-naturales.html" />
+    <Content Include="presentaciones.html" />
+    <Content Include="productos-finanzas.html" />
+    <Content Include="productos-inversiones-en-bolsa.html" />
+    <Content Include="productos-mercado-capitales.html" />
+    <Content Include="reporte-bienvenida.html" />
+    <Content Include="reporte-detalle.html" />
+    <Content Include="reporte-valorizaciones-alicorp.html" />
+    <Content Include="reporte-valorizaciones-andino.html" />
+    <Content Include="reporte-valorizaciones-brocal.html" />
+    <Content Include="reporte-valorizaciones-buenaventura.html" />
+    <Content Include="reporte-valorizaciones-candente.html" />
+    <Content Include="reporte-valorizaciones-cerroverde.html" />
+    <Content Include="reporte-valorizaciones-credicorp.html" />
+    <Content Include="reporte-valorizaciones-ferreycorp.html" />
+    <Content Include="reporte-valorizaciones-granamontero.html" />
+    <Content Include="reporte-valorizaciones-inretail.html" />
+    <Content Include="reporte-valorizaciones-irl.html" />
+    <Content Include="reporte-valorizaciones-lunagold.html" />
+    <Content Include="reporte-valorizaciones-maple.html" />
+    <Content Include="reporte-valorizaciones-panoro.html" />
+    <Content Include="reporte-valorizaciones-rioalto.html" />
+    <Content Include="reporte-valorizaciones-southern.html" />
+    <Content Include="reporte-valorizaciones-sulliden.html" />
+    <Content Include="reporte-valorizaciones-trevali.html" />
+    <Content Include="reporte-valorizaciones-volcan.html" />
+    <Content Include="reportes-multiplos.html" />
+    <Content Include="reportes-recurrentes.html" />
+    <Content Include="reportes-valorizacion.html" />
+    <Content Include="reportes\html\css\stilos-reporte-detalle.css" />
+    <Content Include="reportes\html\css\stilos-reporte.css" />
+    <Content Include="reportes\html\error.html" />
+    <Content Include="reportes\html\img\00_rep_polizas.jpg" />
+    <Content Include="reportes\html\img\00_rep_portafolio_detalle1_03.jpg" />
+    <Content Include="reportes\html\img\00_rep_portafolio_detalle1_07.gif" />
+    <Content Include="reportes\html\img\btt.jpg" />
+    <Content Include="reportes\html\img\bullet.jpg" />
+    <Content Include="reportes\html\img\bullet2.jpg" />
+    <Content Include="reportes\html\img\bullet3.jpg" />
+    <Content Include="reportes\html\img\cabecera-bienvenida.jpg" />
+    <Content Include="reportes\html\img\Capa-184.gif" />
+    <Content Include="reportes\html\img\cerrar.png" />
+    <Content Include="reportes\html\img\cuadrado.gif" />
+    <Content Include="reportes\html\img\down.jpg" />
+    <Content Include="reportes\html\img\down.png" />
+    <Content Include="reportes\html\img\error.jpg" />
+    <Content Include="reportes\html\img\error2.jpg" />
+    <Content Include="reportes\html\img\f2.gif" />
+    <Content Include="reportes\html\img\fecha.jpg" />
+    <Content Include="reportes\html\img\flecha-interior-derecha.png" />
+    <Content Include="reportes\html\img\flecha-interior-izquierda.png" />
+    <Content Include="reportes\html\img\flecha.jpg" />
+    <Content Include="reportes\html\img\flecha.png" />
+    <Content Include="reportes\html\img\fondo-copia.jpg" />
+    <Content Include="reportes\html\img\foot.jpg" />
+    <Content Include="reportes\html\img\idioma.jpg" />
+    <Content Include="reportes\html\img\imp.gif" />
+    <Content Include="reportes\html\img\l.jpg" />
+    <Content Include="reportes\html\img\login2.png" />
+    <Content Include="reportes\html\img\login3.jpg" />
+    <Content Include="reportes\html\img\login4.png" />
+    <Content Include="reportes\html\img\logo.jpg" />
+    <Content Include="reportes\html\img\mapa-usa.jpg" />
+    <Content Include="reportes\html\img\more.jpg" />
+    <Content Include="reportes\html\img\more.png" />
+    <Content Include="reportes\html\img\panel1.jpg" />
+    <Content Include="reportes\html\img\panel2.jpg" />
+    <Content Include="reportes\html\img\pdf.jpg" />
+    <Content Include="reportes\html\img\punto-blanco.jpg" />
+    <Content Include="reportes\html\img\punto-negro.jpg" />
+    <Content Include="reportes\html\img\r.jpg" />
+    <Content Include="reportes\html\img\up.jpg" />
+    <Content Include="reportes\html\img\visualizar.jpg" />
+    <Content Include="reportes\html\poliza.html" />
+    <Content Include="reportes\html\rep-cuentasco.html" />
+    <Content Include="reportes\html\rep-operaciones.html" />
+    <Content Include="reportes\html\rep-ordenes.html" />
+    <Content Include="reportes\html\reporte-bienvenida.html" />
+    <Content Include="reportes\html\reporte-detalle.html" />
+    <Content Include="reportes\login-bienvenida.aspx" />
+    <Content Include="reportes\login.aspx" />
+    <Content Include="reportes\Poliza.aspx" />
+    <Content Include="reportes\Portafolio.aspx" />
+    <Content Include="reportes\css\stilos-reporte-detalle.css" />
+    <Content Include="reportes\css\stilos-reporte.css" />
+    <Content Include="reportes\img\00_rep_portafolio_detalle1_03.jpg" />
+    <Content Include="reportes\img\00_rep_portafolio_detalle1_07.gif" />
+    <Content Include="reportes\img\bullet.jpg" />
+    <Content Include="reportes\img\bullet2.jpg" />
+    <Content Include="reportes\img\bullet3.jpg" />
+    <Content Include="reportes\img\cabecera-bienvenida.jpg" />
+    <Content Include="reportes\img\Capa-184.gif" />
+    <Content Include="reportes\img\cerrar.png" />
+    <Content Include="reportes\img\cuadrado.gif" />
+    <Content Include="reportes\img\down.jpg" />
+    <Content Include="reportes\img\down.png" />
+    <Content Include="reportes\img\f2.gif" />
+    <Content Include="reportes\img\fecha.jpg" />
+    <Content Include="reportes\img\flecha-interior-derecha.png" />
+    <Content Include="reportes\img\flecha-interior-izquierda.png" />
+    <Content Include="reportes\img\flecha.jpg" />
+    <Content Include="reportes\img\flecha.png" />
+    <Content Include="reportes\img\fondo-copia.jpg" />
+    <Content Include="reportes\img\foot.jpg" />
+    <Content Include="reportes\img\idioma.jpg" />
+    <Content Include="reportes\img\imp.gif" />
+    <Content Include="reportes\img\l.jpg" />
+    <Content Include="reportes\img\login2.png" />
+    <Content Include="reportes\img\login3.jpg" />
+    <Content Include="reportes\img\login4.png" />
+    <Content Include="reportes\img\logo.jpg" />
+    <Content Include="reportes\img\more.jpg" />
+    <Content Include="reportes\img\more.png" />
+    <Content Include="reportes\img\panel1.jpg" />
+    <Content Include="reportes\img\panel2.jpg" />
+    <Content Include="reportes\img\pdf.jpg" />
+    <Content Include="reportes\img\punto-blanco.jpg" />
+    <Content Include="reportes\img\punto-negro.jpg" />
+    <Content Include="reportes\img\r.jpg" />
+    <Content Include="reportes\img\up.jpg" />
+    <Content Include="reportes\img\visualizar.jpg" />
+    <Content Include="reportes\reporte-bienvenida.html" />
+    <Content Include="reportes\reporte-detalle.html" />
+    <Content Include="research-medios.html" />
+    <Content Include="Scripts\kallpa\reportes.js" />
+    <Content Include="Styles\Site.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.4.1.js" />
+    <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Account\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ChangePasswordSuccess.aspx.cs">
+      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ChangePasswordSuccess.aspx.designer.cs">
+      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="indicadores.aspx.cs">
+      <DependentUpon>indicadores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="indicadores.aspx.designer.cs">
+      <DependentUpon>indicadores.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="reportes\login-bienvenida.aspx.cs">
+      <DependentUpon>login-bienvenida.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="reportes\login-bienvenida.aspx.designer.cs">
+      <DependentUpon>login-bienvenida.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="reportes\login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="reportes\login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="reportes\Poliza.aspx.cs">
+      <DependentUpon>Poliza.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="reportes\Poliza.aspx.designer.cs">
+      <DependentUpon>Poliza.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="reportes\Portafolio.aspx.cs">
+      <DependentUpon>Portafolio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="reportes\Portafolio.aspx.designer.cs">
+      <DependentUpon>Portafolio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="reportes\html\img\imágenes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Account\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KallpaBusiness\KallpaBusiness.csproj">
+      <Project>{BFF18799-BD05-4046-99B8-98C5547F37B0}</Project>
+      <Name>KallpaBusiness</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KallpaEntities\KallpaEntities.csproj">
+      <Project>{524F31A8-2124-475A-87BF-2239AA9495F4}</Project>
+      <Name>KallpaEntities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="pdf\mem_2008.pdf" />
+    <None Include="pdf\mem_2009.pdf" />
+    <None Include="pdf\mem_2010.pdf" />
+    <None Include="pdf\mem_2011.pdf" />
+    <None Include="pdf\mem_2012.pdf" />
+    <None Include="pdf\pol_clientes.pdf" />
+    <None Include="pdf\tarifario.pdf" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>3120</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/Kallpa</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
