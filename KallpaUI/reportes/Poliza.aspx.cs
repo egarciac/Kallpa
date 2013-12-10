@@ -99,8 +99,14 @@ namespace KallpaUI.reportes
 
         private void DetallePoliza(int idPoliza)
         {
-            PolizaPanel.Visible = false;
+            MainPanel.Visible = false;
             DetallePolizaPanel.Visible = true;
+        }
+
+        protected void RegresarLinkButton_Click(object sender, EventArgs e)
+        {
+            DetallePolizaPanel.Visible = false;
+            MainPanel.Visible = true;
         }
     }
 }

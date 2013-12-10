@@ -48,7 +48,7 @@
     <img src="img/00_rep_polizas.jpg" width="1307" height="76" />
     </div>
     
-    <div class="contenido-medio">   	  
+    <asp:Panel ID="MainPanel" runat="server" class="contenido-medio">    
       <div class="titbienvenida">
         <div style="float:left; overflow:hidden;">
             <span class="texto14azul">
@@ -196,7 +196,8 @@
         </div>
         <div class="descrip2"></div>
       </asp:Panel>
-      <asp:Panel ID="DetallePolizaPanel" runat="server" class="contenedor-reportes" Visible="false">
+    </asp:Panel>
+    <asp:Panel ID="DetallePolizaPanel" runat="server" class="contenedor-reportes" Visible="false">
         <div style="overflow:hidden">
             <div style=" float:left; overflow:hidden; width:100px; margin-top:20px;">
                 <span class="texto14azul">
@@ -205,7 +206,10 @@
             </div>
             <div style=" float:left; overflow:hidden; width:100px; margin-top:20px; margin-left:690px;">
                 <span class="texto14plomo">
-                    <strong>>&nbsp;Regresar</strong>
+                    <strong>
+                        <asp:LinkButton ID="RegresarLinkButton" runat="server" 
+                    onclick="RegresarLinkButton_Click">>&nbsp;Regresar</asp:LinkButton>
+                    </strong>
                 </span>
             </div>
         </div>
@@ -543,7 +547,6 @@
             </div>
         </div>
       </asp:Panel>
-    </div>
     
     <div class="submenu">
         <div class="se" style="float:left; margin-right:32px;"><span class="texto18azul"><a href="#">Política de cliente </a></span></div>

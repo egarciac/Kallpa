@@ -7,8 +7,8 @@ namespace KallpaEntities.Reportes
 {
     public class DetallePoliza
     {
-        public Poliza Poliza { get; set; }
-
+        public DateTime Fecha { get; set; }
+        public string NumeroPoliza { get; set; }
         public string Nombre { get; set; }
         public string Direccion { get; set; }
         public string DocumentoIdentidad { get; set; }
