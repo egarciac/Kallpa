@@ -80,6 +80,59 @@
     <Content Include="css\stilos-reporte-detalle.css" />
     <Content Include="css\stilos-reporte.css" />
     <Content Include="css\style.css" />
+    <Content Include="en\be-our-client.html" />
+    <Content Include="en\boletin-cierre.html" />
+    <Content Include="en\boletin-diario.html" />
+    <Content Include="en\calendario-semanal.html" />
+    <Content Include="en\contacto-direcciones.html" />
+    <Content Include="en\contacto-oportunidades.html" />
+    <Content Include="en\contacto-telefono.html" />
+    <Content Include="en\error.html" />
+    <Content Include="en\index-old.html" />
+    <Content Include="en\index.html" />
+    <Content Include="en\informes-periodicos.html" />
+    <Content Include="en\login.html" />
+    <Content Include="en\mapa.html" />
+    <Content Include="en\nosotros-accionistas.html" />
+    <Content Include="en\nosotros-memoria-anual.html" />
+    <Content Include="en\nosotros-nuestros-expertos-old.html" />
+    <Content Include="en\nosotros-nuestros-expertos.html" />
+    <Content Include="en\nosotros-objetivos-estrategicos.html" />
+    <Content Include="en\nosotros-politica-clientes.html" />
+    <Content Include="en\nosotros-que-ofrecemos.html" />
+    <Content Include="en\nosotros-tarifario.html" />
+    <Content Include="en\nosotros.html" />
+    <Content Include="en\personas-juridicas.html" />
+    <Content Include="en\personas-naturales.html" />
+    <Content Include="en\presentaciones.html" />
+    <Content Include="en\productos-finanzas.html" />
+    <Content Include="en\productos-inversiones-en-bolsa.html" />
+    <Content Include="en\productos-mercado-capitales.html" />
+    <Content Include="en\reporte-bienvenida.html" />
+    <Content Include="en\reporte-detalle.html" />
+    <Content Include="en\reporte-valorizaciones-alicorp.html" />
+    <Content Include="en\reporte-valorizaciones-andino.html" />
+    <Content Include="en\reporte-valorizaciones-brocal.html" />
+    <Content Include="en\reporte-valorizaciones-buenaventura.html" />
+    <Content Include="en\reporte-valorizaciones-candente.html" />
+    <Content Include="en\reporte-valorizaciones-cerroverde.html" />
+    <Content Include="en\reporte-valorizaciones-credicorp.html" />
+    <Content Include="en\reporte-valorizaciones-ferreycorp.html" />
+    <Content Include="en\reporte-valorizaciones-granamontero.html" />
+    <Content Include="en\reporte-valorizaciones-inretail.html" />
+    <Content Include="en\reporte-valorizaciones-irl.html" />
+    <Content Include="en\reporte-valorizaciones-lunagold.html" />
+    <Content Include="en\reporte-valorizaciones-maple.html" />
+    <Content Include="en\reporte-valorizaciones-panoro.html" />
+    <Content Include="en\reporte-valorizaciones-rioalto.html" />
+    <Content Include="en\reporte-valorizaciones-southern.html" />
+    <Content Include="en\reporte-valorizaciones-sulliden.html" />
+    <Content Include="en\reporte-valorizaciones-trevali.html" />
+    <Content Include="en\reporte-valorizaciones-volcan.html" />
+    <Content Include="en\reportes-multiplos.html" />
+    <Content Include="en\reportes-recurrentes.html" />
+    <Content Include="en\reportes-valorizacion.html" />
+    <Content Include="en\research-medios.html" />
     <Content Include="error.html" />
     <Content Include="Images\iconokallpa.gif" />
     <Content Include="Images\logo.jpg" />
@@ -188,6 +241,9 @@
     <Content Include="reportes-multiplos.html" />
     <Content Include="reportes-recurrentes.html" />
     <Content Include="reportes-valorizacion.html" />
+    <Content Include="reportes\Cuentas-corrientes.aspx" />
+    <Content Include="reportes\Detalle-operaciones.aspx" />
+    <Content Include="reportes\Error.aspx" />
     <Content Include="reportes\html\css\stilos-reporte-detalle.css" />
     <Content Include="reportes\html\css\stilos-reporte.css" />
     <Content Include="reportes\html\error.html" />
@@ -347,6 +403,27 @@
     </Compile>
     <Compile Include="indicadores.aspx.designer.cs">
       <DependentUpon>indicadores.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="reportes\Cuentas-corrientes.aspx.cs">
+      <DependentUpon>Cuentas-corrientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="reportes\Cuentas-corrientes.aspx.designer.cs">
+      <DependentUpon>Cuentas-corrientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="reportes\Detalle-operaciones.aspx.cs">
+      <DependentUpon>Detalle-operaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="reportes\Detalle-operaciones.aspx.designer.cs">
+      <DependentUpon>Detalle-operaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="reportes\Error.aspx.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="reportes\Error.aspx.designer.cs">
+      <DependentUpon>Error.aspx</DependentUpon>
     </Compile>
     <Compile Include="reportes\login-bienvenida.aspx.cs">
       <DependentUpon>login-bienvenida.aspx</DependentUpon>

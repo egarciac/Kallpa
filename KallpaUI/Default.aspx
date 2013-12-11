@@ -28,11 +28,11 @@
         </div>
         <nav class="col span-8-of-12">
           <ul class="list-inline website-links">
-            <!--<li><a href="#">Favoritos</a></li>
-            <li><a href="#">Recomendar</a></li>-->
-            <li><a href="#">Mapa del site</a></li>
+            <li><a><img src="img/phono-icono.jpg" alt="phone" border="0"></a></li>
+            <li><a href="#">Central Telefónica (01) 6307500</a></li>
+            <li><a href="mapa.html">Mapa del site</a></li>
             <li><a href="http://mail.kallpasab.com/rc/" target="_blank">WebMail</a></li>
-            <li>&nbsp;&nbsp;<a href="#"><img src="img/idioma.jpg" alt="Idioma" border="0"></a></li>
+            <li>&nbsp;&nbsp;<a href="en/index.html"><img src="img/idioma.jpg" alt="Idioma" border="0"></a></li>
           </ul>
           <ul class="list-inline main-links">
             <li>
@@ -118,8 +118,7 @@
                   <p>Para suscribirse a la información económica y financiera 
                   Internacional que elaboremos.</p>
                   <p>Contacto: Marco Contreras<br>
-                  E-mail: mcontreras@kallpa.com<br>
-                  Telf.: (01) 6307500</p>
+                  E-mail: mcontreras@kallpa.com<br></p>
                 </div>
               </div>
             </div>

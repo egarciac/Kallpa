@@ -9,12 +9,12 @@ namespace KallpaBusiness
 {
     public class Portafolio
     {
-        public static DataSet getPortafolio(string strFecha, int intCodCavali)
+        public static DataSet getPortafolio(string strFecha, int intCodCavali, string Moneda)
         {
             DataSet ds = null;
             try
             {
-                return PortafolioDA.getPortafolio(strFecha, intCodCavali);
+                return PortafolioDA.getPortafolio(strFecha, intCodCavali, Moneda);
             }
             catch (Exception ex) { return ds; }
         }

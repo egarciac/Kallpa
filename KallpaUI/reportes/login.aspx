@@ -29,7 +29,7 @@
     <header class="section">
       <div class="group">
         <div class="col span-4-of-12" style="font-size: 0;">
-          <a href="../index.aspx"><img src="../img/logo.jpg" alt="Kallpa Securities SAB" class="img-full" border="0"></a>
+          <a href="../Default.aspx"><img src="../img/logo.jpg" alt="Kallpa Securities SAB" class="img-full" border="0"></a>
         </div>
         <nav class="col span-8-of-12">
           <ul class="list-inline website-links">

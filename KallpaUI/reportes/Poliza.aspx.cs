@@ -14,9 +14,15 @@ namespace KallpaUI.reportes
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
+            try
             {
+<<<<<<< .mine
+                if (!IsPostBack)
+                {
                 var dt = (DataTable)Session["SetValues"];
+=======
+                var dt = (DataTable)Session["SetValues"];
+>>>>>>> .r6
 
                 lblNombre.Text = dt.Rows[0][0].ToString();
                 lblDireccion.Text = dt.Rows[0][1].ToString();
@@ -24,6 +30,11 @@ namespace KallpaUI.reportes
                 lblTrader.Text = dt.Rows[0][3].ToString();
 
                 LoadAllControls();
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("Error.aspx");
             }
         }
 
