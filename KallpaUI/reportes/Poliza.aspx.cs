@@ -19,6 +19,11 @@ namespace KallpaUI.reportes
 <<<<<<< .mine
                 if (!IsPostBack)
                 {
+=======
+<<<<<<< .mine
+                if (!IsPostBack)
+                {
+>>>>>>> .r7
                 var dt = (DataTable)Session["SetValues"];
 =======
                 var dt = (DataTable)Session["SetValues"];

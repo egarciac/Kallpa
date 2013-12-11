@@ -10,6 +10,26 @@
       <script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
       <script src="../Scripts/kallpa/reportes.js" type="text/javascript"></script>
       <link href="css/stilos-reporte-detalle.css" rel="stylesheet" type="text/css" />
+<<<<<<< .mine
+      <script type="text/javascript">
+          function validarFecha() {
+              var input = document.getElementById("DesdeInput");
+              
+              if (input.value == "") {
+                  document.getElementById("contenedor-reportes").style.display = "none";
+                  var label = document.getElementById("lblError");
+                  label.innerHTML = "*";
+                  return false;
+                }
+                else {
+                    document.getElementById("contenedor-reportes").style.display = "block";
+                    label.innerHTML = "";
+                    return false;
+              }
+          }
+
+    </script>
+=======
       <script type="text/javascript">
           function validarFecha() {
               var input = document.getElementById("DesdeInput");
@@ -28,6 +48,7 @@
           }
 
     </script>
+>>>>>>> .r7
 </head>
 <body>
     <form id="form1" runat="server">

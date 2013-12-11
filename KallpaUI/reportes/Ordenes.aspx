@@ -12,6 +12,25 @@
 	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 	<link href="css/stilos-reporte-detalle.css" rel="stylesheet" type="text/css" />
 	<script src="../Scripts/kallpa/reportes.js" type="text/javascript"></script>
+<<<<<<< .mine
+    <script type="text/javascript">
+    function validarFecha() {
+              var input = document.getElementById("DesdeInput");
+              
+              if (input.value == "") {
+                  document.getElementById("contenedor-reportes").style.display = "none";
+                  var label = document.getElementById("lblError");
+                  label.innerHTML = "*";
+                  return false;
+                }
+                else {
+                    document.getElementById("contenedor-reportes").style.display = "block";
+                    label.innerHTML = "";
+                    return false;
+              }
+          }
+          </script>
+=======
     <script type="text/javascript">
     function validarFecha() {
               var input = document.getElementById("DesdeInput");
@@ -29,12 +48,21 @@
               }
           }
           </script>
+>>>>>>> .r7
 </head>
 <body>
     <form id="form1" runat="server">
     <div class="contenedor">
 	<div class="header">
 	  <div class="logo"><img src="img/logo.jpg" width="290" height="60" /></div>
+<<<<<<< .mine
+      <div class="cabecera-der">
+		<!--<div style="float:left; margin-right:2px;"><a href="#" style="text-decoration:none"> <span class="texto13azul">Manual de usos del aplicativo</span></a></div>-->
+		<!--<div style="float:left; margin-right:20px;"><a href="#" style="text-decoration:none"><img src="img/pdf.jpg" width="16" height="18" border="0" /></a></div>-->
+		<div style="float:left; margin-right:5px;"> <a href="Login.aspx" style="text-decoration:none"><span class="texto13azul">salir</span></a></div>
+		<div style="float:left;"><a href="Login.aspx" style="text-decoration:none"><img src="img/cerrar.png" width="17" height="17" border="0" /></a></div>
+	  </div>
+=======
       <div class="cabecera-der">
 		<!--<div style="float:left; margin-right:2px;"><a href="#" style="text-decoration:none"> <span class="texto13azul">Manual de usos del aplicativo</span></a></div>-->
 		<!--<div style="float:left; margin-right:20px;"><a href="#" style="text-decoration:none"><img src="img/pdf.jpg" width="16" height="18" border="0" /></a></div>-->
@@ -321,21 +349,22 @@
         <div style="float:left; margin-right:5px;"> <a href="#" style="text-decoration:none"><span class="texto13azul">salir</span></a></div>
             <div style="float:left;"><a href="#" style="text-decoration:none"><img src="img/cerrar.png" width="17" height="17" border:"0" /></a></div>
       </div>
+>>>>>>> .r7
     </div>
   <div class="menu">
-	<a href="#" target="_self">
+	<a href="Portafolio.aspx" target="_self">
     <div class="e" style="float:left; margin-right:33px; padding-bottom:5px; padding-top:7px; padding-left:5px; padding-right:5px;"><span class="texto18e">Portafolio</span></div>
     </a>
-    <a href="#" target="_self">
+    <a href="Detalle-operaciones.aspx" target="_self">
     <div class="e"  style="float:left; margin-right:33px; padding-bottom:5px; padding-top:7px; padding-left:5px; padding-right:5px;"><span class="texto18e">Detalle operaciones</span></div>
     </a>
-   <a href="#" target="_self"> 
+   <a href="Cuentas-Corrientes.aspx" target="_self"> 
    <div class="e" style="float:left; margin-right:33px; padding-bottom:5px; padding-top:7px; padding-left:5px; padding-right:5px;"><span class="texto18e">Cuenta corriente</span></div>
    </a>
-   <a href="#" target="_self"> 
+   <a href="Ordenes.aspx" target="_self"> 
    <div class="e" style="float:left; margin-right:33px; padding-bottom:5px; padding-top:7px; padding-left:5px; padding-right:5px;"><span class="texto18e">Órdenes</span></div>
    </a>
-   <a href="#" target="_self">
+   <a href="Poliza.aspx" target="_self">
      <div class="e" style="float:left; padding-bottom:5px; padding-top:7px; padding-left:5px; padding-right:5px;"><span class="texto18e">Polizas</span></div>
      </a>
             
@@ -343,7 +372,7 @@
     <div class="portada-imagen">
     	<div class="text">
 			
-			<h1 style="margin: 0; margin-left:-135px;">Pólizas</h1>
+			<h1 style="margin: 0; margin-left:-135px;">Ordenes</h1>
 		</div>
     <img src="img/00_rep_polizas.jpg" width="1307" height="76" />
     </div>
@@ -405,11 +434,12 @@
                     </div>
                     
                     
-                    <div style="margin-bottom:26px; overflow:hidden">
+                    <div style="margin-bottom:26px;  overflow:hidden">
                     	<div style="float:left; overflow:hidden; margin-right:40px;">
-         					<span class="texto18azul">Hasta</span>
+         					<br/>
+                            <span class="texto18azul">Hasta</span>
             			</div>
-            			<div style="float:left; overflow:hidden; margin-right:15px;">
+            			<div style="float:left; overflow:hidden; margin-right:15px;"><br/>
          					<input id="HastaInput" runat="server" style="height:20px; width:155px" type="text"  class="date-picker"/>
             			</div>
                        
@@ -419,7 +449,7 @@
                    <div style="margin-bottom:26px; overflow:hidden">
                     	
                         <div style="float:left; overflow:hidden; margin-left:130px; margin-top:15px;">
-   	     					<asp:ImageButton ImageUrl="../img/visualizar.jpg" ID="VisualizarImageButton" 
+   	     					<asp:ImageButton ImageUrl="../img/visualizar.jpg" ID="VisualizarImageButton" OnClientClick="return validarFecha();"
 						Width="100" Height="30" runat="server" onclick="VisualizarImageButton_Click" />
          				</div>
                        
@@ -435,7 +465,7 @@
            
       </div>
       
-      <div id="contenedor-reportes" class="contenedor-reportes" style="display:none">
+      <div id="contenedor-reportes" class="contenedor-reportes">
       		 <div style="overflow:hidden; margin-top:15px;text-align:left;"><span class="texto13azul" style="padding-right:10px;">imprimir</span><img src="img/imp.gif" width="21" height="18" /></div>
              
              <div style="overflow:hidden; margin-top:10px;">
@@ -460,7 +490,7 @@
                     <asp:BoundField ItemStyle-Width="91" HeaderText="Tipo Operación" DataField="Operacion" />
                     <asp:BoundField ItemStyle-Width="91" HeaderText="Mercado" DataField="Mercado" Visible="false" />
                     <asp:BoundField ItemStyle-Width="91" HeaderText="Precio" DataField="Precio" />
-                    <asp:BoundField ItemStyle-Width="91" HeaderText="Firmadas" DataField="Firmadas" />
+                    <asp:BoundField ItemStyle-Width="91" HeaderText="Firmadas" DataField="Firmado" />
 				</Columns>
 			</asp:GridView>
 

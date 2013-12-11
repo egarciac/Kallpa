@@ -36,6 +36,23 @@ namespace KallpaDataAccess
         public static DataSet getOrdenesORACLE(int intCodCavali, int TipoOperacion, RangoFecha rango)
         {
             try
+<<<<<<< .mine
+            {
+                var queryBase = "SELECT to_char(fecorden, 'DD/MM/YYY') AS FECHA, to_char(fecorden, 'HH24:MM:SS') AS HORA, O.NUMORDEN AS ORDEN, " +
+                                "O.TIPORDEN AS CV, O.CODIGO AS VALOR, O.CANT_ORI AS CANTIDAD, concat(to_char(O.VIGENCIA), ' día(s)'), " +
+                                "tipop.des_oper as OPERACION, O.PRECIO, o.firmadO AS FIRMADO, o.*,c.nomcli,b.*,d1.descripcion as modo_recepcion,tipop.des_oper as modalidad  " +
+                                "FROM ordenes o left join clientes c on (o.codcli = c.codcli) " +
+                                "left join tipoper tipop on (tipop.tip_oper=o.tipoper), " +
+                                "brokers b,  defgen d1 " +
+                                "WHERE " +
+                                "o.estado='V' and " +
+                                "d1.codigo=o.ordcmpaux4 AND d1.campo like 'TIPORD%' AND " +
+                                "c.codbroker=b.codbroker " +
+                                " AND    C.CODCLI = " + intCodCavali +
+                                " AND   trunc(o.fecOrden) >= to_date('" + rango.Desde.ToShortDateString() + "','DD-MM-YYYY') " +
+                                " AND   trunc(o.fecOrden) <= to_date('" + rango.Hasta.ToShortDateString() + "','DD-MM-YYYY') ";
+
+=======
             {
                 var queryBase = "SELECT to_char(fecorden, 'DD/MM/YYY') AS FECHA, to_char(fecorden, 'HH24:MM:SS') AS HORA, O.NUMORDEN AS ORDEN, " +
                                 "O.TIPORDEN AS CV, O.CODIGO AS VALOR, O.CANT_ORI AS CANTIDAD, concat(to_char(O.VIGENCIA), ' día(s)'), " +
@@ -126,24 +143,14 @@ namespace KallpaDataAccess
                                 "FROM TESTCARWEB WHERE " +
                                 "(FLAG=1 OR FLAG=0)" +
                                 "ORDER BY flag,clase,monedam,fecoper,monedag,codigo";
+>>>>>>> .r7
                 var queryBuilder = new StringBuilder(queryBase);
-
-                var parameters = new List<OracleParameter>();
-
-                parameters.Add(new OracleParameter("cavali", intCodCavali));
-                parameters.Add(new OracleParameter("desde", rango.Desde.ToShortDateString()));
-                parameters.Add(new OracleParameter("hasta", rango.Hasta.ToShortDateString()));
-
-                queryBuilder.AppendLine("AND    POLIZAS.CODCAVAL = :cavali");
-                queryBuilder.AppendLine("AND   Polizas.FecPoli >= :desde");
-                queryBuilder.AppendLine("AND    Polizas.FecPoli <= :hasta");
-
                 if (TipoOperacion > 0)
                 {
-                    queryBuilder.AppendLine("AND    POLIZAS.TIPOPER = :tipoOperacion");
-                    parameters.Add(new OracleParameter("tipoOperacion", CustomMapper.TipoOperacion(TipoOperacion)));
+                    queryBuilder.AppendLine(" AND o.tipoper = " + CustomMapper.TipoOperacion(TipoOperacion) + "");
                 }
 
+                queryBuilder.AppendLine(" ORDER BY o.fecOrden, o.numorden");
                 
                 OracleConnection conn = new OracleConnection(ConfigurationManager.ConnectionStrings["OracleConnection"].ConnectionString);
                 conn.Open();

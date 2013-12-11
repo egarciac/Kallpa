@@ -15,6 +15,9 @@ namespace KallpaUI.reportes
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+<<<<<<< .mine
+            try
+=======
             try
             {
                 if (!IsPostBack)
@@ -75,7 +78,10 @@ namespace KallpaUI.reportes
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
+>>>>>>> .r7
             {
+                if (!IsPostBack)
+                {
                 DataTable dt = (DataTable)Session["SetValues"];
                 lblNombre.Text = dt.Rows[0][0].ToString();
                 lblDireccion.Text = dt.Rows[0][1].ToString();
@@ -84,6 +90,11 @@ namespace KallpaUI.reportes
                 Session["SetValues"] = dt;
                 LoadTipoOperacion();
 
+                }
+            }
+            catch (Exception ex)
+            {
+                Response.Redirect("Error.aspx");
             }
         }
 
