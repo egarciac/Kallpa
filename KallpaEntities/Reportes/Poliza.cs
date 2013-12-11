@@ -15,5 +15,6 @@ namespace KallpaEntities.Reportes
         public string Transaccion { get; set; }
         public int CantidadAcciones { get; set; }
         public decimal MontoNeto { get; set; }
+        public bool Sql { get; set; }
     }
 }

@@ -38,5 +38,10 @@ namespace KallpaBusiness
                 listaFinal = listaSql.ToList();
             return listaFinal;
         }
+
+        public DetallePoliza ReporteDetallePoliza(int idPoliza, bool sqlReport)
+        {
+            return sqlReport ? _db.ReporteDetallePolizaSQL(idPoliza) : _db.ReporteDetallePolizaORACLE(idPoliza);
+        }
     }
 }

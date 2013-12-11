@@ -29,6 +29,7 @@ namespace KallpaEntities.Reportes
         public decimal ComisionCAVALI { get; set; }
         public decimal ComisionFondoCAVALI { get; set; }
         public decimal ComisionInternacional { get; set; }
+        public decimal IGV { get; set; }
         public decimal Total { get; set; }
     }
 }

@@ -1,22 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
 using KallpaBusiness;
 using KallpaEntities.General;
+using KallpaEntities.Reportes;
 
 namespace KallpaUI.reportes
 {
-    public partial class Poliza : System.Web.UI.Page
+    public partial class Poliza : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                DataTable dt = (DataTable)Session["SetValues"];
+                var dt = (DataTable)Session["SetValues"];
 
                 lblNombre.Text = dt.Rows[0][0].ToString();
                 lblDireccion.Text = dt.Rows[0][1].ToString();
@@ -68,7 +68,7 @@ namespace KallpaUI.reportes
         }
 
         protected void VisualizarImageButton_Click(object sender, ImageClickEventArgs e)
-        {            
+        {
             var idCliente = Convert.ToInt32(Session["UserPKID"]);
             var cavali = Convert.ToInt32(lblCavali.Text);
 
@@ -80,10 +80,11 @@ namespace KallpaUI.reportes
 
             var polizas = new Reportes().ReportePolizas(idCliente, cavali, tipoOperacion, moneda, valor, tipoPoliza, rango);
 
-            PolizaSolesGridView.DataSource = polizas.Where(p => p.MonedaBase).ToList();
+            var enumerable = polizas as IList<KallpaEntities.Reportes.Poliza> ?? polizas.ToList();
+            PolizaSolesGridView.DataSource = enumerable.Where(p => p.MonedaBase).ToList();
             PolizaSolesGridView.DataBind();
 
-            PolizaDolaresGridView.DataSource = polizas.Where(p => !p.MonedaBase).ToList();
+            PolizaDolaresGridView.DataSource = enumerable.Where(p => !p.MonedaBase).ToList();
             PolizaDolaresGridView.DataBind();
 
             PolizaPanel.Visible = true;
@@ -91,16 +92,68 @@ namespace KallpaUI.reportes
 
         protected void PolizaSolesGridView_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            switch (e.CommandName)
+            var idPoliza = Convert.ToInt32(e.CommandArgument);
+            var linkButton = e.CommandSource as LinkButton;
+            var sqlReport = false;
+            if (linkButton != null)
             {
-                case "Detalle": DetallePoliza(Convert.ToInt32(e.CommandArgument)); break;
+                var hiddenField = linkButton.Parent.FindControl("sqlHiddenField") as HiddenField;
+                if (hiddenField != null)
+                {
+                    sqlReport = Convert.ToBoolean(hiddenField.Value);
+                }
+            }
+            switch (e.CommandName.ToLower())
+            {
+                case "detalle": DetallePoliza(idPoliza, sqlReport); break;
             }
         }
 
-        private void DetallePoliza(int idPoliza)
+        private void DetallePoliza(int idPoliza, bool sqlReport)
         {
             MainPanel.Visible = false;
             DetallePolizaPanel.Visible = true;
+            CargarDetalle(idPoliza, sqlReport);
+        }
+
+        private void CargarDetalle(int idPoliza, bool sqlReport)
+        {
+            var detallePoliza = new Reportes().ReporteDetallePoliza(idPoliza, sqlReport);
+            CargarCabeceraDetalle(detallePoliza);
+            CargarGrillaDetalle(detallePoliza);
+            CargarResumenDetalle(detallePoliza);
+        }
+
+        private void CargarCabeceraDetalle(DetallePoliza detallePoliza)
+        {
+            NumeroPolizaLabel.Text = detallePoliza.NumeroPoliza;
+            FechaLabel.Text = detallePoliza.Fecha.ToShortDateString();
+            NombreLabel.Text = string.Format("{0} {1}", detallePoliza.Cavali, detallePoliza.Nombre);
+            DireccionLabel.Text = detallePoliza.Direccion;
+            DNILabel.Text = detallePoliza.DocumentoIdentidad;
+            CavaliLabel.Text = detallePoliza.Cavali;
+        }
+
+        private void CargarGrillaDetalle(DetallePoliza detallePoliza)
+        {
+            ValorLabel.Text = detallePoliza.Valor;
+            CantidadLabel.Text = detallePoliza.Cantidad.ToString();
+            PrecioLabel.Text = detallePoliza.Precio.ToString();
+            ImporteLabel.Text = detallePoliza.Importe.ToString();
+            ImporteTotalLabel.Text = detallePoliza.Importe.ToString();
+            FechaLiquidacionLabel.Text = detallePoliza.FechaLiquidacion.ToShortDateString();
+        }
+
+        private void CargarResumenDetalle(DetallePoliza detallePoliza)
+        {
+            ComisionSABLabel.Text = detallePoliza.ComisionSAB.ToString();
+            ComisionCONASEVLabel.Text = detallePoliza.ComisionCONASEV.ToString();
+            CuotaBVLLabel.Text = detallePoliza.ComisionBVL.ToString();
+            FondoGarantiaBVLLabel.Text = detallePoliza.ComisionFondoBVL.ToString();
+            RedistribucionCAVALILabel.Text = detallePoliza.ComisionCAVALI.ToString();
+            FondoGarantiaCAVALILabel.Text = detallePoliza.ComisionFondoCAVALI.ToString();
+            IGVLabel.Text = detallePoliza.IGV.ToString();
+            TotalLabel.Text = detallePoliza.Total.ToString();
         }
 
         protected void RegresarLinkButton_Click(object sender, EventArgs e)
