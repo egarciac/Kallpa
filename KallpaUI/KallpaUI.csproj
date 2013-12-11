@@ -241,6 +241,7 @@
     <Content Include="reportes\html\reporte-detalle.html" />
     <Content Include="reportes\login-bienvenida.aspx" />
     <Content Include="reportes\login.aspx" />
+    <Content Include="reportes\Ordenes.aspx" />
     <Content Include="reportes\Poliza.aspx" />
     <Content Include="reportes\Portafolio.aspx" />
     <Content Include="reportes\css\stilos-reporte-detalle.css" />
@@ -360,6 +361,13 @@
     </Compile>
     <Compile Include="reportes\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="reportes\Ordenes.aspx.cs">
+      <DependentUpon>Ordenes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="reportes\Ordenes.aspx.designer.cs">
+      <DependentUpon>Ordenes.aspx</DependentUpon>
     </Compile>
     <Compile Include="reportes\Poliza.aspx.cs">
       <DependentUpon>Poliza.aspx</DependentUpon>

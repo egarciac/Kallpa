@@ -49,6 +49,7 @@
     <Compile Include="DataAccessManager.cs" />
     <Compile Include="MaestrosDA.cs" />
     <Compile Include="Mappers\CustomMapper.cs" />
+    <Compile Include="OrdenesDA.cs" />
     <Compile Include="PortafolioDA.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReportesDA.cs" />
