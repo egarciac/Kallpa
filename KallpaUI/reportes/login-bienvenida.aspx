@@ -27,7 +27,7 @@
     <a href="Detalle-operaciones.aspx" target="_self">
     <div class="e"  style="float:left; margin-right:33px; padding-bottom:5px; padding-top:7px; padding-left:5px; padding-right:5px;"><span class="texto18e">Detalle operaciones</span></div>
     </a>
-   <a href="Cuentas-Corrientes.aspx" target="_self"> 
+   <a href="CuentaCorriente.aspx" target="_self"> 
    <div class="e" style="float:left; margin-right:33px; padding-bottom:5px; padding-top:7px; padding-left:5px; padding-right:5px;"><span class="texto18e">Cuenta corriente</span></div>
    </a>
    <a href="Ordenes.aspx" target="_self"> 
