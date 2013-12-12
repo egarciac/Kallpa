@@ -389,188 +389,188 @@ namespace KallpaDataAccess
             }
         }
 
-        public IEnumerable<CuentaCorriente> ReportCuentaCorrienteSql(int idCliente, RangoFecha rango, int idMoneda)
-        {
-            using (DataAccessManager.SqlConnection)
-            {
-                var cuentasCorrientes = new List<CuentaCorriente>();
+//        public IEnumerable<CuentaCorriente> ReportCuentaCorrienteSql(int idCliente, RangoFecha rango, int idMoneda)
+//        {
+//            using (DataAccessManager.SqlConnection)
+//            {
+//                var cuentasCorrientes = new List<CuentaCorriente>();
 
-                var query = @"
-                    SELECT
-	                    IDPersona
-	                    ,Fecha
-	                    ,FechaOperacion
-	                    ,FechaValor
-	                    ,Movimiento
-	                    ,Ingresos
-	                    ,Egresos
-	                    ,CodigoCliente
-	                    ,Cliente
-	                    ,CodigoCavali
-	                    ,IDMoneda
-	                    ,DocumentoPagoNumero
-	                    ,Operacion
-	                    ,Transaccion
-	                    ,Observacion
-	                    ,IDCp
-	                    ,Direccion
-	                    ,Ubigeo
-	                    ,TipoOperacion
-	                    ,SaldoInicial
-	                    ,TipoInformacion
-	                    ,DocumentoIdentidad
-	                    ,TraderAsignado
-                    FROM dbo.fnt_rptSAB_EstadoCuentaCorrienteTotal(@desde, @hasta, @idCliente)";
+//                var query = @"
+//                    SELECT
+//	                    IDPersona
+//	                    ,Fecha
+//	                    ,FechaOperacion
+//	                    ,FechaValor
+//	                    ,Movimiento
+//	                    ,Ingresos
+//	                    ,Egresos
+//	                    ,CodigoCliente
+//	                    ,Cliente
+//	                    ,CodigoCavali
+//	                    ,IDMoneda
+//	                    ,DocumentoPagoNumero
+//	                    ,Operacion
+//	                    ,Transaccion
+//	                    ,Observacion
+//	                    ,IDCp
+//	                    ,Direccion
+//	                    ,Ubigeo
+//	                    ,TipoOperacion
+//	                    ,SaldoInicial
+//	                    ,TipoInformacion
+//	                    ,DocumentoIdentidad
+//	                    ,TraderAsignado
+//                    FROM dbo.fnt_rptSAB_EstadoCuentaCorrienteTotal(@desde, @hasta, @idCliente)";
 
-                var parameters = new List<SqlParameter>
-                    {
-                        new SqlParameter("@desde", rango.Desde),
-                        new SqlParameter("@hasta", rango.Hasta),
-                        new SqlParameter("@idCliente", idCliente)
-                    };
+//                var parameters = new List<SqlParameter>
+//                    {
+//                        new SqlParameter("@desde", rango.Desde),
+//                        new SqlParameter("@hasta", rango.Hasta),
+//                        new SqlParameter("@idCliente", idCliente)
+//                    };
 
-                var queryBuilder = new StringBuilder(query);
+//                var queryBuilder = new StringBuilder(query);
 
-                if (idMoneda > 0)
-                {
-                    queryBuilder.AppendLine("WHERE IDMoneda = @idMoneda");
-                    parameters.Add(new SqlParameter("@idMoneda", idMoneda));
-                }
+//                if (idMoneda > 0)
+//                {
+//                    queryBuilder.AppendLine("WHERE IDMoneda = @idMoneda");
+//                    parameters.Add(new SqlParameter("@idMoneda", idMoneda));
+//                }
 
-                var cmd = DataAccessManager.GetSqlCommand(queryBuilder.ToString(), parameters);
+//                var cmd = DataAccessManager.GetSqlCommand(queryBuilder.ToString(), parameters);
 
-                using (var reader = cmd.ExecuteReader())
-                {
-                    var indexFecha = reader.GetOrdinal("Fecha");
-                    var indexFechaOperacion = reader.GetOrdinal("FechaOperacion");
-                    var indexFechaValor = reader.GetOrdinal("FechaValor");
-                    var indexMovimiento = reader.GetOrdinal("Movimiento");
-                    var indexIngresos = reader.GetOrdinal("Ingresos");
-                    var indexEgresos = reader.GetOrdinal("Egresos");
-                    var indexCodigoCliente = reader.GetOrdinal("CodigoCliente");
-                    var indexCliente = reader.GetOrdinal("Cliente");
-                    var indexCodigoCavali = reader.GetOrdinal("CodigoCavali");
-                    var indexIdMoneda = reader.GetOrdinal("IDMoneda");
-                    var indexDocumentoPagoNumero = reader.GetOrdinal("DocumentoPagoNumero");
-                    var indexOperacion = reader.GetOrdinal("Operacion");
-                    var indexTransaccion = reader.GetOrdinal("Transaccion");
-                    var indexObservacion = reader.GetOrdinal("Observacion");
-                    var indexIdCp = reader.GetOrdinal("IDCp");
-                    var indexDireccion = reader.GetOrdinal("Direccion");
-                    var indexUbigeo = reader.GetOrdinal("Ubigeo");
-                    var indexTipoOperacion = reader.GetOrdinal("TipoOperacion");
-                    var indexSaldoInicial = reader.GetOrdinal("SaldoInicial");
-                    var indexTipoInformacion = reader.GetOrdinal("TipoInformacion");
-                    var indexDocumentoIdentidad = reader.GetOrdinal("DocumentoIdentidad");
-                    var indexTraderAsignado = reader.GetOrdinal("TraderAsignado");
-                    while (reader.Read())
-                    {
-                        var cuentaCorriente = new CuentaCorriente
-                            {
-                                Fecha = reader.GetDateTime(indexFecha),
-                                FechaOperacion = reader.GetDateTime(indexFechaOperacion),
-                                FechaValor = reader.GetDateTime(indexFechaValor),
-                                Movimiento = reader.GetString(indexMovimiento),
-                                Ingresos = reader.GetDecimal(indexIngresos),
-                                Egresos = reader.GetDecimal(indexEgresos),
-                                Saldo = reader.GetDecimal(indexIngresos) - reader.GetDecimal(indexEgresos),
-                                CodigoCliente = reader.GetString(indexCodigoCliente),
-                                Cliente = reader.GetString(indexCliente),
-                                CodigoCavali = reader.GetString(indexCodigoCavali),
-                                IdMoneda = reader.GetInt32(indexIdMoneda),
-                                DocumentoPagoNumero = reader.GetString(indexDocumentoPagoNumero),
-                                Operacion = reader.GetString(indexOperacion),
-                                Transaccion = reader.GetString(indexTransaccion),
-                                Observacion = reader.GetString(indexObservacion),
-                                IdCp = reader.GetInt32(indexIdCp),
-                                Direccion = reader.GetString(indexDireccion),
-                                Ubigeo = reader.GetString(indexUbigeo),
-                                TipoOperacion = reader.GetString(indexTipoOperacion),
-                                SaldoInicial = reader.GetDecimal(indexSaldoInicial),
-                                TipoInformacion = reader.GetString(indexTipoInformacion),
-                                DocumentoIdentidad = reader.GetString(indexDocumentoIdentidad),
-                                TraderAsignado = reader.GetString(indexTraderAsignado)
-                            };
-                        cuentasCorrientes.Add(cuentaCorriente);
-                    }
-                }
+//                using (var reader = cmd.ExecuteReader())
+//                {
+//                    var indexFecha = reader.GetOrdinal("Fecha");
+//                    var indexFechaOperacion = reader.GetOrdinal("FechaOperacion");
+//                    var indexFechaValor = reader.GetOrdinal("FechaValor");
+//                    var indexMovimiento = reader.GetOrdinal("Movimiento");
+//                    var indexIngresos = reader.GetOrdinal("Ingresos");
+//                    var indexEgresos = reader.GetOrdinal("Egresos");
+//                    var indexCodigoCliente = reader.GetOrdinal("CodigoCliente");
+//                    var indexCliente = reader.GetOrdinal("Cliente");
+//                    var indexCodigoCavali = reader.GetOrdinal("CodigoCavali");
+//                    var indexIdMoneda = reader.GetOrdinal("IDMoneda");
+//                    var indexDocumentoPagoNumero = reader.GetOrdinal("DocumentoPagoNumero");
+//                    var indexOperacion = reader.GetOrdinal("Operacion");
+//                    var indexTransaccion = reader.GetOrdinal("Transaccion");
+//                    var indexObservacion = reader.GetOrdinal("Observacion");
+//                    var indexIdCp = reader.GetOrdinal("IDCp");
+//                    var indexDireccion = reader.GetOrdinal("Direccion");
+//                    var indexUbigeo = reader.GetOrdinal("Ubigeo");
+//                    var indexTipoOperacion = reader.GetOrdinal("TipoOperacion");
+//                    var indexSaldoInicial = reader.GetOrdinal("SaldoInicial");
+//                    var indexTipoInformacion = reader.GetOrdinal("TipoInformacion");
+//                    var indexDocumentoIdentidad = reader.GetOrdinal("DocumentoIdentidad");
+//                    var indexTraderAsignado = reader.GetOrdinal("TraderAsignado");
+//                    while (reader.Read())
+//                    {
+//                        var cuentaCorriente = new CuentaCorriente
+//                            {
+//                                Fecha = reader.GetDateTime(indexFecha),
+//                                FechaOperacion = reader.GetDateTime(indexFechaOperacion),
+//                                FechaValor = reader.GetDateTime(indexFechaValor),
+//                                Movimiento = reader.GetString(indexMovimiento),
+//                                Ingresos = reader.GetDecimal(indexIngresos),
+//                                Egresos = reader.GetDecimal(indexEgresos),
+//                                Saldo = reader.GetDecimal(indexIngresos) - reader.GetDecimal(indexEgresos),
+//                                CodigoCliente = reader.GetString(indexCodigoCliente),
+//                                Cliente = reader.GetString(indexCliente),
+//                                CodigoCavali = reader.GetString(indexCodigoCavali),
+//                                IdMoneda = reader.GetInt32(indexIdMoneda),
+//                                DocumentoPagoNumero = reader.GetString(indexDocumentoPagoNumero),
+//                                Operacion = reader.GetString(indexOperacion),
+//                                Transaccion = reader.GetString(indexTransaccion),
+//                                Observacion = reader.GetString(indexObservacion),
+//                                IdCp = reader.GetInt32(indexIdCp),
+//                                Direccion = reader.GetString(indexDireccion),
+//                                Ubigeo = reader.GetString(indexUbigeo),
+//                                TipoOperacion = reader.GetString(indexTipoOperacion),
+//                                SaldoInicial = reader.GetDecimal(indexSaldoInicial),
+//                                TipoInformacion = reader.GetString(indexTipoInformacion),
+//                                DocumentoIdentidad = reader.GetString(indexDocumentoIdentidad),
+//                                TraderAsignado = reader.GetString(indexTraderAsignado)
+//                            };
+//                        cuentasCorrientes.Add(cuentaCorriente);
+//                    }
+//                }
 
-                return cuentasCorrientes;
-            }
-        }
+//                return cuentasCorrientes;
+//            }
+//        }
 
-        public IEnumerable<CuentaCorriente> ReportCuentaCorrienteOracle(int idCliente, RangoFecha rango, int idMoneda)
-        {
-            using (DataAccessManager.OracleConnection)
-            {
-                var cuentasCorrientes = new List<CuentaCorriente>();
+//        public IEnumerable<CuentaCorriente> ReportCuentaCorrienteOracle(int idCliente, RangoFecha rango, int idMoneda)
+//        {
+//            using (DataAccessManager.OracleConnection)
+//            {
+//                var cuentasCorrientes = new List<CuentaCorriente>();
 
-                var query = @"";
+//                var query = @"";
 
-                var cmd = DataAccessManager.GetOracleCommand(query);
+//                var cmd = DataAccessManager.GetOracleCommand(query);
 
-                cmd.Parameters.Add(new OracleParameter("@desde", rango.Desde));
-                cmd.Parameters.Add(new OracleParameter("@hasta", rango.Hasta));
-                cmd.Parameters.Add(new OracleParameter("@idCliente", idCliente));
+//                cmd.Parameters.Add(new OracleParameter("@desde", rango.Desde));
+//                cmd.Parameters.Add(new OracleParameter("@hasta", rango.Hasta));
+//                cmd.Parameters.Add(new OracleParameter("@idCliente", idCliente));
 
-                using (var reader = cmd.ExecuteReader())
-                {
-                    var indexFecha = reader.GetOrdinal("Fecha");
-                    var indexFechaOperacion = reader.GetOrdinal("FechaOperacion");
-                    var indexFechaValor = reader.GetOrdinal("FechaValor");
-                    var indexMovimiento = reader.GetOrdinal("Movimiento");
-                    var indexIngresos = reader.GetOrdinal("Ingresos");
-                    var indexEgresos = reader.GetOrdinal("Egresos");
-                    var indexCodigoCliente = reader.GetOrdinal("CodigoCliente");
-                    var indexCliente = reader.GetOrdinal("Cliente");
-                    var indexCodigoCavali = reader.GetOrdinal("CodigoCavali");
-                    var indexIdMoneda = reader.GetOrdinal("IDMoneda");
-                    var indexDocumentoPagoNumero = reader.GetOrdinal("DocumentoPagoNumero");
-                    var indexOperacion = reader.GetOrdinal("Operacion");
-                    var indexTransaccion = reader.GetOrdinal("Transaccion");
-                    var indexObservacion = reader.GetOrdinal("Observacion");
-                    var indexIdCp = reader.GetOrdinal("IDCp");
-                    var indexDireccion = reader.GetOrdinal("Direccion");
-                    var indexUbigeo = reader.GetOrdinal("Ubigeo");
-                    var indexTipoOperacion = reader.GetOrdinal("TipoOperacion");
-                    var indexSaldoInicial = reader.GetOrdinal("SaldoInicial");
-                    var indexTipoInformacion = reader.GetOrdinal("TipoInformacion");
-                    var indexDocumentoIdentidad = reader.GetOrdinal("DocumentoIdentidad");
-                    var indexTraderAsignado = reader.GetOrdinal("TraderAsignado");
-                    while (reader.Read())
-                    {
-                        var cuentaCorriente = new CuentaCorriente
-                        {
-                            Fecha = reader.GetDateTime(indexFecha),
-                            FechaOperacion = reader.GetDateTime(indexFechaOperacion),
-                            FechaValor = reader.GetDateTime(indexFechaValor),
-                            Movimiento = reader.GetString(indexMovimiento),
-                            Ingresos = reader.GetDecimal(indexIngresos),
-                            Egresos = reader.GetDecimal(indexEgresos),
-                            Saldo = reader.GetDecimal(indexIngresos) - reader.GetDecimal(indexEgresos),
-                            CodigoCliente = reader.GetString(indexCodigoCliente),
-                            Cliente = reader.GetString(indexCliente),
-                            CodigoCavali = reader.GetString(indexCodigoCavali),
-                            IdMoneda = reader.GetInt32(indexIdMoneda),
-                            DocumentoPagoNumero = reader.GetString(indexDocumentoPagoNumero),
-                            Operacion = reader.GetString(indexOperacion),
-                            Transaccion = reader.GetString(indexTransaccion),
-                            Observacion = reader.GetString(indexObservacion),
-                            IdCp = reader.GetInt32(indexIdCp),
-                            Direccion = reader.GetString(indexDireccion),
-                            Ubigeo = reader.GetString(indexUbigeo),
-                            TipoOperacion = reader.GetString(indexTipoOperacion),
-                            SaldoInicial = reader.GetDecimal(indexSaldoInicial),
-                            TipoInformacion = reader.GetString(indexTipoInformacion),
-                            DocumentoIdentidad = reader.GetString(indexDocumentoIdentidad),
-                            TraderAsignado = reader.GetString(indexTraderAsignado)
-                        };
-                        cuentasCorrientes.Add(cuentaCorriente);
-                    }
-                }
+//                using (var reader = cmd.ExecuteReader())
+//                {
+//                    var indexFecha = reader.GetOrdinal("Fecha");
+//                    var indexFechaOperacion = reader.GetOrdinal("FechaOperacion");
+//                    var indexFechaValor = reader.GetOrdinal("FechaValor");
+//                    var indexMovimiento = reader.GetOrdinal("Movimiento");
+//                    var indexIngresos = reader.GetOrdinal("Ingresos");
+//                    var indexEgresos = reader.GetOrdinal("Egresos");
+//                    var indexCodigoCliente = reader.GetOrdinal("CodigoCliente");
+//                    var indexCliente = reader.GetOrdinal("Cliente");
+//                    var indexCodigoCavali = reader.GetOrdinal("CodigoCavali");
+//                    var indexIdMoneda = reader.GetOrdinal("IDMoneda");
+//                    var indexDocumentoPagoNumero = reader.GetOrdinal("DocumentoPagoNumero");
+//                    var indexOperacion = reader.GetOrdinal("Operacion");
+//                    var indexTransaccion = reader.GetOrdinal("Transaccion");
+//                    var indexObservacion = reader.GetOrdinal("Observacion");
+//                    var indexIdCp = reader.GetOrdinal("IDCp");
+//                    var indexDireccion = reader.GetOrdinal("Direccion");
+//                    var indexUbigeo = reader.GetOrdinal("Ubigeo");
+//                    var indexTipoOperacion = reader.GetOrdinal("TipoOperacion");
+//                    var indexSaldoInicial = reader.GetOrdinal("SaldoInicial");
+//                    var indexTipoInformacion = reader.GetOrdinal("TipoInformacion");
+//                    var indexDocumentoIdentidad = reader.GetOrdinal("DocumentoIdentidad");
+//                    var indexTraderAsignado = reader.GetOrdinal("TraderAsignado");
+//                    while (reader.Read())
+//                    {
+//                        var cuentaCorriente = new CuentaCorriente
+//                        {
+//                            Fecha = reader.GetDateTime(indexFecha),
+//                            FechaOperacion = reader.GetDateTime(indexFechaOperacion),
+//                            FechaValor = reader.GetDateTime(indexFechaValor),
+//                            Movimiento = reader.GetString(indexMovimiento),
+//                            Ingresos = reader.GetDecimal(indexIngresos),
+//                            Egresos = reader.GetDecimal(indexEgresos),
+//                            Saldo = reader.GetDecimal(indexIngresos) - reader.GetDecimal(indexEgresos),
+//                            CodigoCliente = reader.GetString(indexCodigoCliente),
+//                            Cliente = reader.GetString(indexCliente),
+//                            CodigoCavali = reader.GetString(indexCodigoCavali),
+//                            IdMoneda = reader.GetInt32(indexIdMoneda),
+//                            DocumentoPagoNumero = reader.GetString(indexDocumentoPagoNumero),
+//                            Operacion = reader.GetString(indexOperacion),
+//                            Transaccion = reader.GetString(indexTransaccion),
+//                            Observacion = reader.GetString(indexObservacion),
+//                            IdCp = reader.GetInt32(indexIdCp),
+//                            Direccion = reader.GetString(indexDireccion),
+//                            Ubigeo = reader.GetString(indexUbigeo),
+//                            TipoOperacion = reader.GetString(indexTipoOperacion),
+//                            SaldoInicial = reader.GetDecimal(indexSaldoInicial),
+//                            TipoInformacion = reader.GetString(indexTipoInformacion),
+//                            DocumentoIdentidad = reader.GetString(indexDocumentoIdentidad),
+//                            TraderAsignado = reader.GetString(indexTraderAsignado)
+//                        };
+//                        cuentasCorrientes.Add(cuentaCorriente);
+//                    }
+//                }
 
-                return cuentasCorrientes;
-            }
-        }
+//                return cuentasCorrientes;
+//            }
+//        }
     }
 }

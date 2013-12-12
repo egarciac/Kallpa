@@ -130,7 +130,13 @@ a {text-decoration: none;}
 .descargar {
   color: #555; 
 }
-
+h3{
+  float: left;
+  font-weight: 700;
+  color: #193c5a;
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 14px;
+}
 /* header */
 header {
   position: relative;
@@ -747,29 +753,29 @@ section>.group>.nav-bar div {
 .internal-page.research-report-valorizations-company>.body>.span-8-of-12>.wrapper>.container>.group>.span-10-of-12>h2,
 .internal-page.research-report-valorizations-company>.body>.span-8-of-12>.wrapper>.container>.group>.span-10-of-12>p {margin: 0;}
 .internal-page.research-report-valorizations-company>.body>.span-8-of-12>.wrapper>.container>.group>.span-10-of-12>p {margin-top: 10px;}
-.internal-page.research-report-valorizations-company>.body>.span-8-of-12>.wrapper>.container>table {
+.internal-page.research-report-valorizations-company>.body>.span-8-of-12>.wrapper>.container table {
   width: 100%; 
   margin-top: 30px; 
   border: 1px solid #193c5a;
   background-color: #fff;
   border-collapse: collapse;
 }
-.internal-page.research-report-valorizations-company>.body>.span-8-of-12>.wrapper>.container>table td {
+.internal-page.research-report-valorizations-company>.body>.span-8-of-12>.wrapper>.container table td {
   padding: 7px 10px;
   border: 1px solid #dee3e7;
   border-top: none;
   border-bottom: none;
 }
-.internal-page.research-report-valorizations-company>.body>.span-8-of-12>.wrapper>.container>table td:first-child,
-.internal-page.research-report-valorizations-company>.body>.span-8-of-12>.wrapper>.container>table td:last-child {
+.internal-page.research-report-valorizations-company>.body>.span-8-of-12>.wrapper>.container table td:first-child,
+.internal-page.research-report-valorizations-company>.body>.span-8-of-12>.wrapper>.container table td:last-child {
   text-align: center;
   border: none;
 }
-.internal-page.research-report-valorizations-company>.body>.span-8-of-12>.wrapper>.container>table td:last-child>a {
+.internal-page.research-report-valorizations-company>.body>.span-8-of-12>.wrapper>.container table td:last-child>a {
   font-weight: 700;
   color: #193c5a;
 }
-.internal-page.research-report-valorizations-company>.body>.span-8-of-12>.wrapper>.container>table>thead {
+.internal-page.research-report-valorizations-company>.body>.span-8-of-12>.wrapper>.container table>thead {
   background-color: #738aa0; 
   font-weight: 700; 
   color: #fff;
@@ -1112,4 +1118,52 @@ section>.group>.nav-bar div {
     margin-bottom: 10px;
     overflow: hidden;
     width: 1043px;
+}
+
+.acordion{
+  margin: 0;
+  margin-top: 30px;
+  list-style: none;
+  padding: 0;
+}
+.acordion li.active>a,
+.acordion li:hover>a{
+/*  background-color:#597A99;*/
+}
+.acordion li>a{
+  display: block;
+  /*background-color: #738aa0;*/
+  font-weight: 700;
+  color: #597A99;
+  padding: 7px 10px;
+}
+.acordion .content{
+  display: none;
+}
+
+.acordion li.active .content{
+  display: block;
+}
+.acordion table{
+  margin: 0 !important;
+}
+.acordion table td:first-child{
+  text-align:left !important; 
+}
+
+.mapalef {
+	height: 700px;
+	width: 295px;
+	border-right-width: 1px;
+	border-right-style: dotted;
+	border-right-color: #707172;
+	float: left;
+	overflow: hidden;
+}
+.mapader {
+	float: left;
+	margin-left: 44px;
+	width: 200px;
+	padding-top: 50px;
+	overflow: hidden;
 }

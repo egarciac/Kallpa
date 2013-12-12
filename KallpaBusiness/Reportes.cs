@@ -44,25 +44,25 @@ namespace KallpaBusiness
             return sqlReport ? _db.ReporteDetallePolizaSQL(idPoliza) : _db.ReporteDetallePolizaORACLE(idPoliza);
         }
 
-        public IEnumerable<CuentaCorriente> ReporteCuentaCorriente(int idCliente, int cavali, RangoFecha rango, int idMoneda)
-        {
-            IEnumerable<CuentaCorriente> listaOracle = null;
-            IEnumerable<CuentaCorriente> listaSql = null;
-            var splitter = new DateSplitter(rango);
-            if (splitter.OracleQuery)
-                listaOracle = _db.ReportCuentaCorrienteOracle(cavali, splitter.RangoOracle, idMoneda);
-            if (splitter.SqlQuery)
-                listaSql = _db.ReportCuentaCorrienteSql(idCliente, splitter.RangoSql, idMoneda);
-            List<CuentaCorriente> listaFinal = null;
-            if (listaOracle != null)
-            {
-                listaFinal = listaOracle.ToList();
-                if (listaSql != null)
-                    listaFinal.AddRange(listaSql);
-            }
-            else if (listaSql != null)
-                listaFinal = listaSql.ToList();
-            return listaFinal;
-        }
+        //public IEnumerable<CuentaCorriente> ReporteCuentaCorriente(int idCliente, int cavali, RangoFecha rango, int idMoneda)
+        //{
+        //    IEnumerable<CuentaCorriente> listaOracle = null;
+        //    IEnumerable<CuentaCorriente> listaSql = null;
+        //    var splitter = new DateSplitter(rango);
+        //    if (splitter.OracleQuery)
+        //        listaOracle = _db.ReportCuentaCorrienteOracle(cavali, splitter.RangoOracle, idMoneda);
+        //    if (splitter.SqlQuery)
+        //        listaSql = _db.ReportCuentaCorrienteSql(idCliente, splitter.RangoSql, idMoneda);
+        //    List<CuentaCorriente> listaFinal = null;
+        //    if (listaOracle != null)
+        //    {
+        //        listaFinal = listaOracle.ToList();
+        //        if (listaSql != null)
+        //            listaFinal.AddRange(listaSql);
+        //    }
+        //    else if (listaSql != null)
+        //        listaFinal = listaSql.ToList();
+        //    return listaFinal;
+        //}
     }
 }

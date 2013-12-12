@@ -22,6 +22,21 @@ function transition(e) {
     $hiddenPage = null,
     hiddenPageID = null,
     pagesNumber = $('.page').length;
+
+  if (e.data.reverse == true) {
+    numcapa = $('.previousPage').data('index');
+  } else {
+    numcapa = $('.nextPage').data('index');
+  }
+
+  $('.main-links li').removeClass('active');
+  if(numcapa == "2") { $('#us2').addClass('active'); }
+  if(numcapa == "3") { $('#our-products2').addClass('active'); }
+  if(numcapa == "4") { $('#research2').addClass('active'); }
+  if(numcapa == "5") { $('#contact2').addClass('active'); }
+  if(numcapa == "6") { $('#be-our-client2').addClass('active'); }
+  if(numcapa == "1") {}
+
   var effect = function (page, time, additionalTimeSign, left, delay, ease) {
     $(page + ' .transitionElement').delay(delay).each(function(index) {
       $(this).animate({
@@ -54,6 +69,8 @@ function transition(e) {
       classChange($hiddenPage, 'hiddenPage', e.data.exchangeHiddenPage);
       resetTransition();
     }, delay);
+    
+    
   };
   var hoverTransitionClear = function() {
     if (e.currentTarget != undefined) {
@@ -69,6 +86,8 @@ function transition(e) {
     nextTransition();
     hiddenPageID = $nextPage.data('index') < pagesNumber ? ($nextPage.data('index') + 1) : 1;
   }
+
+
   transitionUpdate(effectTime * 2.5);
   /**
    * hover transition clear
@@ -95,13 +114,29 @@ $('#nextTransitionButton').on('click', {
 /**
  * Special transition to nav
  */
-var $mainLink = $('.main-links a');
-var specialTransition = function() {
+var $mainLink = $('.main-links2 a');
+//var $mainLink2 = $('#home a');
+
+function specialTransition(vartmp) {
+
   var currentPageIndex = $('.currentPage').data('index');
-  var page = $(this).attr('href').slice(1);
+
+  if(vartmp == "[object Object]"){
+    var page = $(this).attr('href').slice(1);
+  }
+  else {
+    var page = vartmp;
+  }
+  
+
   var $page = $('.' + page);
   var pageIndex = $('.' + page).data('index');
   var transitionSetting = {};
+
+  $('.main-links li').removeClass('active');
+  $('#' + page +"2").addClass('active');
+
+
   var previousTransitionSetting = {
     reverse: true,
     exchangePreviousPage: 'currentPage',
@@ -149,44 +184,13 @@ var specialTransition = function() {
       $('.page[data-index=' + nextPageIndex + ']').addClass('nextPage').removeClass('hiddenPage');
     }, 500 * 2.6); // time effect transition => 500 * 2.5
   }
-};
+
+}
+
 $mainLink.on('click', specialTransition);
-/**
- * core animation marquesine
- */
-var marquesineAnimation =  function() {
-  var $marquesine = $('.home>.marquesine>ul');
-  $marquesine.css({
-    width: $marquesine.find('li').length * 130
-  });
-  var effectTime = 6 * 1000;
-  var delay = 500;
-  var effect =  function() {
-    $marquesine
-      .animate({
-        left: $marquesine.parent().width() - $marquesine.width() - 138
-      }, effectTime)
-      .animate({
-        left: 0
-      }, delay / 2);
-  };
-  setTimeout(function(){
-    effect();
-    setInterval(function(){
-      if ($('.home').hasClass('currentPage')) {
-        effect();
-      }
-    }, effectTime + delay);
-    
-  }, delay);
-};
-/**
- * Init and load marquesine animation
- */
-$(window).load(marquesineAnimation);
-/**
- * method to reset form
- */
+
+//$mainLink2.on('click', specialTransition);
+
 function reset_form(e) {
   $(e.data.selector)[0].reset();
 }
@@ -204,3 +208,14 @@ $('.internal-page.us-our-experts>.body>.span-8-of-12>.wrapper>.container>img').o
   $('.modal').show();
 });
 */
+
+var param = document.URL.split('#')[1];
+  
+if(typeof param === "undefined")
+{
+    //alert("ingreso");
+    //var page = "home"; 
+}
+else{
+    specialTransition(param);  
+}

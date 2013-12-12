@@ -16,19 +16,9 @@ namespace KallpaUI.reportes
         {
             try
             {
-<<<<<<< .mine
                 if (!IsPostBack)
                 {
-=======
-<<<<<<< .mine
-                if (!IsPostBack)
-                {
->>>>>>> .r7
                 var dt = (DataTable)Session["SetValues"];
-=======
-                var dt = (DataTable)Session["SetValues"];
->>>>>>> .r6
-
                 lblNombre.Text = dt.Rows[0][0].ToString();
                 lblDireccion.Text = dt.Rows[0][1].ToString();
                 lblCavali.Text = dt.Rows[0][2].ToString();

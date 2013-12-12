@@ -7,6 +7,16 @@
 	margin-left: auto;
 	overflow: hidden;
 }
+
+.contenedor2 {
+	height: auto;
+	width: 1307px;
+	margin-top: 22px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+	overflow: hidden;
+}
 .cabecera-der {
 	float: right;
 	width: 240px;
@@ -89,6 +99,13 @@
 
 }
 
+.texto18negro {
+	font-size:22px;
+	font-weight: bold;
+	color:#000;
+
+}
+
 .texto18blanco {
 	font-size:18px;
 	color:#fff;
@@ -157,6 +174,29 @@ body {
 	margin-bottom:5px;
 	width:1042px;
 	height:76px;
+		
+}
+
+.portada-imagen2 {
+	overflow:hidden;
+	margin-bottom:5px;
+	width:1307px;
+	height:76px;
+	
+}
+
+.portada-imagen2 .text {
+    color: #FFFFFF;
+    left: 50px;
+    line-height: 1;
+    position: absolute;
+    top: 150px;
+}
+
+.portada-error {
+	overflow:hidden;
+	width:1042px;
+	height:168px;
 	
 }
 
@@ -219,6 +259,18 @@ footer .copyright {
 }
 
 
+.contenido-error {
+	    background-color: #E7EAED;
+    background-image: url("../img/error2.jpg");
+    background-position: center top;
+    background-repeat: no-repeat;
+    height: 264px;
+    margin-bottom: 55px;
+    overflow: hidden;
+    padding-left: 46px;
+}
+
+
 .e {
 	text-decoration: none;
 	
@@ -237,6 +289,25 @@ footer .copyright {
 	/*color:#0d2c47;*/
 }
 
+.texto30azul {
+	font-size: 30px;
+	font-weight: bold;
+	color: #193c5a;
+	line-height: 30px;	
+}
+
+.menu-cabecera {
+    float: right;
+    margin-right: 19px;
+    margin-top: 18px;
+    overflow: hidden;
+
+}
+
+.menu-cabecera a {
+	text-decoration:none;
+	color:#454545;
+}
 .se a {
 	color:#0D2C47;
 	padding:5px;
@@ -250,3 +321,59 @@ footer .copyright {
 	
 }
 
+
+
+.bienvenida-intern2 {
+    background-color: #DEE4EA;
+    background-repeat: no-repeat;
+    border: 1px solid #B1C6DA;
+    overflow: hidden;
+    padding: 40px;
+    width: 772px;
+}
+
+.texto14azul {
+    color: #193C5A;
+    font-size: 14px;
+}
+
+.texto22azul {
+    color: #193C5A;
+    font-size: 22px;
+}
+
+.texto18plomo {
+    color: #454545;
+    font-size: 18px;
+}
+
+.texto14plomo {
+    color: #454545;
+    font-size: 14px;
+}
+
+
+.cont-poliza {
+	background-image: url(../img/torito.png);
+	background-repeat: no-repeat;
+	background-position: left bottom;
+	height: auto;
+	border: 1px solid #99a3ad;
+	padding: 30px;
+	overflow: hidden;
+	width: auto;
+	background-color: #FFF;
+}
+
+.texto18az {
+	color:#193c5a;
+	font-size:18px;
+}
+
+.blanco36 {
+	font-size: 36px;
+	color:#FFF;
+	text-shadow:2px 2px #676a6e;
+}
+
+/*h1 {text-shadow:2px 2px #FF0000;}*/
