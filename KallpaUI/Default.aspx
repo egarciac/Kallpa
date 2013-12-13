@@ -118,7 +118,7 @@
                   <p>Para suscribirse a la información económica y financiera 
                   Internacional que elaboremos.</p>
                   <p>Contacto: Marco Contreras<br>
-                  E-mail: mcontreras@kallpa.com<br></p>
+                  E-mail: mcontreras@kallpa.com<br><br></p>
                 </div>
               </div>
             </div>

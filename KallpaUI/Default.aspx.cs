@@ -15,8 +15,8 @@ namespace KallpaUI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            try
-            {
+            //try
+            //{
                 if (!IsPostBack)
                 {
                     //Imagen y Título del Gráfico por Defecto
@@ -63,12 +63,12 @@ namespace KallpaUI
                     lblValue7.Text = valores7[0];
                     lblChange7.Text = valores7[1];
                 }
-            }
-            catch (Exception ex)
-            {
-                string error = ex.Message.ToString();
-                Response.Redirect("http://www.googleerror.com", true);
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    string error = ex.Message.ToString();
+            //    Response.Redirect("http://www.googleerror.com", true);
+            //}
         }
 
         public static string ResolverUrl(string relativeUrl)

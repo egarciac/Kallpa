@@ -35,10 +35,7 @@
 	<div class="header">
 	  <div class="logo"><img src="img/logo.jpg" width="290" height="60" /></div>
       <div class="cabecera-der">
-		<!--<div style="float:left; margin-right:2px;"><a href="#" style="text-decoration:none"> <span class="texto13azul">Manual de usos del aplicativo</span></a></div>-->
-		<!--<div style="float:left; margin-right:20px;"><a href="#" style="text-decoration:none"><img src="img/pdf.jpg" width="16" height="18" border="0" /></a></div>-->
-		<div style="float:left; margin-right:5px;"> <a href="Login.aspx" style="text-decoration:none"><span class="texto13azul"></span></a></div>
-		<div style="float:left;"></div>
+		
 	  </div>
     </div>
   <div class="menu">
@@ -48,7 +45,7 @@
     <a href="Detalle-operaciones.aspx" target="_self">
     <div class="e"  style="float:left; margin-right:33px; padding-bottom:5px; padding-top:7px; padding-left:5px; padding-right:5px;"><span class="texto18e">Detalle operaciones</span></div>
     </a>
-   <a href="Cuentas-Corrientes.aspx" target="_self"> 
+   <a href="CuentaCorriente.aspx" target="_self"> 
    <div class="e" style="float:left; margin-right:33px; padding-bottom:5px; padding-top:7px; padding-left:5px; padding-right:5px;"><span class="texto18e">Cuenta corriente</span></div>
    </a>
    <a href="Ordenes.aspx" target="_self"> 
@@ -57,11 +54,10 @@
    <a href="Poliza.aspx" target="_self">
      <div class="e" style="float:left; padding-bottom:5px; padding-top:7px; padding-left:5px; padding-right:5px;"><span class="texto18e">Polizas</span></div>
      </a>
-     
    <a href="Login.aspx" style="text-decoration:none">
    <div class="e" style="float:right; padding-bottom:5px; padding-top:7px; padding-left:5px; padding-right:5px;">
    </a>         
-  </div>
+   </div>
     <div class="portada-imagen">
     	<div class="text">
 			

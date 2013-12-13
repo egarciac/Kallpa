@@ -14,11 +14,6 @@ namespace KallpaUI
         protected void Page_Load(object sender, EventArgs e)
         {
             Session.Clear();
-            //if (Page.IsPostBack)
-            //{
-            //    Loguear();
-            //    return;
-            //}
             CalcularBotones();
         }
 
@@ -38,13 +33,15 @@ namespace KallpaUI
                 if (ds.Tables[0].Rows.Count == 0)
                 {
                     Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "Key",
-                "alert('There was an error processing your request.');window.location='login.aspx'", true);
-                    Response.Redirect("login.aspx");
+                            "alert('El usuario y clave ingresados son incorrectos.');window.location='login.aspx'", true);
+                    //Response.Redirect("login.aspx");
                 }
-                Session["SetValues"] = ds.Tables[0];
-                Session["UserPKID"] = Usuario.ObtenerID(ds.Tables[0].Rows[0][2].ToString());
-                Response.Redirect("login-bienvenida.aspx", false);
-
+                else
+                {
+                    Session["SetValues"] = ds.Tables[0];
+                    Session["UserPKID"] = Usuario.ObtenerID(ds.Tables[0].Rows[0][2].ToString());
+                    Response.Redirect("login-bienvenida.aspx", false);
+                }
             }
             catch (Exception ex)
             {

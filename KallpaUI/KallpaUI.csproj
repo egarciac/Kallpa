@@ -241,6 +241,7 @@
     <Content Include="reportes-multiplos.html" />
     <Content Include="reportes-recurrentes.html" />
     <Content Include="reportes-valorizacion.html" />
+    <Content Include="reportes\CuentaCorriente.aspx" />
     <Content Include="reportes\Detalle-operaciones.aspx" />
     <Content Include="reportes\Error.aspx" />
     <Content Include="reportes\html\css\stilos-reporte-detalle.css" />
@@ -403,6 +404,13 @@
     <Compile Include="indicadores.aspx.designer.cs">
       <DependentUpon>indicadores.aspx</DependentUpon>
     </Compile>
+    <Compile Include="reportes\CuentaCorriente.aspx.cs">
+      <DependentUpon>CuentaCorriente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="reportes\CuentaCorriente.aspx.designer.cs">
+      <DependentUpon>CuentaCorriente.aspx</DependentUpon>
+    </Compile>
     <Compile Include="reportes\Detalle-operaciones.aspx.cs">
       <DependentUpon>Detalle-operaciones.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -491,6 +499,8 @@
           <DevelopmentServerPort>3120</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost/Kallpa</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://localhost/Kallpa</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
