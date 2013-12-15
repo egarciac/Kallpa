@@ -52,7 +52,7 @@
     <Compile Include="OrdenesDA.cs" />
     <Compile Include="PortafolioDA.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReportesDA.cs" />
+    <Compile Include="ReportesDataAccess.cs" />
     <Compile Include="UsuarioDA.cs" />
   </ItemGroup>
   <ItemGroup>
