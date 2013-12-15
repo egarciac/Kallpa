@@ -48,8 +48,10 @@
     <Compile Include="Poliza.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reportes\CuentaCorriente.cs" />
+    <Compile Include="Reportes\DetalleOperacion.cs" />
     <Compile Include="Reportes\DetallePoliza.cs" />
     <Compile Include="Reportes\Poliza.cs" />
+    <Compile Include="General\ReportRequest.cs" />
     <Compile Include="UsuarioWeb.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

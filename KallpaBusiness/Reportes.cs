@@ -11,58 +11,31 @@ namespace KallpaBusiness
 {
     public class Reportes
     {
-        ReportesDA _db;
+        readonly ReportesDataAccess _db;
 
         public Reportes()
         {
-            _db = new ReportesDA();
+            _db = new ReportesDataAccess();
         }
 
-        public IEnumerable<Poliza> ReportePolizas(int idCliente, int cavali, int tipoOperacion, int moneda, int valor, int tipoPoliza, RangoFecha rango)
+        public IEnumerable<Poliza> ReportePolizas(ReportRequest request)
         {
-            IEnumerable<Poliza> listaOracle = null;
-            IEnumerable<Poliza> listaSql = null;
-            var splitter = new DateSplitter(rango);
-            if(splitter.OracleQuery)
-                listaOracle = _db.ReportePolizasORACLE(cavali, tipoOperacion, moneda, valor, tipoPoliza, splitter.RangoOracle);
-            if (splitter.SqlQuery)
-                listaSql = _db.ReportePolizasSQL(idCliente, tipoOperacion, moneda, valor, tipoPoliza, splitter.RangoSql);
-            List<Poliza> listaFinal = null;
-            if (listaOracle != null)
-            {
-                listaFinal = listaOracle.ToList();
-                if (listaSql != null)
-                    listaFinal.AddRange(listaSql);
-            }
-            else if (listaSql != null)
-                listaFinal = listaSql.ToList();
-            return listaFinal;
+            return new SourceSelector().GetReportData(request, _db.ReportePolizasSql, _db.ReportePolizasOracle);
         }
 
         public DetallePoliza ReporteDetallePoliza(int idPoliza, bool sqlReport)
         {
-            return sqlReport ? _db.ReporteDetallePolizaSQL(idPoliza) : _db.ReporteDetallePolizaORACLE(idPoliza);
+            return sqlReport ? _db.ReporteDetallePolizaSql(idPoliza) : _db.ReporteDetallePolizaOracle(idPoliza);
         }
 
-        public IEnumerable<CuentaCorriente> ReporteCuentaCorriente(int idCliente, int cavali, RangoFecha rango, int idMoneda)
+        public IEnumerable<CuentaCorriente> ReporteCuentaCorriente(ReportRequest request)
         {
-            IEnumerable<CuentaCorriente> listaOracle = null;
-            IEnumerable<CuentaCorriente> listaSql = null;
-            var splitter = new DateSplitter(rango);
-            if (splitter.OracleQuery)
-                listaOracle = _db.ReportCuentaCorrienteOracle(cavali, splitter.RangoOracle, idMoneda);
-            if (splitter.SqlQuery)
-                listaSql = _db.ReportCuentaCorrienteSql(idCliente, splitter.RangoSql, idMoneda);
-            List<CuentaCorriente> listaFinal = null;
-            if (listaOracle != null)
-            {
-                listaFinal = listaOracle.ToList();
-                if (listaSql != null)
-                    listaFinal.AddRange(listaSql);
-            }
-            else if (listaSql != null)
-                listaFinal = listaSql.ToList();
-            return listaFinal;
+            return new SourceSelector().GetReportData(request, _db.ReportCuentaCorrienteSql, _db.ReportCuentaCorrienteOracle);
+        }
+
+        public IEnumerable<DetalleOperacion> ReportDetalleOperaciones(ReportRequest request)
+        {
+            return new SourceSelector().GetReportData(request, _db.ReporteDetalleOperacionesSql, _db.ReporteDetalleOperacionesOracle);
         }
     }
 }

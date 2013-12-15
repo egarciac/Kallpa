@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common\DateSplitter.cs" />
+    <Compile Include="Common\CommonClasses.cs" />
     <Compile Include="Maestros.cs" />
     <Compile Include="Ordenes.cs" />
     <Compile Include="Portafolio.cs" />
