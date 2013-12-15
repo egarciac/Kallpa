@@ -48,7 +48,15 @@ namespace KallpaUI.reportes
             var moneda = Convert.ToInt32(MonedaDropDownList.SelectedValue);
             var rango = new RangoFecha(DateTime.Parse(DesdeInput.Value), DateTime.Parse(HastaInput.Value));
 
-            var cuentasCorrientes = new Reportes().ReporteCuentaCorriente(idCliente, cavali, rango, moneda);
+            var request = new ReportRequest
+                {
+                    IdCliente = idCliente,
+                    Cavali = cavali,
+                    Moneda = moneda,
+                    Rango = rango
+                };
+
+            var cuentasCorrientes = new Reportes().ReporteCuentaCorriente(request);
             var datosGrillas =
                 cuentasCorrientes.Where(
                     c => c.TipoInformacion.Equals("Operaciones", StringComparison.InvariantCultureIgnoreCase));

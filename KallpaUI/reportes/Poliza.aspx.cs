@@ -84,7 +84,18 @@ namespace KallpaUI.reportes
             var tipoPoliza = Convert.ToInt32(TipoPolizaDropDownList.SelectedValue);
             var rango = new RangoFecha(DateTime.Parse(DesdeInput.Value), DateTime.Parse(HastaInput.Value));
 
-            var polizas = new Reportes().ReportePolizas(idCliente, cavali, tipoOperacion, moneda, valor, tipoPoliza, rango);
+            var request = new ReportRequest
+                {
+                    IdCliente = idCliente,
+                    Cavali = cavali,
+                    TipoOperacion = tipoOperacion,
+                    Moneda = moneda,
+                    Valor = valor,
+                    TipoPoliza = tipoPoliza,
+                    Rango = rango
+                };
+
+            var polizas = new Reportes().ReportePolizas(request);
 
             var enumerable = polizas as IList<KallpaEntities.Reportes.Poliza> ?? polizas.ToList();
             PolizaSolesGridView.DataSource = enumerable.Where(p => p.MonedaBase).ToList();

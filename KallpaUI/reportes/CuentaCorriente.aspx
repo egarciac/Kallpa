@@ -107,31 +107,31 @@
 		</div>
 		<div style="overflow:hidden; margin-top:10px;">
 			Soles
-            <table>
-                <thead>
-                    <tr>
-                        <td>Fecha Operacion</td>
-                        <td>Fecha Liquidacion</td>
-                        <td>Poliza</td>
-                        <td>Descripcion</td>
-                        <td>Cargo</td>
-                        <td>Abono</td>
-                        <td>Saldo</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td><asp:Label runat="server" ID="DescripcionSolesLabel"></asp:Label></td>
-                        <td></td>
-                        <td></td>
-                        <td><asp:Label runat="server" ID="SaldoSolesLabel"></asp:Label></td>
-                    </tr>
-                </tbody>
-            </table>
-            Operaciones vencidas
+			<table>
+				<thead>
+					<tr>
+						<td>Fecha Operacion</td>
+						<td>Fecha Liquidacion</td>
+						<td>Poliza</td>
+						<td>Descripcion</td>
+						<td>Cargo</td>
+						<td>Abono</td>
+						<td>Saldo</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td><asp:Label runat="server" ID="DescripcionSolesLabel"></asp:Label></td>
+						<td></td>
+						<td></td>
+						<td><asp:Label runat="server" ID="SaldoSolesLabel"></asp:Label></td>
+					</tr>
+				</tbody>
+			</table>
+			Operaciones vencidas
 			<asp:GridView ID="CuentaCorrienteVSolesGridView" runat="server" 
 				AutoGenerateColumns="False" BackColor="White" ShowHeader="False" >
 				<EmptyDataTemplate>
@@ -155,13 +155,13 @@
 						DataField="Observacion" >
 					</asp:BoundField>
 					<asp:BoundField DataField="Egresos" />
-                    <asp:BoundField ItemStyle-Width="111" 
+					<asp:BoundField ItemStyle-Width="111" 
 						DataField="Ingresos" >
 					</asp:BoundField>
 					<asp:BoundField DataField="Saldo" />
 				</Columns>
 			</asp:GridView>
-            Operaciones por vencer
+			Operaciones por vencer
 			<asp:GridView ID="CuentaCorrientePVSolesGridView" runat="server" 
 				AutoGenerateColumns="False" BackColor="White" ShowHeader="False" >
 				<EmptyDataTemplate>
@@ -185,7 +185,7 @@
 						DataField="Observacion" >
 					</asp:BoundField>
 					<asp:BoundField DataField="Egresos" />
-                    <asp:BoundField ItemStyle-Width="111" 
+					<asp:BoundField ItemStyle-Width="111" 
 						DataField="Ingresos" >
 					</asp:BoundField>
 					<asp:BoundField DataField="Saldo" />
@@ -193,31 +193,31 @@
 			</asp:GridView>
 			<br/><br/>
 			Dolares
-            <table>
-                <thead>
-                    <tr>
-                        <td>Fecha Operacion</td>
-                        <td>Fecha Liquidacion</td>
-                        <td>Poliza</td>
-                        <td>Descripcion</td>
-                        <td>Cargo</td>
-                        <td>Abono</td>
-                        <td>Saldo</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td><asp:Label runat="server" ID="DescripcionDolaresLabel"></asp:Label></td>
-                        <td></td>
-                        <td></td>
-                        <td><asp:Label runat="server" ID="SaldoDolaresLabel"></asp:Label></td>
-                    </tr>
-                </tbody>
-            </table>
-            Operaciones vencidas
+			<table>
+				<thead>
+					<tr>
+						<td>Fecha Operacion</td>
+						<td>Fecha Liquidacion</td>
+						<td>Poliza</td>
+						<td>Descripcion</td>
+						<td>Cargo</td>
+						<td>Abono</td>
+						<td>Saldo</td>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td><asp:Label runat="server" ID="DescripcionDolaresLabel"></asp:Label></td>
+						<td></td>
+						<td></td>
+						<td><asp:Label runat="server" ID="SaldoDolaresLabel"></asp:Label></td>
+					</tr>
+				</tbody>
+			</table>
+			Operaciones vencidas
 			<asp:GridView ID="CuentaCorrienteVDolaresGridView" runat="server" 
 				AutoGenerateColumns="False" BackColor="White" ShowHeader="False" >
 				<EmptyDataTemplate>
@@ -241,13 +241,13 @@
 						DataField="Observacion" >
 					</asp:BoundField>
 					<asp:BoundField DataField="Egresos" />
-                    <asp:BoundField ItemStyle-Width="111" 
+					<asp:BoundField ItemStyle-Width="111" 
 						DataField="Ingresos" >
 					</asp:BoundField>
 					<asp:BoundField DataField="Saldo" />
 				</Columns>
 			</asp:GridView>
-            Operaciones por vencer
+			Operaciones por vencer
 			<asp:GridView ID="CuentaCorrientePVDolaresGridView" runat="server" 
 				AutoGenerateColumns="False" BackColor="White" ShowHeader="False" >
 				<EmptyDataTemplate>
@@ -271,7 +271,7 @@
 						DataField="Observacion" >
 					</asp:BoundField>
 					<asp:BoundField DataField="Egresos" />
-                    <asp:BoundField ItemStyle-Width="111" 
+					<asp:BoundField ItemStyle-Width="111" 
 						DataField="Ingresos" >
 					</asp:BoundField>
 					<asp:BoundField DataField="Saldo" />
