@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using KallpaEntities.General;
 using System.Configuration;
 
 namespace KallpaBusiness.Common
 {
-    public class DateSplitter
+    class DateSplitter
     {
         public bool OracleQuery { get; set; }
         public bool SqlQuery { get; set; }
@@ -40,5 +39,29 @@ namespace KallpaBusiness.Common
                 RangoSql = new RangoFecha(rango.Desde, rango.Hasta);
             }
         }        
+    }
+
+    public class SourceSelector
+    {
+        public IEnumerable<T> GetReportData<T>(ReportRequest request, Func<ReportRequest, IEnumerable<T>> sqlReportQuery, Func<ReportRequest, IEnumerable<T>> oracleReportQuery)
+        {
+            IEnumerable<T> listaOracle = null;
+            IEnumerable<T> listaSql = null;
+            var splitter = new DateSplitter(request.Rango);
+            if (splitter.OracleQuery)
+                listaOracle = oracleReportQuery(request);
+            if (splitter.SqlQuery)
+                listaSql =sqlReportQuery(request);
+            List<T> listaFinal = null;
+            if (listaOracle != null)
+            {
+                listaFinal = listaOracle.ToList();
+                if (listaSql != null)
+                    listaFinal.AddRange(listaSql);
+            }
+            else if (listaSql != null)
+                listaFinal = listaSql.ToList();
+            return listaFinal;
+        }
     }
 }
