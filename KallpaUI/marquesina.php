@@ -22,7 +22,6 @@ if (preg_match('{<marquee id="id_marquee".*?>(.*?)</marquee>}s', $html, $matches
 	<marquee id="id_marquee" name="id_marquee" behavior="scroll" direction="left" scrolldelay="100" onmouseover="this.stop()" onmouseout="this.start()">
 	<?php echo $varmarque; ?>
 	</marquee>
-	<div class="text10">Actualizaci&oacute;n cada 20 minutos</div>
 </div>
 </body>
 </html>

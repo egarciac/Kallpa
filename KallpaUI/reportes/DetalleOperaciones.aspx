@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head id="Head1" runat="server">
+<head runat="server">
 	<title>Kallpa Securities SAB</title>
 	<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
 	<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
@@ -25,22 +25,23 @@
 	</div>
   <div class="menu">
 	<a href="Portafolio.aspx" target="_self">
-	<div class="e" style="float:left; margin-right:33px; padding-bottom:5px; padding-top:7px; padding-left:5px; padding-right:5px;"><span class="texto18e">Portafolio</span></div>
-	</a>
-	<a href="#" target="_self">
-	<div class="e"  style="float:left; margin-right:33px; padding-bottom:5px; padding-top:7px; padding-left:5px; padding-right:5px;"><span class="texto18e">Detalle operaciones</span></div>
-	</a>
-   <a href="#" target="_self"> 
+    <div class="e" style="float:left; margin-right:33px; padding-bottom:5px; padding-top:7px; padding-left:5px; padding-right:5px;"><span class="texto18e">Portafolio</span></div>
+    </a>
+    <a href="DetalleOperaciones.aspx" target="_self">
+    <div class="e"  style="float:left; margin-right:33px; padding-bottom:5px; padding-top:7px; padding-left:5px; padding-right:5px;"><span class="texto18e">Detalle operaciones</span></div>
+    </a>
+   <a href="CuentaCorriente.aspx" target="_self"> 
    <div class="e" style="float:left; margin-right:33px; padding-bottom:5px; padding-top:7px; padding-left:5px; padding-right:5px;"><span class="texto18e">Cuenta corriente</span></div>
    </a>
-   <a href="#" target="_self"> 
+   <a href="Ordenes.aspx" target="_self"> 
    <div class="e" style="float:left; margin-right:33px; padding-bottom:5px; padding-top:7px; padding-left:5px; padding-right:5px;"><span class="texto18e">Órdenes</span></div>
    </a>
    <a href="Poliza.aspx" target="_self">
-	 <div class="e" style="float:left; padding-bottom:5px; padding-top:7px; padding-left:5px; padding-right:5px;"><span class="texto18e">Polizas</span></div>
-	 </a>
-			
-  </div>
+     <div class="e" style="float:left; padding-bottom:5px; padding-top:7px; padding-left:5px; padding-right:5px;"><span class="texto18e">Polizas</span></div>
+     </a>
+   <div style="float:right; margin-top:5px; margin-right:5px;"> <a href="login.aspx" style="text-decoration:none"><span class="texto13azul">salir</span></a></div>
+	<div style="float:right; margin-top:5px;"> <a href="login.aspx" style="text-decoration:none"><img src="img/cerrar.png" width="17" height="17" border="0" /></a></div>            
+   </div>
 	<div class="portada-imagen">
 		<div class="text">			
 			<h1 style="margin: 0; margin-left:-135px;">Pólizas</h1>
@@ -50,19 +51,16 @@
 	<asp:Panel ID="MainPanel" runat="server" class="contenido-medio">    
 	  <div class="titbienvenida">
 		<div style="float:left; overflow:hidden;">
-			<span class="texto14azul">
-				<strong>
-					&nbsp;&nbsp;&nbsp<asp:Label ID="lblNombre" runat="server"></asp:Label>
-				</strong><br/>
-				&nbsp;&nbsp;&nbsp;<asp:Label ID="lblDireccion" runat="server"></asp:Label>
-			</span>
-		</div>
-		<div style="float:right; overflow:hidden; width:262px">
-			<span class="texto14azul">
-				Código Cavali:<asp:Label ID="lblCavali" runat="server"></asp:Label><br/>
-				Representante:<asp:Label ID="lblTrader" runat="server"></asp:Label>
-			</span>
-		</div>
+       	  	<span class="texto14azul"><strong>&nbsp;&nbsp;&nbsp<asp:Label ID="lblNombre" runat="server"
+                     ></asp:Label></strong><br/>&nbsp;&nbsp;&nbsp;<asp:Label ID="lblDireccion" runat="server"
+                     ></asp:Label></span></div>
+            <div style="float:right; overflow:hidden; width:262px">
+       	  	<span class="texto14azul">Código Cavali:  <asp:Label ID="lblCavali" runat="server"
+                     ></asp:Label><br/>
+              Representante:   <asp:Label ID="lblTrader" runat="server"
+                     ></asp:Label>
+          	</span>
+          	</div>
 	  </div>
 	  <div class="bienvenida-intern">
 		<div style="float:left; overflow:hidden; width:310px">

@@ -6,7 +6,7 @@
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>Kallpa Securities SAB</title>
-    <link href="../css/stilos-reporte.css" rel="stylesheet" type="text/css" />
+    <link href="css/stilos-reporte.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <form id="form1" runat="server">
@@ -16,15 +16,15 @@
       <div class="cabecera-der">
 		<!--<div style="float:left; margin-right:2px;"><a href="#" style="text-decoration:none"> <span class="texto13azul">Manual de usos del aplicativo</span></a></div>-->
 		<!--<div style="float:left; margin-right:20px;"><a href="#" style="text-decoration:none"><img src="img/pdf.jpg" width="16" height="18" border="0" /></a></div>-->
-		<div style="float:left; margin-right:5px;"> <a href="login.aspx" style="text-decoration:none"><span class="texto13azul">salir</span></a></div>
-		<div style="float:left;"><a href="login.aspx" style="text-decoration:none"><img src="img/cerrar.png" width="17" height="17" border="0" /></a></div>
+		<!--<div style="float:left; margin-right:5px;"> <a href="login.aspx" style="text-decoration:none"><span class="texto13azul">salir</span></a></div>
+		<div style="float:left;"><a href="login.aspx" style="text-decoration:none"><img src="img/cerrar.png" width="17" height="17" border="0" /></a></div>-->
 	  </div>
     </div>
   <div class="menu">
 	<a href="Portafolio.aspx" target="_self">
     <div class="e" style="float:left; margin-right:33px; padding-bottom:5px; padding-top:7px; padding-left:5px; padding-right:5px;"><span class="texto18e">Portafolio</span></div>
     </a>
-    <a href="Detalle-operaciones.aspx" target="_self">
+    <a href="DetalleOperaciones.aspx" target="_self">
     <div class="e"  style="float:left; margin-right:33px; padding-bottom:5px; padding-top:7px; padding-left:5px; padding-right:5px;"><span class="texto18e">Detalle operaciones</span></div>
     </a>
    <a href="CuentaCorriente.aspx" target="_self"> 
@@ -36,14 +36,15 @@
    <a href="Poliza.aspx" target="_self">
      <div class="e" style="float:left; padding-bottom:5px; padding-top:7px; padding-left:5px; padding-right:5px;"><span class="texto18e">Polizas</span></div>
      </a>
-            
-  </div>
+   <div style="float:right; margin-top:5px; margin-right:5px;"> <a href="login.aspx" style="text-decoration:none"><span class="texto13azul">salir</span></a></div>
+	<div style="float:right; margin-top:5px;"> <a href="login.aspx" style="text-decoration:none"><img src="img/cerrar.png" width="17" height="17" border="0" /></a></div>            
+   </div>
     <div class="portada-imagen">
     	<div class="text">
 			
-			<h1 style="margin: 0;">Bienvenido</h1>
+			<h1 style="margin: 0;" class="blanco36">Bienvenido</h1>
 		</div>
-    <img src="../img/cabecera-bienvenida.jpg" width="1042" height="76" />
+    <img src="img/cabecera-bienvenida.jpg" width="1042" height="76" />
     </div>
     
     <div class="contenido-medio">

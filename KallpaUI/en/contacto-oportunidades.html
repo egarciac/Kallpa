@@ -10,13 +10,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="../css/style.css">
     <script src="../js/vendor/modernizr-2.6.2.min.js"></script>
+        <script>
+	function validarcontacto()
+	{
+		if (document.contacto.firstname.value==""){
+			alert('Enter your name please');
+			document.contacto.firstname.focus();
+			return;
+		}
+		if (document.contacto.lastname.value==""){
+			alert('Please enter your last name');
+			document.contacto.lastname.focus();
+			return;
+		}
+		if (document.contacto.email.value==""){
+			alert('Enter your Email please');
+			document.contacto.email.focus();
+			return;
+		}
+		
+		document.contacto.submit(); 
+	}
+</script>
   </head>
   <body>
     <!-- Kallpa - header ============================================ -->
     <header class="section">
       <div class="group">
         <div class="col span-4-of-12" style="font-size: 0;">
-          <a href="index.html"><img src="../img/logo.jpg" alt="Kallpa Securities SAB" class="img-full" border="0"></a>
+          <a href="index.php"><img src="../img/logo.jpg" alt="Kallpa Securities SAB" class="img-full" border="0"></a>
         </div>
         <nav class="col span-8-of-12">
           <ul class="list-inline website-links">
@@ -24,11 +46,11 @@
             <li><a href="#">Central Telefónica (01) 6307500</a></li>
             <li><a href="mapa.html">Site Map</a></li>
             <li><a href="http://mail.kallpasab.com/rc/" target="_blank">WebMail</a></li>
-            <li>&nbsp;&nbsp;<a href="../index.html"><img src="../img/espanol.png" alt="Idioma" border="0"></a></li>
+            <li>&nbsp;&nbsp;<a href="../index.php"><img src="../img/espanol.png" alt="Idioma" border="0"></a></li>
           </ul>
           <ul class="list-inline main-links">
             <li>
-              <a href="index.html#us">About Us</a>
+              <a href="index.php#us">About Us</a>
               <div class="sub-links">
                 <ul class="list">
                   <li><a href="nosotros.html">- The company</a></li>
@@ -38,7 +60,7 @@
               </div>
             </li><!--
             --><li>
-              <a href="index.html#our-products">products</a>
+              <a href="index.php#our-products">Our products</a>
               <div class="sub-links">
                 <ul class="list">
                  
@@ -49,7 +71,7 @@
               </div>
             </li><!--
             --><li>
-              <a href="index.html#research">research</a>
+              <a href="index.php#research">research</a>
               <div class="sub-links">
                 <ul class="list">
                   <li> <a href="informes-periodicos.html"> - Periodic Reports </a></li>
@@ -60,7 +82,7 @@
               </div>
             </li><!--
             --><li  class="active">
-              <a href="index.html#contact">contact</a>
+              <a href="index.php#contact">Contact Us</a>
               <div class="sub-links">
                 <ul class="list">
                   <li> <a href="contacto-telefono.html"> - Phones </a></li>
@@ -70,7 +92,7 @@
               </div>
             </li><!--
             --><li>
-              <a href="index.html#be-our-client">our customer</a>
+              <a href="index.php#be-our-client">our customer</a>
               <div class="sub-links">
                 <ul class="list">
                   <li><a href="nosotros.html">- The company</a></li>
@@ -107,7 +129,7 @@
           <div class="wrapper">
             <p><strong>Kallpa Securities SAB</strong> invites all profresionales country to send your resume, be considered potential candidates to fill vacant positions in our company.</p>
             <p>Please send us your personal and professional details through our contact email, <strong>bolsadetrabajo@kallpasab.com</strong>, attached their resumes, which will be considered for future staffing requirements.</p>
-            <form action="" id="contact-form">
+            <form action="contact.php" id="contact-form" name="contacto" method="POST">
               <p>Any questions and / or comments please write</p>
               <div>
                 <label for="firstname">Names</label>
@@ -126,8 +148,8 @@
                 <textarea name="message" id="message" cols="30" rows="10"></textarea>
               </div>
               <div class="buttons">
-                <button type="button" class="sendButton">Enviar</button>
-                <button type="button" class="cleanButton">Limpiar</button>
+                <button type="button" class="sendButton" onclick="validarcontacto()" style="float:right;">Send</button>
+                <button type="button" class="sendButton">Clear</button>
               </div>
             </form>
           </div>
@@ -156,7 +178,7 @@
     <footer class="section">
       <div class="wrapper group">
         <div class="col span-4-of-12 copyright">All rights reserved © Kallpa Securities SAB</div>
-        <div class="col span-8-of-12 address">Central telefónica: (511) 630-7500 - contacto@kallpasab.com - Av. La Encalada 1388 of. 802. Surco, Lima</div>
+        <div class="col span-8-of-12 address">Central telefónica: (511) 630-7500 - contacto@kallpasab.com - 1388 La Encalada Avenue, Apart.802, Santiago de Surco, Lima</div>
       </div>
     </footer>
     <!-- Kallpa - javascript  

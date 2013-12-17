@@ -85,6 +85,15 @@ namespace KallpaUI {
         protected global::System.Web.UI.WebControls.ImageButton visualizar;
         
         /// <summary>
+        /// lblTotal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTotal;
+        
+        /// <summary>
         /// gvDolares control.
         /// </summary>
         /// <remarks>

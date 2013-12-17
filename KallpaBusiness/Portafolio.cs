@@ -14,21 +14,14 @@ namespace KallpaBusiness
             DataSet ds = null;
             try
             {
-                return PortafolioDA.getPortafolio(strFecha, intCodCavali, Moneda);
+                ds = PortafolioDA.getPortafolio(strFecha, intCodCavali, Moneda);
+                DataTable dt = ds.Tables[0];
+                DataView dv = dt.DefaultView;
+                dv.RowFilter = "Moneda='" + Moneda + "'";
+                return ds;
             }
             catch (Exception ex) { return ds; }
         }
 
-        //public static int ObtenerID(string codCavali)
-        //{
-        //    try
-        //    {
-        //        return UsuarPortafolioDA.ObtenerID(codCavali);
-        //    }
-        //    catch
-        //    {
-        //        return 0;
-        //    }
-        //}
     }
 }

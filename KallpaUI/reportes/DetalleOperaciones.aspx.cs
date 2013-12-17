@@ -8,6 +8,7 @@ using KallpaBusiness;
 using KallpaEntities.General;
 using KallpaEntities.Reportes;
 using KallpaUI.reportes.ViewModel;
+using System.Data;
 
 namespace KallpaUI.reportes
 {
@@ -17,12 +18,24 @@ namespace KallpaUI.reportes
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if (!IsPostBack)
+            {
+                DataTable dt = (DataTable)Session["SetValues"];
+                lblNombre.Text = dt.Rows[0][0].ToString();
+                lblDireccion.Text = dt.Rows[0][1].ToString();
+                lblCavali.Text = dt.Rows[0][2].ToString();
+                //dt.Rows[0][2] = "283780";
+                lblTrader.Text = dt.Rows[0][3].ToString();
+                Session["SetValues"] = dt;
+            }
         }
 
         protected void VisualizarImageButton_Click(object sender, ImageClickEventArgs e)
         {
-            var idCliente = 247615;
+            //var idCliente = 247615;
+            var idCliente = Convert.ToInt32(Session["UserPKID"]);
+            //dt.Rows[0][2].ToString();
+
             var rango = new RangoFecha(DateTime.Parse(DesdeInput.Value), DateTime.Parse(HastaInput.Value));
             var request = new ReportRequest
                 {

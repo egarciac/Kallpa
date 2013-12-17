@@ -219,3 +219,22 @@ if(typeof param === "undefined")
 else{
     specialTransition(param);  
 }
+
+var nomIndi = [];
+var imaIndi = [];
+var linIndi = [];
+ 
+nomIndi[1] = "S&P 500 (EEUU)";
+nomIndi[2] = "TSX (CANADÁ)";
+nomIndi[3] = "EURO STOXX 50 (EUROPA)";
+nomIndi[4] = "DAX (ALEMANIA)";
+nomIndi[5] = "FTSE 100 (REINO UNIDO)";
+nomIndi[6] = "NIKKEI 225 (JAPÓN)";
+nomIndi[7] = "EPU (ETF-PERÚ)";
+
+
+function verimagen(num){
+  $('#nomindicador').html(nomIndi[num]);
+  $(".imaindi").css("display", "none");
+  $("#ima"+num).fadeIn(800);
+}

@@ -1,1 +1,1 @@
-<?php echo "chino de mie$#$%"; ?>
+<img width="508" height="385" src="http://www.stockcharts.com/c-sc/sc?s=$SPX&amp;p=D&amp;yr=0&amp;mn=2&amp;dy=0&amp;i=k50258449237" alt="http://www.stockcharts.com/c-sc/sc?s=$SPX&amp;p=D&amp;yr=0&amp;mn=3&amp;dy=0&amp;i=t50258449236&amp;r=1385929837306">

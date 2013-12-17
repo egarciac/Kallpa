@@ -45,10 +45,10 @@
 	<a href="Portafolio.aspx" target="_self">
     <div class="e" style="float:left; margin-right:33px; padding-bottom:5px; padding-top:7px; padding-left:5px; padding-right:5px;"><span class="texto18e">Portafolio</span></div>
     </a>
-    <a href="Detalle-operaciones.aspx" target="_self">
+    <a href="DetalleOperaciones.aspx" target="_self">
     <div class="e"  style="float:left; margin-right:33px; padding-bottom:5px; padding-top:7px; padding-left:5px; padding-right:5px;"><span class="texto18e">Detalle operaciones</span></div>
     </a>
-   <a href="Cuentas-Corrientes.aspx" target="_self"> 
+   <a href="CuentaCorriente.aspx" target="_self"> 
    <div class="e" style="float:left; margin-right:33px; padding-bottom:5px; padding-top:7px; padding-left:5px; padding-right:5px;"><span class="texto18e">Cuenta corriente</span></div>
    </a>
    <a href="Ordenes.aspx" target="_self"> 
@@ -57,8 +57,9 @@
    <a href="Poliza.aspx" target="_self">
      <div class="e" style="float:left; padding-bottom:5px; padding-top:7px; padding-left:5px; padding-right:5px;"><span class="texto18e">Polizas</span></div>
      </a>
-            
-  </div>
+   <div style="float:right; margin-top:5px; margin-right:5px;"> <a href="login.aspx" style="text-decoration:none"><span class="texto13azul">salir</span></a></div>
+	<div style="float:right; margin-top:5px;"> <a href="login.aspx" style="text-decoration:none"><img src="img/cerrar.png" width="17" height="17" border="0" /></a></div>            
+   </div>
     <div class="portada-imagen">
     	<div class="text">
 			
@@ -166,20 +167,20 @@
 					</div>
 				</EmptyDataTemplate>
 				<headerstyle backcolor="#758a9d" HorizontalAlign="Center" CssClass="texto13blanco"></headerstyle>
-				<alternatingrowstyle backcolor="White"></alternatingrowstyle>
-				<RowStyle backcolor="#d2d9df" />
+				<alternatingrowstyle backcolor="White" HorizontalAlign="Center" ForeColor="GrayText"></alternatingrowstyle>
+				<RowStyle backcolor="#d2d9df" HorizontalAlign="Center" ForeColor="GrayText" />
 				<Columns>
-					<asp:BoundField ItemStyle-Width="103" HeaderText="Fecha Orden" DataField="Fecha" />
+					<asp:BoundField ItemStyle-Width="103" HeaderText="Fecha Orden" DataFormatString="{0:d}" DataField="Fecha" />
 					<asp:BoundField ItemStyle-Width="62" HeaderText="Hora" DataField="Hora" />
-					<asp:BoundField ItemStyle-Width="91" HeaderText="Nº orden	" DataField="Orden" />
+					<asp:BoundField ItemStyle-Width="91" HeaderText="Nº orden" DataField="Orden" />
 					<asp:BoundField ItemStyle-Width="91" HeaderText="C/V" DataField="CV" />
 					<asp:BoundField ItemStyle-Width="91" HeaderText="Valor" DataField="Valor" />
-					<asp:BoundField ItemStyle-Width="91" HeaderText="Cantidad Acciones" DataField="Cantidad" />
+					<asp:BoundField ItemStyle-Width="91" HeaderText="Cantidad Acciones" DataFormatString="{0:N2}" DataField="Cantidad" />
                     <asp:BoundField ItemStyle-Width="91" HeaderText="Moneda" DataField="Moneda" Visible="false" />
-                    <asp:BoundField ItemStyle-Width="91" HeaderText="Vigencia" DataField="Vigencia" />
+                    <asp:BoundField ItemStyle-Width="91" HeaderText="Vigencia en días" DataField="Vigencia" />
                     <asp:BoundField ItemStyle-Width="91" HeaderText="Tipo Operación" DataField="Operacion" />
                     <asp:BoundField ItemStyle-Width="91" HeaderText="Mercado" DataField="Mercado" Visible="false" />
-                    <asp:BoundField ItemStyle-Width="91" HeaderText="Precio" DataField="Precio" />
+                    <%--<asp:BoundField ItemStyle-Width="91" HeaderText="Precio" DataFormatString="{0:N2}" DataField="Precio" />--%>
                     <asp:BoundField ItemStyle-Width="91" HeaderText="Firmadas" DataField="Firmado" />
 				</Columns>
 			</asp:GridView>

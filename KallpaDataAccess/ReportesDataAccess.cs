@@ -318,10 +318,54 @@ namespace KallpaDataAccess
 		{
 			using (DataAccessManager.OracleConnection)
 			{
-				const string query = @"";
+				string query = "SELECT distinct a.fecpoli AS Fecha,  " +
+                                 "to_char(to_date(a.FECPOLI),'yyyy') ||' - '|| a.NUMPOLBVL AS NumCp, " +
+                                 "b.nomcli AS Nombre, " +
+                                 "b.direccion AS Direccion, " +
+                                 "b.tipo_id || ' ' || b.id AS DocumentoIdentidad, " +
+                                 "b.codcli AS Cavali, " +
+                                 "c.desnacion AS PaisNacionalidad, " +
+                                 "e.desmon AS Moneda, " +
+                                 "upper(d.des_oper) AS TipoOperacion, " +
+                                 "(CASE a.TIPOLI WHEN 'CC' THEN 'Compra' ELSE 'Venta' END) AS Transaccion, " +
+                                 "a.CODIGO AS Valor, " +
+                                 "sum(f.CANTIDAD) as Cantidad,   " +
+                                 "f.PRECIO1 as Precio,  " +
+                                 "sum(f.precio1 * f.cantidad) as Importe, " +
+                                 "a.FECLIQ2 AS FechaLiquidacion, " +
+                                 "a.sab AS ComisionSAB,  " +
+                                 "a.conasev AS ComisionConasev, " +
+                                 "a.bvl  AS ComisionBVL, " +
+                                 "a.fondo  as ComisionFONDOBVL, " +
+                                 "a.cavali  as ComisionCAVALI, " +
+                                 "a.fondocav  as ComisionFONDOCAVALI, " +
+                                 "0 AS ComisionINTERNACIONAL, " +
+                                 "a.igv+a.igv_cavali as IGV, " +
+                                 "a.neto as Total, " +
+                                 "a.tipoper as IDTipoOperacion, " +
+                                 "e.codmon AS IDMoneda,  " +
+                                 "0 as IDValor, " +
+                                 "0 as IDTransaccion " +
+                            "FROM " +
+                            "     polizas a, " +
+                            "     clientes b, " +
+                            "     nacionalidad c, " +
+                            "     TIPOPER d, " +
+                            "     moneda e, " +
+                            "     polizas_det f " +
+                            "WHERE " +
+                            "     a.codcli = b.codcli " +
+                            "     and c.codnacion = b.codnacion " +
+                            "     and a.tipoper = d.tip_oper " +
+                            "     and a.moneda = e.codmon " +
+                            "    AND f.NUMPOLI = a.NUMPOLI " +
+                            "    AND f.FECPOLI= a.FECPOLI " +
+                            "    and a.numpolbvl = " + idPoliza + 
+                            " group by a.fecpoli, a.numpolbvl, b.nomcli, b.direccion, b.tipo_id, b.id, b.codcli, c.desnacion, e.desmon, d.des_oper, a.TIPOLI, a.CODIGO, f.CANTIDAD, f.PRECIO1, a.FECLIQ2, a.sab, a.conasev, a.bvl, a.fondo, a.cavali, a.fondocav,a.FECLIQ2, a.tipoli, a.monto, a.neto, a.igv, a.igv_cavali, e.signo, a.fecpoli, a.diasplazo, a.tasa, a.tipoper, a.intereses, a.codcaval, a.NUMPOLBVL, e.codmon ";
+
 				using (var cmd = DataAccessManager.GetOracleCommand(query))
 				{
-					cmd.Parameters.Add(new OracleParameter("IdPoliza", idPoliza));
+					//cmd.Parameters.Add(new OracleParameter("IdPoliza", idPoliza));
 					using (var reader = cmd.ExecuteReader(CommandBehavior.SingleRow))
 					{
 						var indexFecha = reader.GetOrdinal("Fecha");

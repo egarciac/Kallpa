@@ -28,7 +28,7 @@
       <Objects>
       </Objects>
     </PublishDatabaseSettings>
-    <DeployIisAppPath>http://192.168.1.9/Kallpa</DeployIisAppPath>
+    <DeployIisAppPath>http://192.168.1.214/Kallpa</DeployIisAppPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -242,7 +242,7 @@
     <Content Include="reportes-recurrentes.html" />
     <Content Include="reportes-valorizacion.html" />
     <Content Include="reportes\CuentaCorriente.aspx" />
-    <Content Include="reportes\Detalle-operaciones.aspx" />
+    <Content Include="reportes\DetalleOperaciones.aspx" />
     <Content Include="reportes\Error.aspx" />
     <Content Include="reportes\html\css\stilos-reporte-detalle.css" />
     <Content Include="reportes\html\css\stilos-reporte.css" />
@@ -338,8 +338,6 @@
     <Content Include="reportes\img\r.jpg" />
     <Content Include="reportes\img\up.jpg" />
     <Content Include="reportes\img\visualizar.jpg" />
-    <Content Include="reportes\reporte-bienvenida.html" />
-    <Content Include="reportes\reporte-detalle.html" />
     <Content Include="research-medios.html" />
     <Content Include="Scripts\kallpa\reportes.js" />
     <Content Include="Styles\Site.css" />
@@ -411,12 +409,12 @@
     <Compile Include="reportes\CuentaCorriente.aspx.designer.cs">
       <DependentUpon>CuentaCorriente.aspx</DependentUpon>
     </Compile>
-    <Compile Include="reportes\Detalle-operaciones.aspx.cs">
-      <DependentUpon>Detalle-operaciones.aspx</DependentUpon>
+    <Compile Include="reportes\DetalleOperaciones.aspx.cs">
+      <DependentUpon>DetalleOperaciones.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="reportes\Detalle-operaciones.aspx.designer.cs">
-      <DependentUpon>Detalle-operaciones.aspx</DependentUpon>
+    <Compile Include="reportes\DetalleOperaciones.aspx.designer.cs">
+      <DependentUpon>DetalleOperaciones.aspx</DependentUpon>
     </Compile>
     <Compile Include="reportes\Error.aspx.cs">
       <DependentUpon>Error.aspx</DependentUpon>
@@ -461,6 +459,8 @@
       <DependentUpon>Portafolio.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="reportes\ViewModel\MoneyHeaderViewModel.cs" />
+    <Compile Include="reportes\ViewModel\ValueSubtotalViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -498,13 +498,12 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>3120</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost/Kallpa</IISUrl>
+          <IISUrl>http://192.168.1.214/Kallpa</IISUrl>
           <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
-          <IISAppRootUrl>http://localhost/Kallpa</IISAppRootUrl>
+          <IISAppRootUrl>http://192.168.1.214/Kallpa</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
+          <CustomServerUrl>http://192.168.1.9/Kallpa</CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>

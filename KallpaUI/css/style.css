@@ -127,6 +127,14 @@ a {text-decoration: none;}
   font-weight: 700; 
 }
 
+.subir {
+  padding-left: 10px;
+  background: url(../img/subir.png) 0 60% no-repeat;
+  color: #555; 
+  font-weight: 700; 
+  float: right;
+}
+
 .descargar {
   color: #555; 
 }
@@ -484,6 +492,7 @@ section>.group>.nav-bar div {
   color: #dd2624; 
 }
 .home>.body .indicators>table>tbody tr .down {background: url(../img/down.png) 96% 50% no-repeat;}
+.home>.body .indicators>table>tbody tr .top {background: url(../img/up.png) 96% 50% no-repeat; color:#005983 !important;}
 .home>.body .indicators>table>tfoot {font-size: .875em;}
 .home>.body .indicators>table>tfoot tr:first-child {font-weight: 400;}
 .home>.body .indicators>table>tfoot tr:first-child td {padding: 2px 6px;} 
@@ -1152,7 +1161,6 @@ section>.group>.nav-bar div {
 }
 
 .mapalef {
-	height: 700px;
 	width: 295px;
 	border-right-width: 1px;
 	border-right-style: dotted;
@@ -1166,4 +1174,8 @@ section>.group>.nav-bar div {
 	width: 200px;
 	padding-top: 50px;
 	overflow: hidden;
+}
+.text10 {
+font-size: 10px;
+color: #193C5A;
 }

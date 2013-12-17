@@ -48,9 +48,9 @@ namespace KallpaBusiness.Common
             IEnumerable<T> listaOracle = null;
             IEnumerable<T> listaSql = null;
             var splitter = new DateSplitter(request.Rango);
-            if (splitter.OracleQuery)
-                listaOracle = oracleReportQuery(request);
-            if (splitter.SqlQuery)
+            //if (splitter.OracleQuery)
+            //    listaOracle = oracleReportQuery(request);
+            //if (splitter.SqlQuery)
                 listaSql =sqlReportQuery(request);
             List<T> listaFinal = null;
             if (listaOracle != null)

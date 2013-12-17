@@ -37,11 +37,11 @@ namespace KallpaDataAccess
             try
             {
                 var queryBase = "SELECT to_char(fecorden, 'DD/MM/YYY') AS FECHA, to_char(fecorden, 'HH24:MM:SS') AS HORA, O.NUMORDEN AS ORDEN, " +
-                                "O.TIPORDEN AS CV, O.CODIGO AS VALOR, O.CANT_ORI AS CANTIDAD, concat(to_char(O.VIGENCIA), ' día(s)'), " +
-                                "tipop.des_oper as OPERACION, O.PRECIO, o.firmadO AS FIRMADO, o.*,c.nomcli,b.*,d1.descripcion as modo_recepcion,tipop.des_oper as modalidad  " +
+                                "(CASE WHEN O.TIPORDEN='C%' THEN 'Compra' ELSE 'Venta' END) AS CV, O.CODIGO AS VALOR, O.CANT_ORI AS CANTIDAD, concat(to_char(O.VIGENCIA), ' día(s)'), " +
+                                "tipop.des_oper as OPERACION, O.PRECIO, (CASE WHEN o.firmadO='N' THEN 'No' ELSE 'Si' END) AS FIRMADO, o.*,c.nomcli,b.*,d1.descripcion as modo_recepcion,tipop.des_oper as modalidad  " +
                                 "FROM ordenes o left join clientes c on (o.codcli = c.codcli) " +
                                 "left join tipoper tipop on (tipop.tip_oper=o.tipoper), " +
-                                "brokers b,  defgen d1 " +
+                                "brokers b,  defgen d1" +
                                 "WHERE " +
                                 "o.estado='V' and " +
                                 "d1.codigo=o.ordcmpaux4 AND d1.campo like 'TIPORD%' AND " +
@@ -49,7 +49,7 @@ namespace KallpaDataAccess
                                 " AND    C.CODCLI = " + intCodCavali +
                                 " AND   trunc(o.fecOrden) >= to_date('" + rango.Desde.ToShortDateString() + "','DD-MM-YYYY') " +
                                 " AND   trunc(o.fecOrden) <= to_date('" + rango.Hasta.ToShortDateString() + "','DD-MM-YYYY') ";
-
+                
                 var queryBuilder = new StringBuilder(queryBase);
                 if (TipoOperacion > 0)
                 {

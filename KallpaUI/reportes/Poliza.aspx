@@ -27,19 +27,21 @@
 	<a href="Portafolio.aspx" target="_self">
     <div class="e" style="float:left; margin-right:33px; padding-bottom:5px; padding-top:7px; padding-left:5px; padding-right:5px;"><span class="texto18e">Portafolio</span></div>
     </a>
-    <a href="Detalle-operaciones.aspx" target="_self">
+    <a href="DetalleOperaciones.aspx" target="_self">
     <div class="e"  style="float:left; margin-right:33px; padding-bottom:5px; padding-top:7px; padding-left:5px; padding-right:5px;"><span class="texto18e">Detalle operaciones</span></div>
     </a>
-   <a href="Cuentas-Corrientes.aspx" target="_self"> 
-	<div class="e" style="float:left; margin-right:33px; padding-bottom:5px; padding-top:7px; padding-left:5px; padding-right:5px;"><span class="texto18e">Cuenta corriente</span></div>
-
+   <a href="CuentaCorriente.aspx" target="_self"> 
+   <div class="e" style="float:left; margin-right:33px; padding-bottom:5px; padding-top:7px; padding-left:5px; padding-right:5px;"><span class="texto18e">Cuenta corriente</span></div>
+   </a>
    <a href="Ordenes.aspx" target="_self"> 
    <div class="e" style="float:left; margin-right:33px; padding-bottom:5px; padding-top:7px; padding-left:5px; padding-right:5px;"><span class="texto18e">Órdenes</span></div>
    </a>
    <a href="Poliza.aspx" target="_self">
      <div class="e" style="float:left; padding-bottom:5px; padding-top:7px; padding-left:5px; padding-right:5px;"><span class="texto18e">Polizas</span></div>
      </a>
-  </div>
+   <div style="float:right; margin-top:5px; margin-right:5px;"> <a href="login.aspx" style="text-decoration:none"><span class="texto13azul">salir</span></a></div>
+	<div style="float:right; margin-top:5px;"> <a href="login.aspx" style="text-decoration:none"><img src="img/cerrar.png" width="17" height="17" border="0" /></a></div>            
+   </div>
 	<div class="portada-imagen">
 		<div class="text">			
 			<h1 style="margin: 0; margin-left:-135px;">Pólizas</h1>
@@ -138,28 +140,28 @@
 						No hay registros que mostrar
 					</div>
 				</EmptyDataTemplate>
-				<headerstyle CssClass="texto13blanco grilla-header-datos"></headerstyle>
-				<alternatingrowstyle backcolor="White"></alternatingrowstyle>
-				<RowStyle backcolor="#d2d9df" />
+				<headerstyle backcolor="#758a9d" HorizontalAlign="Center" CssClass="texto13blanco"></headerstyle>
+				<alternatingrowstyle backcolor="White" ForeColor="GrayText" ></alternatingrowstyle>
+				<RowStyle backcolor="#d2d9df" ForeColor="GrayText"  />
 				<Columns>
 					<asp:BoundField ItemStyle-Width="72" HeaderText="Fecha" 
-						DataField="FechaPoliza" >
-					<ItemStyle Width="72px" />
+						DataField="FechaPoliza" DataFormatString="{0:d}" >
+					<ItemStyle Width="72px" HorizontalAlign="Center" />
 					</asp:BoundField>
 					<asp:BoundField ItemStyle-Width="103" HeaderText="N° Poliza" 
 						DataField="NumeroPoliza" >
-					<ItemStyle Width="103px" />
+					<ItemStyle Width="103px" HorizontalAlign="Center" />
 					</asp:BoundField>
 					<asp:BoundField ItemStyle-Width="104" HeaderText="Valor" DataField="Valor" >
-					<ItemStyle Width="104px" />
+					<ItemStyle Width="104px" HorizontalAlign="Center" />
 					</asp:BoundField>
 					<asp:BoundField ItemStyle-Width="81" HeaderText="Cantidad Acciones" 
 						DataField="CantidadAcciones" >
-					<ItemStyle Width="81px" />
+					<ItemStyle Width="81px" HorizontalAlign="Center" />
 					</asp:BoundField>
 					<asp:BoundField ItemStyle-Width="111" HeaderText="Monto Neto" 
-						DataField="MontoNeto" >
-					<ItemStyle Width="111px" />
+						DataField="MontoNeto" DataFormatString="{0:N2}" >
+					<ItemStyle Width="111px" HorizontalAlign="Center" />
 					</asp:BoundField>
 					<asp:TemplateField>
 						<ItemTemplate>
@@ -178,14 +180,28 @@
 					</div>
 				</EmptyDataTemplate>
 				<headerstyle backcolor="#758a9d" HorizontalAlign="Center" CssClass="texto13blanco"></headerstyle>
-				<alternatingrowstyle backcolor="White"></alternatingrowstyle>
-				<RowStyle backcolor="#d2d9df" />
+				<alternatingrowstyle backcolor="White" ForeColor="GrayText" ></alternatingrowstyle>
+				<RowStyle backcolor="#d2d9df" ForeColor="GrayText"  />
 				<Columns>
-					<asp:BoundField ItemStyle-Width="72" HeaderText="Fecha" DataField="FechaPoliza" />
-					<asp:BoundField ItemStyle-Width="103" HeaderText="N° Poliza" DataField="NumeroPoliza" />
-					<asp:BoundField ItemStyle-Width="104" HeaderText="Valor" DataField="Valor" />
-					<asp:BoundField ItemStyle-Width="81" HeaderText="Cantidad Acciones" DataField="CantidadAcciones" />
-					<asp:BoundField ItemStyle-Width="111" HeaderText="Monto Neto" DataField="MontoNeto" />
+					<asp:BoundField ItemStyle-Width="72" HeaderText="Fecha" 
+						DataField="FechaPoliza" DataFormatString="{0:d}" >
+					<ItemStyle Width="72px" HorizontalAlign="Center" />
+					</asp:BoundField>
+					<asp:BoundField ItemStyle-Width="103" HeaderText="N° Poliza" 
+						DataField="NumeroPoliza" >
+					<ItemStyle Width="103px" HorizontalAlign="Center" />
+					</asp:BoundField>
+					<asp:BoundField ItemStyle-Width="104" HeaderText="Valor" DataField="Valor" >
+					<ItemStyle Width="104px" HorizontalAlign="Center" />
+					</asp:BoundField>
+					<asp:BoundField ItemStyle-Width="81" HeaderText="Cantidad Acciones" 
+						DataField="CantidadAcciones" >
+					<ItemStyle Width="81px" HorizontalAlign="Center" />
+					</asp:BoundField>
+					<asp:BoundField ItemStyle-Width="111" HeaderText="Monto Neto" 
+						DataField="MontoNeto" DataFormatString="{0:N2}" >
+					<ItemStyle Width="111px" HorizontalAlign="Center" />
+					</asp:BoundField>
 					<asp:TemplateField>
 						<ItemTemplate>
 						    <asp:HiddenField runat="server" ID="sqlHiddenField" Value='<%# Bind("Sql") %>'></asp:HiddenField>
