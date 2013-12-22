@@ -33,11 +33,11 @@
         </div>
         <nav class="col span-8-of-12">
           <ul class="list-inline website-links">
-            <li><a href="#">Favoritos</a></li><!--
-            --><li><a href="#">Recomendar</a></li><!--
-            --><li><a href="#">Mapa</a></li><!--
-            --><li><a href="#">WebMail</a></li><!--
-            --><li><img src="../img/idioma.jpg" alt="Idioma"></li>
+            <li><a><img src="../img/phono-icono.jpg" alt="phone" border="0"></a></li>
+            <li style="color:#738AA0;">Central Telefónica (51 1) 630-7500</li>
+            <li><a href="../mapa.html">Mapa del site</a></li>
+            <li><a href="http://mail.kallpasab.com/rc/" target="_blank">WebMail</a></li>
+            <li>&nbsp;&nbsp;<a href="../en/"><img src="../img/idioma.jpg" alt="Idioma" border="0"></a></li>
           </ul>
           <ul class="list-inline main-links">
             <li>

@@ -49,7 +49,7 @@ namespace KallpaUI.reportes
             var tipoOperacion = Convert.ToInt32(TipoOperacionDropDownList.SelectedValue);
             var rango = new RangoFecha(DateTime.Parse(DesdeInput.Value), DateTime.Parse(HastaInput.Value));
             DataSet ds = null;
-            ds=KallpaBusiness.Ordenes.getOrdenes(CodCavali, tipoOperacion, rango);
+            ds = KallpaBusiness.Ordenes.getOrdenes(CodCavali, tipoOperacion, rango);
             gvOrdenes.DataSource = ds.Tables[0];
             gvOrdenes.DataBind();
 

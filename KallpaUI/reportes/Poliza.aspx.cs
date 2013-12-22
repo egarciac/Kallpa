@@ -7,6 +7,7 @@ using System.Data;
 using KallpaBusiness;
 using KallpaEntities.General;
 using KallpaEntities.Reportes;
+using System.Globalization;
 
 namespace KallpaUI.reportes
 {
@@ -155,22 +156,22 @@ namespace KallpaUI.reportes
         {
             ValorLabel.Text = detallePoliza.Valor;
             CantidadLabel.Text = detallePoliza.Cantidad.ToString();
-            PrecioLabel.Text = detallePoliza.Precio.ToString();
-            ImporteLabel.Text = detallePoliza.Importe.ToString();
-            ImporteTotalLabel.Text = detallePoliza.Importe.ToString();
+            PrecioLabel.Text = detallePoliza.Precio.ToString("0,0.00", CultureInfo.InvariantCulture);
+            ImporteLabel.Text = detallePoliza.Importe.ToString("0,0.00", CultureInfo.InvariantCulture);
+            ImporteTotalLabel.Text = detallePoliza.Importe.ToString("0,0.00", CultureInfo.InvariantCulture);
             FechaLiquidacionLabel.Text = detallePoliza.FechaLiquidacion.ToShortDateString();
         }
 
         private void CargarResumenDetalle(DetallePoliza detallePoliza)
         {
-            ComisionSABLabel.Text = detallePoliza.ComisionSAB.ToString();
-            ComisionCONASEVLabel.Text = detallePoliza.ComisionCONASEV.ToString();
-            CuotaBVLLabel.Text = detallePoliza.ComisionBVL.ToString();
-            FondoGarantiaBVLLabel.Text = detallePoliza.ComisionFondoBVL.ToString();
-            RedistribucionCAVALILabel.Text = detallePoliza.ComisionCAVALI.ToString();
-            FondoGarantiaCAVALILabel.Text = detallePoliza.ComisionFondoCAVALI.ToString();
-            IGVLabel.Text = detallePoliza.IGV.ToString();
-            TotalLabel.Text = detallePoliza.Total.ToString();
+            ComisionSABLabel.Text = detallePoliza.ComisionSAB.ToString("0,0.00", CultureInfo.InvariantCulture);
+            ComisionCONASEVLabel.Text = detallePoliza.ComisionCONASEV.ToString("0,0.00", CultureInfo.InvariantCulture);
+            CuotaBVLLabel.Text = detallePoliza.ComisionBVL.ToString("0,0.00", CultureInfo.InvariantCulture);
+            FondoGarantiaBVLLabel.Text = detallePoliza.ComisionFondoBVL.ToString("0,0.00", CultureInfo.InvariantCulture);
+            RedistribucionCAVALILabel.Text = detallePoliza.ComisionCAVALI.ToString("0,0.00", CultureInfo.InvariantCulture);
+            FondoGarantiaCAVALILabel.Text = detallePoliza.ComisionFondoCAVALI.ToString("0,0.00", CultureInfo.InvariantCulture);
+            IGVLabel.Text = detallePoliza.IGV.ToString("0,0.00", CultureInfo.InvariantCulture);
+            TotalLabel.Text = detallePoliza.Total.ToString("0,0.00", CultureInfo.InvariantCulture);
         }
 
         protected void RegresarLinkButton_Click(object sender, EventArgs e)

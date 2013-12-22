@@ -58,6 +58,15 @@ namespace KallpaUI {
         protected global::System.Web.UI.WebControls.Label lblTrader;
         
         /// <summary>
+        /// lblTipoCambio control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTipoCambio;
+        
+        /// <summary>
         /// DesdeInput control.
         /// </summary>
         /// <remarks>
@@ -83,6 +92,15 @@ namespace KallpaUI {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton visualizar;
+        
+        /// <summary>
+        /// CR control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl CR;
         
         /// <summary>
         /// lblTotal control.

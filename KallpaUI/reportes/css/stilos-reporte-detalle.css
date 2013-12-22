@@ -23,6 +23,12 @@
     width: 613px;
 }
 
+.texto30azul1 {
+	font-size: 30px;
+	font-weight: bold;
+	color: #193c5a;
+	line-height: 30px;	
+}
 
 
 .header {
@@ -74,8 +80,9 @@
 	padding: 40px;
 	padding: 40px;
 	width: 772px;
-	height: 200px;
+	height: 150px;
 }
+
 
 .bienvenida-intern2 {
 	background-color: #DEE4EA;

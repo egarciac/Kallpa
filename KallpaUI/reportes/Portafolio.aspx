@@ -15,13 +15,13 @@
               var input = document.getElementById("DesdeInput");
               
               if (input.value == "") {
-                  document.getElementById("contenedor-reportes").style.display = "none";
+                  //document.getElementById("contenedor-reportes").style.display = "none";
                   var label = document.getElementById("lblError");
                   label.innerHTML = "*";
                   return false;
                 }
                 else {
-                    document.getElementById("contenedor-reportes").style.display = "block";
+                    //document.getElementById("contenedor-reportes").style.display = "block";
                     label.innerHTML = "";
                     return false;
               }
@@ -57,7 +57,7 @@
    <a href="Poliza.aspx" target="_self">
      <div class="e" style="float:left; padding-bottom:5px; padding-top:7px; padding-left:5px; padding-right:5px;"><span class="texto18e">Polizas</span></div>
      </a>
-   <div style="float:right; margin-top:5px; margin-right:5px;"> <a href="login.aspx" style="text-decoration:none"><span class="texto13azul">salir</span></a></div>
+   <div style="float:right; margin-top:5px; margin-right:5px;"> <a href="login.aspx" style="text-decoration:none"><span class="texto13azul"> Salir</span></a></div>
 	<div style="float:right; margin-top:5px;"> <a href="login.aspx" style="text-decoration:none"><img src="img/cerrar.png" width="17" height="17" border="0" /></a></div>            
    </div>
     <div class="portada-imagen">
@@ -76,10 +76,9 @@
                      ></asp:Label></strong><br/>&nbsp;&nbsp;&nbsp;<asp:Label ID="lblDireccion" runat="server"
                      ></asp:Label></span></div>
             <div style="float:right; overflow:hidden; width:262px">
-       	  	<span class="texto14azul">Código Cavali:  <asp:Label ID="lblCavali" runat="server"
-                     ></asp:Label><br/>
-              Representante:   <asp:Label ID="lblTrader" runat="server"
-                     ></asp:Label>
+       	  	<span class="texto14azul">Código Cavali:  <asp:Label ID="lblCavali" runat="server"></asp:Label><br/>
+              Representante:   <asp:Label ID="lblTrader" runat="server"></asp:Label><br/>
+              <asp:Label ID="lblTipoCambio" runat="server"></asp:Label>
           	</span>
           	</div>
       </div>
@@ -88,17 +87,17 @@
          	<span class="texto18azul">Fecha de corte:</span>
             </div>
             <div style="float:left; overflow:hidden; margin-right:15px;">
-         	<input id="DesdeInput" runat="server" style="height:25px; width:90px" type="text"  class="caja date-picker"/>
+         	<input id="DesdeInput" runat="server" style="height:25px; width:90px" type="text"  class="date-picker"/>
                 <asp:Label ID="lblError" runat="server" ForeColor="Red" Text=""></asp:Label>
             </div>
             <div style="float:left; overflow:hidden; margin-right:15px;">
    	            <asp:ImageButton ImageUrl="../img/visualizar.jpg" 
                     OnClientClick="return validarFecha();" ID="visualizar" Width="100" Height="30" 
-                    runat="server" OnClick="visualizar_Click" />
+                    runat="server" onclick="visualizar_Click" />
             </div>
       </div>
       
-      <div id="contenedor-reportes" class="contenedor-reportes">
+      <div id="CR" class="contenedor-reportes" runat="Server" visible="false">
       		 <div style="overflow:hidden; margin-top:15px;text-align:right; margin-right:35px;"><span class="texto13azul" style="padding-right:10px;">imprimir</span><img src="../img/imp.gif" width="21" height="18" /></div>
              
              <div style="overflow:hidden; margin-top:10px;">
@@ -108,51 +107,49 @@
                 <div class="texto14azul" style="margin-bottom:10px;"><strong>En moneda extranjera US$</strong><br></div>
            	   
                <asp:GridView ID="gvDolares" runat="server" ShowFooter="true"
-                AutoGenerateColumns="False" BackColor="White" 
-                     onrowdatabound="gvDolares_RowDataBound" ShowHeaderWhenEmpty="true">
+                AutoGenerateColumns="False" BackColor="White" BorderWidth="0"
+                     onrowdatabound="gvDolares_RowDataBound" ShowHeaderWhenEmpty="true" >
                 <EmptyDataTemplate>
-                    <div>
-                        No se encontraron registros.
-                    </div>
+                   <label id=lbl style="color:GrayText">No hay registros que mostrar</label>
                 </EmptyDataTemplate>
                 <headerstyle backcolor="#758a9d" HorizontalAlign="Center" CssClass="texto13blanco"></headerstyle>
-                <alternatingrowstyle backcolor="White"></alternatingrowstyle>
-                <RowStyle backcolor="#d2d9df" />
+                <alternatingrowstyle backcolor="White" ForeColor="GrayText" HorizontalAlign="Center"></alternatingrowstyle>
+                <RowStyle backcolor="#d2d9df" ForeColor="GrayText" HorizontalAlign="Center"/>
+                <FooterStyle HorizontalAlign="Center" />
                 <Columns>
-                    <asp:BoundField ItemStyle-Width="72" HeaderText="Valor" DataField="Valor"></asp:BoundField>
-                    <asp:BoundField ItemStyle-Width="100" HeaderText="Tenencia Total de Valores" DataFormatString="{0:N0}" DataField="Tenencia"></asp:BoundField>
-                    <asp:BoundField ItemStyle-Width="100" HeaderText="Compras Pendientes" DataFormatString="{0:N2}" DataField="ComprasP"></asp:BoundField>
-                    <asp:BoundField ItemStyle-Width="90" HeaderText="Ventas Pendientes" DataFormatString="{0:N2}" DataField="VentasP"></asp:BoundField>
-                    <asp:BoundField ItemStyle-Width="85" HeaderText="Garantia Reporte" DataFormatString="{0:N2}" DataField="GarantiaR"></asp:BoundField>
-                    <asp:BoundField ItemStyle-Width="85" HeaderText="Garantia Margen" DataFormatString="{0:N2}" DataField="GarantiaM"></asp:BoundField>
-                    <asp:BoundField ItemStyle-Width="100" HeaderText="Precio de Mercado" DataFormatString="{0:N2}" DataField="Mercado"></asp:BoundField>
-                    <asp:BoundField ItemStyle-Width="100" HeaderText="Valorización" DataFormatString="{0:N2}" DataField="Valorizacion"></asp:BoundField>
-                    <asp:BoundField ItemStyle-Width="100" HeaderText="E.C. (%)**" DataFormatString="{0:N2}" DataField="ECTOT"></asp:BoundField>
+                    <asp:BoundField HeaderStyle-Width="72" HeaderText="Valor" DataField="Valor"></asp:BoundField>
+                    <asp:BoundField HeaderStyle-Width="100" HeaderText="Tenencia Total de Valores" DataFormatString="{0:N0}" DataField="Tenencia"></asp:BoundField>
+                    <asp:BoundField HeaderStyle-Width="100" HeaderText="Compras Pendientes" DataFormatString="{0:N2}" DataField="ComprasP"></asp:BoundField>
+                    <asp:BoundField HeaderStyle-Width="90" HeaderText="Ventas Pendientes" DataFormatString="{0:N2}" DataField="VentasP"></asp:BoundField>
+                    <asp:BoundField HeaderStyle-Width="85" HeaderText="Garantia Reporte" DataFormatString="{0:N2}" DataField="GarantiaR"></asp:BoundField>
+                    <asp:BoundField HeaderStyle-Width="85" HeaderText="Garantia Margen" DataFormatString="{0:N2}" DataField="GarantiaM"></asp:BoundField>
+                    <asp:BoundField HeaderStyle-Width="100" HeaderText="Precio de Mercado" DataFormatString="{0:N2}" DataField="Mercado"></asp:BoundField>
+                    <asp:BoundField HeaderStyle-Width="100" HeaderText="Valorización" DataFormatString="{0:N2}" DataField="Valorizacion"></asp:BoundField>
+                    <asp:BoundField HeaderStyle-Width="100" HeaderText="E.C. (%)**" DataFormatString="{0:N2}" DataField="ECTOT"></asp:BoundField>
                 </Columns>
             </asp:GridView>
             <br/><br/>
-               En Nuevos Soles S/.
+            <div class="texto14azul" style="margin-bottom:10px;"><strong>En Nuevos Soles S/.</strong><br></div>
                <asp:GridView ID="gvSoles" runat="server" ShowFooter="true" ShowHeaderWhenEmpty="true"
-                AutoGenerateColumns="False" BackColor="White" 
+                AutoGenerateColumns="False" BackColor="White" BorderWidth="0" 
                      onrowdatabound="gvSoles_RowDataBound" >
                 <EmptyDataTemplate>
-                    <div>
-                        No se encontraron registros.
-                    </div>
+                    <label id="lbl" style="color:GrayText">No hay registros que mostrar</label>
                 </EmptyDataTemplate>
                 <headerstyle backcolor="#758a9d" HorizontalAlign="Center" CssClass="texto13blanco"></headerstyle>
-                <alternatingrowstyle backcolor="White"></alternatingrowstyle>
-                <RowStyle backcolor="#d2d9df" />
+                <alternatingrowstyle backcolor="White" ForeColor="GrayText" HorizontalAlign="Center"></alternatingrowstyle>
+                <RowStyle backcolor="#d2d9df" ForeColor="GrayText" HorizontalAlign="Center" />
+                <FooterStyle HorizontalAlign="Center" />
                 <Columns>
-                    <asp:BoundField ItemStyle-Width="72" HeaderText="Valor" DataField="Valor"></asp:BoundField>
-                    <asp:BoundField ItemStyle-Width="100" HeaderText="Tenencia Total de Valores" DataFormatString="{0:N0}" DataField="Tenencia"></asp:BoundField>
-                    <asp:BoundField ItemStyle-Width="100" HeaderText="Compras Pendientes" DataFormatString="{0:N2}" DataField="ComprasP"></asp:BoundField>
-                    <asp:BoundField ItemStyle-Width="90" HeaderText="Ventas Pendientes" DataFormatString="{0:N2}" DataField="VentasP"></asp:BoundField>
-                    <asp:BoundField ItemStyle-Width="85" HeaderText="Garantia Reporte" DataFormatString="{0:N2}" DataField="GarantiaR"></asp:BoundField>
-                    <asp:BoundField ItemStyle-Width="85" HeaderText="Garantia Margen" DataFormatString="{0:N2}" DataField="GarantiaM"></asp:BoundField>
-                    <asp:BoundField ItemStyle-Width="100" HeaderText="Precio de Mercado"  DataFormatString="{0:N2}" DataField="Mercado"></asp:BoundField>
-                    <asp:BoundField ItemStyle-Width="100" HeaderText="Valorización"  DataFormatString="{0:N2}" DataField="Valorizacion"></asp:BoundField>
-                    <asp:BoundField ItemStyle-Width="100" HeaderText="E.C. (%)**" DataFormatString="{0:N2}" DataField="ECTOT"></asp:BoundField>
+                    <asp:BoundField HeaderStyle-Width="72" HeaderText="Valor" DataField="Valor"></asp:BoundField>
+                    <asp:BoundField HeaderStyle-Width="100" HeaderText="Tenencia Total de Valores" DataFormatString="{0:N0}" DataField="Tenencia"></asp:BoundField>
+                    <asp:BoundField HeaderStyle-Width="100" HeaderText="Compras Pendientes" DataFormatString="{0:N2}" DataField="ComprasP"></asp:BoundField>
+                    <asp:BoundField HeaderStyle-Width="90" HeaderText="Ventas Pendientes" DataFormatString="{0:N2}" DataField="VentasP"></asp:BoundField>
+                    <asp:BoundField HeaderStyle-Width="85" HeaderText="Garantia Reporte" DataFormatString="{0:N2}" DataField="GarantiaR"></asp:BoundField>
+                    <asp:BoundField HeaderStyle-Width="85" HeaderText="Garantia Margen" DataFormatString="{0:N2}" DataField="GarantiaM"></asp:BoundField>
+                    <asp:BoundField HeaderStyle-Width="100" HeaderText="Precio de Mercado"  DataFormatString="{0:N2}" DataField="Mercado"></asp:BoundField>
+                    <asp:BoundField HeaderStyle-Width="100" HeaderText="Valorización"  DataFormatString="{0:N2}" DataField="Valorizacion"></asp:BoundField>
+                    <asp:BoundField HeaderStyle-Width="100" HeaderText="E.C. (%)**" DataFormatString="{0:N2}" DataField="ECTOT"></asp:BoundField>
                 </Columns>
             </asp:GridView>
             <%--<table width="1170" border="0" cellspacing="2" cellpadding="0">
@@ -407,27 +404,25 @@ Los precios visualizados son al día/nov/2013
        	  	<span class="texto14azul"><strong>> Reportado</strong></span></div>
             
             <div style="overflow:hidden; margin-top:34px;">
-            <asp:GridView ID="gvReportado" runat="server" ShowHeaderWhenEmpty="true"
+            <asp:GridView ID="gvReportado" runat="server" ShowHeaderWhenEmpty="true" BorderWidth="0"
                 AutoGenerateColumns="False" BackColor="White" >
                 <EmptyDataTemplate>
-                    <div>
-                        No se encontraron registros.
-                    </div>
+                    <label id=lbl style="color:GrayText">No hay registros que mostrar</label>
                 </EmptyDataTemplate>
                 <headerstyle backcolor="#758a9d" HorizontalAlign="Center" CssClass="texto13blanco"></headerstyle>
-                <alternatingrowstyle backcolor="White"></alternatingrowstyle>
-                <RowStyle backcolor="#d2d9df" />
+                <alternatingrowstyle backcolor="White" ForeColor="GrayText" HorizontalAlign="Center"></alternatingrowstyle>
+                <RowStyle backcolor="#d2d9df" ForeColor="GrayText" HorizontalAlign="Center" />
                 <Columns>
-                    <asp:BoundField ItemStyle-Width="72" HeaderText="Valor" DataField="Valor"></asp:BoundField>
-                    <asp:BoundField ItemStyle-Width="100" HeaderText="Fecha Operación" DataField="Fecha"></asp:BoundField>
-                    <asp:BoundField ItemStyle-Width="100" HeaderText="Número Operación" DataField="Operacion"></asp:BoundField>
-                    <asp:BoundField ItemStyle-Width="90" HeaderText="Poliza" DataField="Poliza"></asp:BoundField>
-                    <asp:BoundField ItemStyle-Width="85" HeaderText="Cantidad" DataField="Cantidad"></asp:BoundField>
-                    <asp:BoundField ItemStyle-Width="100" HeaderText="FL1" DataField="FL1"></asp:BoundField>
-                    <asp:BoundField ItemStyle-Width="100" HeaderText="FL2" DataField="FL2"></asp:BoundField>
-                    <asp:BoundField ItemStyle-Width="100" HeaderText="Moneda" DataField="Moneda"></asp:BoundField>
-                    <asp:BoundField ItemStyle-Width="100" HeaderText="Contado" DataField="Contado"></asp:BoundField>
-                    <asp:BoundField ItemStyle-Width="100" HeaderText="Plazo" DataField="Plazo"></asp:BoundField>
+                    <asp:BoundField HeaderStyle-Width="72" HeaderText="Valor" DataField="Valor"></asp:BoundField>
+                    <asp:BoundField HeaderStyle-Width="100" HeaderText="Fecha Operación" DataFormatString="{0:d}" DataField="FechaOperacion"></asp:BoundField>
+                    <asp:BoundField HeaderStyle-Width="100" HeaderText="Número Operación" DataField="NumeroOperacion"></asp:BoundField>
+                    <asp:BoundField HeaderStyle-Width="90" HeaderText="Poliza" DataField="Poliza"></asp:BoundField>
+                    <asp:BoundField HeaderStyle-Width="85" HeaderText="Cantidad" DataField="Cantidad"></asp:BoundField>
+                    <asp:BoundField HeaderStyle-Width="100" HeaderText="FL1" DataFormatString="{0:d}" DataField="FL1"></asp:BoundField>
+                    <asp:BoundField HeaderStyle-Width="100" HeaderText="FL2" DataFormatString="{0:d}" DataField="FL2"></asp:BoundField>
+                    <asp:BoundField HeaderStyle-Width="100" HeaderText="Moneda" DataField="Moneda"></asp:BoundField>
+                    <asp:BoundField HeaderStyle-Width="100" HeaderText="Contado" DataFormatString="{0:N2}" DataField="Contado" Visible="false"></asp:BoundField>
+                    <asp:BoundField HeaderStyle-Width="100" HeaderText="Plazo" DataFormatString="{0:N2}" DataField="Plazo" Visible="false"></asp:BoundField>
                 </Columns>
             </asp:GridView>
 
@@ -568,27 +563,25 @@ operación</span></td>
        	  	<span class="texto14azul"><strong>> Reportante</strong></span></div>
             
         <div style="overflow:hidden; margin-top:34px;">
-        <asp:GridView ID="gvReportante" runat="server"  ShowHeaderWhenEmpty="true"
+        <asp:GridView ID="gvReportante" runat="server"  ShowHeaderWhenEmpty="true" BorderWidth="0"
                 AutoGenerateColumns="False" BackColor="White" >
                 <EmptyDataTemplate>
-                    <div>
-                        No se encontraron registros.
-                    </div>
+                    <label id=lbl style="color:GrayText">No hay registros que mostrar</label>
                 </EmptyDataTemplate>
+                <alternatingrowstyle backcolor="White" ForeColor="GrayText" HorizontalAlign="Center"></alternatingrowstyle>
+                <RowStyle backcolor="#d2d9df" ForeColor="GrayText" HorizontalAlign="Center" />
                 <headerstyle backcolor="#758a9d" HorizontalAlign="Center" CssClass="texto13blanco"></headerstyle>
-                <alternatingrowstyle backcolor="White"></alternatingrowstyle>
-                <RowStyle backcolor="#d2d9df" />
                 <Columns>
-                    <asp:BoundField ItemStyle-Width="72" HeaderText="Valor" DataField="Valor"></asp:BoundField>
-                    <asp:BoundField ItemStyle-Width="100" HeaderText="Fecha Operación" DataField="Fecha"></asp:BoundField>
-                    <asp:BoundField ItemStyle-Width="100" HeaderText="Número Operación" DataField="Operacion"></asp:BoundField>
-                    <asp:BoundField ItemStyle-Width="90" HeaderText="Poliza" DataField="Poliza"></asp:BoundField>
-                    <asp:BoundField ItemStyle-Width="85" HeaderText="Cantidad" DataField="Cantidad"></asp:BoundField>
-                    <asp:BoundField ItemStyle-Width="100" HeaderText="FL1" DataField="FL1"></asp:BoundField>
-                    <asp:BoundField ItemStyle-Width="100" HeaderText="FL2" DataField="FL2"></asp:BoundField>
-                    <asp:BoundField ItemStyle-Width="100" HeaderText="Moneda" DataField="Moneda"></asp:BoundField>
-                    <asp:BoundField ItemStyle-Width="100" HeaderText="Contado" DataField="Contado"></asp:BoundField>
-                    <asp:BoundField ItemStyle-Width="100" HeaderText="Plazo" DataField="Plazo"></asp:BoundField>
+                    <asp:BoundField HeaderStyle-Width="72" HeaderText="Valor" DataField="Valor"></asp:BoundField>
+                    <asp:BoundField HeaderStyle-Width="100" HeaderText="Fecha Operación" DataFormatString="{0:d}" DataField="FechaOperacion"></asp:BoundField>
+                    <asp:BoundField HeaderStyle-Width="100" HeaderText="Número Operación" DataField="NumeroOperacion"></asp:BoundField>
+                    <asp:BoundField HeaderStyle-Width="90" HeaderText="Poliza" DataField="Poliza"></asp:BoundField>
+                    <asp:BoundField HeaderStyle-Width="85" HeaderText="Cantidad" DataField="Cantidad"></asp:BoundField>
+                    <asp:BoundField HeaderStyle-Width="100" HeaderText="FL1" DataFormatString="{0:d}" DataField="FL1"></asp:BoundField>
+                    <asp:BoundField HeaderStyle-Width="100" HeaderText="FL2" DataFormatString="{0:d}" DataField="FL2"></asp:BoundField>
+                    <asp:BoundField HeaderStyle-Width="100" HeaderText="Moneda" DataField="Moneda"></asp:BoundField>
+                    <asp:BoundField HeaderStyle-Width="100" HeaderText="Contado" DataFormatString="{0:N2}" DataField="Contado" Visible="false"></asp:BoundField>
+                    <asp:BoundField HeaderStyle-Width="100" HeaderText="Plazo" DataFormatString="{0:N2}" DataField="Plazo" Visible="false"></asp:BoundField>
                 </Columns>
             </asp:GridView>
 
@@ -630,23 +623,21 @@ operación</span></td>
             <asp:GridView ID="gvMargen" runat="server"  ShowHeaderWhenEmpty="true"
                 AutoGenerateColumns="False" BackColor="White" >
                 <EmptyDataTemplate>
-                    <div>
-                        No se encontraron registros.
-                    </div>
+                    <label id=lbl style="color:GrayText">No hay registros que mostrar</label>
                 </EmptyDataTemplate>
                 <headerstyle backcolor="#758a9d" HorizontalAlign="Center" CssClass="texto13blanco"></headerstyle>
-                <alternatingrowstyle backcolor="White"></alternatingrowstyle>
-                <RowStyle backcolor="#d2d9df" />
+                <alternatingrowstyle backcolor="White" ForeColor="GrayText" HorizontalAlign="Center"></alternatingrowstyle>
+                <RowStyle backcolor="#d2d9df" ForeColor="GrayText" HorizontalAlign="Center" />
                 <Columns>
-                    <asp:BoundField ItemStyle-Width="72" HeaderText="Valor" DataField="Valor"></asp:BoundField>
-                    <asp:BoundField ItemStyle-Width="100" HeaderText="Fecha Garantía" DataField="Garantia"></asp:BoundField>
-                    <asp:BoundField ItemStyle-Width="100" HeaderText="Número Operación" DataField="Operacion"></asp:BoundField>
-                    <asp:BoundField ItemStyle-Width="85" HeaderText="Cantidad" DataField="Cantidad"></asp:BoundField>
-                    <asp:BoundField ItemStyle-Width="100" HeaderText="Moneda" DataField="Moneda"></asp:BoundField>
-                    <asp:BoundField ItemStyle-Width="100" HeaderText="Efectivo" DataField="Efectivo"></asp:BoundField>
-                    <asp:BoundField ItemStyle-Width="100" HeaderText="Valorización" DataField="Valorizacion"></asp:BoundField>
-                    <asp:BoundField ItemStyle-Width="100" HeaderText="Valor Mercado" DataField="Mercado"></asp:BoundField>
-                    <asp:BoundField ItemStyle-Width="100" HeaderText="Cotización" DataField="Cotizacion"></asp:BoundField>
+                    <asp:BoundField HeaderStyle-Width="72" HeaderText="Valor" DataField="Valor"></asp:BoundField>
+                    <asp:BoundField HeaderStyle-Width="100" HeaderText="Fecha Garantía" DataFormatString="{0:d}" DataField="FechaGarantia"></asp:BoundField>
+                    <asp:BoundField HeaderStyle-Width="100" HeaderText="Número Operación" DataField="NumeroOperacion"></asp:BoundField>
+                    <asp:BoundField HeaderStyle-Width="85" HeaderText="Cantidad" DataField="CantidadGarantia"></asp:BoundField>
+                    <%--<asp:BoundField HeaderStyle-Width="100" HeaderText="Moneda" DataField="Moneda"></asp:BoundField>
+                    <asp:BoundField HeaderStyle-Width="100" HeaderText="Efectivo" DataField="Efectivo"></asp:BoundField>
+                    <asp:BoundField HeaderStyle-Width="100" HeaderText="Valorización" DataField="Valorizacion"></asp:BoundField>
+                    <asp:BoundField HeaderStyle-Width="100" HeaderText="Valor Mercado" DataField="Mercado"></asp:BoundField>
+                    <asp:BoundField HeaderStyle-Width="100" HeaderText="Cotización" DataField="Cotizacion"></asp:BoundField>--%>
                 </Columns>
             </asp:GridView>
 
@@ -846,10 +837,10 @@ operación</span></td>
     </div>
     
      <div class="submenu">
-	<div class="se" style="float:left; margin-right:32px;"><span class="texto18azul"><a href="#">Política de cliente </a></span></div>
-    <div class="se" style="float:left; margin-right:32px;"><span class="texto18azul"><a href="#">Aviso Legal</a></span></div>
-    <div class="se" style="float:left; margin-right:32px;"><span class="texto18azul"><a href="#">Seguridad </a></span></div>
-    <div class="se" style="float:left;"><span class="texto18azul"><a href="#">Cuentas corrientes</a></span></div>
+	<div class="se" style="float:left; margin-right:32px;"><span class="texto18azul"><a href="Politica de Clientes.pdf">Política de cliente </a></span></div>
+    <div class="se" style="float:left; margin-right:32px;"><span class="texto18azul"><a href="aviso-legal.html">Aviso Legal</a></span></div>
+    <div class="se" style="float:left; margin-right:32px;"><span class="texto18azul"><a href="seguridad.html">Seguridad</a> </span></div>
+    <%--<div class="se" style="float:left;"><span class="texto18azul"><a href="#">Cuentas corrientes</a></span></div>--%>
  </div>
     
     

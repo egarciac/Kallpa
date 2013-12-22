@@ -182,6 +182,31 @@ namespace KallpaDataAccess
             }
         }
 
+        public static decimal ObtenerTipoCambio(string Fecha)
+        {
+            using (var connection = new SqlConnection(ConfigurationManager.ConnectionStrings["SQLConnection"].ConnectionString))
+            {
+                try
+                {
+                    string sqlQuery = "Select TipoCambioCompra from dbo.tipocambiofecha where Fecha='" + Fecha + "'";
+                    using (var cmd = connection.CreateCommand())
+                    {
+                        cmd.CommandText = sqlQuery;
+                        //var parmFecha = cmd.CreateParameter();
+                        //parmFecha.ParameterName = "@Fecha";
+                        //parmFecha.Value = Fecha;
+                        //cmd.Parameters.Add(parmFecha);
+                        connection.Open();
+                        return Convert.ToDecimal(cmd.ExecuteScalar());
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw new Exception(ex.Message);
+                }
+            }
+        }
+
 
     }
 }

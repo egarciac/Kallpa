@@ -15,14 +15,14 @@
 	<form id="Form1" runat="server">
 	<div class="contenedor">
 	<div class="header">
-	  <div class="logo"><img src="../img/logo.jpg" width="290" height="60" /></div>
-	  <div class="cabecera-der">
-		<div style="float:left; margin-right:2px;"><a href="#" style="text-decoration:none"> <span class="texto13azul">Manual de usos del aplicativo</span></a></div>
-			<div style="float:left; margin-right:20px;"><a href="#" style="text-decoration:none"><img src="img/pdf.jpg" width="16" height="18" border="0" /></a></div>
-		<div style="float:left; margin-right:5px;"> <a href="#" style="text-decoration:none"><span class="texto13azul">salir</span></a></div>
-			<div style="float:left;"><a href="#" style="text-decoration:none"><img src="img/cerrar.png" width="17" height="17" border="0" /></a></div>
-	  </div>
-	</div>
+	  <div class="logo"><img src="img/logo.jpg" width="290" height="60" /></div>
+      <div class="cabecera-der">
+       	<%--<div style="float:left; margin-right:2px;"><a href="#" style="text-decoration:none"> <span class="texto13azul">Manual de usos del aplicativo</span></a></div>
+            <div style="float:left; margin-right:20px;"><a href="#" style="text-decoration:none"><img src="img/pdf.jpg" width="16" height="18" border:"0" /></a></div>
+        <div style="float:left; margin-right:5px;"> <a href="#" style="text-decoration:none"><span class="texto13azul">salir</span></a></div>
+            <div style="float:left;"><a href="#" style="text-decoration:none"><img src="img/cerrar.png" width="17" height="17" border:"0" /></a></div>--%>
+      </div>
+    </div>
   <div class="menu">
 	<a href="Portafolio.aspx" target="_self">
     <div class="e" style="float:left; margin-right:33px; padding-bottom:5px; padding-top:7px; padding-left:5px; padding-right:5px;"><span class="texto18e">Portafolio</span></div>
@@ -39,7 +39,7 @@
    <a href="Poliza.aspx" target="_self">
      <div class="e" style="float:left; padding-bottom:5px; padding-top:7px; padding-left:5px; padding-right:5px;"><span class="texto18e">Polizas</span></div>
      </a>
-   <div style="float:right; margin-top:5px; margin-right:5px;"> <a href="login.aspx" style="text-decoration:none"><span class="texto13azul">salir</span></a></div>
+   <div style="float:right; margin-top:5px; margin-right:5px;"> <a href="login.aspx" style="text-decoration:none"><span class="texto13azul">&nbsp;Salir</span></a></div>
 	<div style="float:right; margin-top:5px;"> <a href="login.aspx" style="text-decoration:none"><img src="img/cerrar.png" width="17" height="17" border="0" /></a></div>            
    </div>
 	<div class="portada-imagen">
@@ -90,46 +90,47 @@
 	  </div>
 	  <asp:Panel id="ResultPanel" runat="server" Visible="false" class="contenedor-reportes">
 		<div style="overflow:hidden; margin-top:15px;text-align:left;">
-			<span class="texto13azul" style="padding-right:10px;">imprimir</span>
-			<img src="img/imp.gif" width="21" height="18" />
+			<%--<span class="texto13azul" style="padding-right:10px;">imprimir</span>
+			<img src="img/imp.gif" width="21" height="18" />--%>
 		</div>
 		<div style="overflow:hidden; margin-top:10px;">
 			<asp:Repeater runat="server" ID="MoneyRepeater" 
 				onitemdatabound="MoneyRepeater_ItemDataBound">
 				<HeaderTemplate>
-					<table>
+					<table width="957" border="0">
 						<tr>
-							<th>
-								Fecha Operacion
+							<th width="104" height="42" align="center" bgcolor="#758a9d" >
+								<span class="texto13blanco">Fecha Operacion
 							</th>
-							<th>
-								Fecha Vencimiento
+							<th width="95" align="center" bgcolor="#758a9d">
+								<span class="texto13blanco">Fecha Vencimiento
 							</th>
-							<th>
-								Póliza
+							<th width="91" align="center" bgcolor="#758a9d">
+								<span class="texto13blanco">Póliza
 							</th>
-							<th>
-								Mercado
+							<th width="91" align="center" bgcolor="#758a9d">
+								<span class="texto13blanco">Mercado
 							</th>
-							<th>
-								Tipo Operación
+							<th width="120" align="center" bgcolor="#758a9d">
+								<span class="texto13blanco">Tipo Operación
 							</th>
-							<th>
-								Valor
+							<th width="91" align="center" bgcolor="#758a9d">
+								<span class="texto13blanco">Valor
 							</th>
-							<th>
-								Cantidad
+							<th width="93" align="center" bgcolor="#758a9d">
+								<span class="texto13blanco">Cantidad
 							</th>
-							<th>
-								Precio
+							<th width="81" align="center" bgcolor="#758a9d">
+								<span class="texto13blanco">Precio
 							</th>
-							<th>
-								Monto Compra
+							<th width="92" align="center" bgcolor="#758a9d">
+								<span class="texto13blanco">Monto Compra
 							</th>
-							<th>
-								Monto Venta
+							<th width="91" align="center" bgcolor="#758a9d">
+								<span class="texto13blanco">Monto Venta
 							</th>
 						</tr>
+                        
 				</HeaderTemplate>
 				<ItemTemplate>
 					<tr>
@@ -141,60 +142,66 @@
 						<td colspan="10">
 							<asp:Repeater runat="server" ID="ValueNestedRepeater" onitemdatabound="ValueNestedRepeater_ItemDataBound">
 								<HeaderTemplate>
-									<table>
+									<table border=1>
 								</HeaderTemplate>
 								<ItemTemplate>
 									<tr>
-										<td>
+										<td align="center" width="104"></td>
+                                        <td align="center" width="100"></td>
+                                        <td align="center" width="95"></td>
+                                        <td align="center" width="95"></td>
+                                        <td align="center" width="125">
 											<%#Eval("Header") %>
 										</td>
-										<td>
+										<td align="center" width="95">
 											<%#Eval("Valor") %>
 										</td>
-										<td>
-											<%#Eval("MontoCompra") %>
+                                        <td align="center" width="93"></td>
+                                        <td align="center" width="81"></td>
+										<td align="center" width="92">
+											<%#String.Format("{0:f2}", Eval("MontoCompra"))%>
 										</td>
-										<td>
-											<%#Eval("MontoVenta") %>
+										<td align="center" width="91">
+											<%#String.Format("{0:f2}", Eval("MontoVenta"))%>
 										</td>
 									</tr>
 									<tr>
-										<td colspan="4">
+										<td colspan="10">
 											<asp:Repeater runat="server" ID="DataNestedRepeater">
 												<HeaderTemplate>
-													<table>
+													<table border=0>
 												</HeaderTemplate>
 												<ItemTemplate>
 													<tr>
-														<td>
-															<%#Eval("FechaOperacion")%>
+														<td align="center" width="104" style="color:GrayText">
+															<%#DateTime.Parse(Eval("FechaOperacion").ToString()).ToString("dd/MM/yyyy")%>
 														</td>
-														<td>
-															<%#Eval("FechaVencimiento")%>
+														<td align="center" width="95" style="color:GrayText">
+															<%#DateTime.Parse(Eval("FechaVencimiento").ToString()).ToString("dd/MM/yyyy")%>
 														</td>
-														<td>
+														<td align="center" width="91" style="color:GrayText">
 															<%#Eval("Poliza")%>
 														</td>
-														<td>
+														<td align="center" width="91" style="color:GrayText">
 															<%#Eval("Mercado")%>
 														</td>
-														<td>
+														<td align="center" width="120" style="color:GrayText">
 															<%#Eval("TipoOperacion")%>
 														</td>
-														<td>
+														<td align="center" width="91" style="color:GrayText">
 															<%#Eval("Valor")%>
 														</td>
-														<td>
+														<td align="center" width="93" style="color:GrayText">
 															<%#Eval("Cantidad")%>
 														</td>
-														<td>
-															<%#Eval("Precio")%>
+														<td align="center" width="81" style="color:GrayText">
+															<%#String.Format("{0:f2}", Eval("Precio"))%>
 														</td>
-														<td>
-															<%#Eval("TotalCompra")%>
+														<td align="center" width="92" style="color:GrayText">
+															<%#String.Format("{0:f2}", Eval("TotalCompra"))%>
 														</td>
-														<td>
-															<%#Eval("TotalVenta")%>
+														<td align="center" width="91" style="color:GrayText">
+															<%#String.Format("{0:f2}", Eval("TotalVenta"))%>
 														</td>
 													</tr>
 												</ItemTemplate>
@@ -204,11 +211,13 @@
 											</asp:Repeater>
 										</td>
 									</tr>
+                                    
 								</ItemTemplate>
-						<FooterTemplate>
-							</tr>
-						</FooterTemplate>
-					</asp:Repeater>
+						        <FooterTemplate>
+							        </tr>
+                                    </table>
+						        </FooterTemplate>
+					        </asp:Repeater>
 						</td>
 					</tr>                    
 				</ItemTemplate>
@@ -221,11 +230,11 @@
 	  </asp:Panel>
 	</asp:Panel>
 	<div class="submenu">
-		<div class="se" style="float:left; margin-right:32px;"><span class="texto18azul"><a href="#">Política de cliente </a></span></div>
-		<div class="se" style="float:left; margin-right:32px;"><span class="texto18azul"><a href="#">Aviso Legal</a></span></div>
-		<div class="se" style="float:left; margin-right:32px;"><span class="texto18azul"><a href="#">Seguridad </a></span></div>
-		<div class="se" style="float:left;"><span class="texto18azul"><a href="#">Cuentas corrientes</a></span></div>
-	</div>
+	<div class="se" style="float:left; margin-right:32px;"><span class="texto18azul"><a href="Politica de Clientes.pdf">Política de cliente </a></span></div>
+    <div class="se" style="float:left; margin-right:32px;"><span class="texto18azul"><a href="aviso-legal.html">Aviso Legal</a></span></div>
+    <div class="se" style="float:left; margin-right:32px;"><span class="texto18azul"><a href="seguridad.html">Seguridad</a> </span></div>
+    <%--<div class="se" style="float:left;"><span class="texto18azul"><a href="#">Cuentas corrientes</a></span></div>--%>
+ </div>
 	<footer class="section">
 		<div class="wrapper group">
 			<div class="col span-4-of-12 copyright">Todos los derechos reservados © Kallpa Securities SAB</div>

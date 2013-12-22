@@ -42,7 +42,7 @@ namespace KallpaDataAccess
                                 "FROM ordenes o left join clientes c on (o.codcli = c.codcli) " +
                                 "left join tipoper tipop on (tipop.tip_oper=o.tipoper), " +
                                 "brokers b,  defgen d1" +
-                                "WHERE " +
+                                " WHERE " +
                                 "o.estado='V' and " +
                                 "d1.codigo=o.ordcmpaux4 AND d1.campo like 'TIPORD%' AND " +
                                 "c.codbroker=b.codbroker " +

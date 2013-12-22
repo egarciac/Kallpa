@@ -241,6 +241,7 @@
     <Content Include="reportes-multiplos.html" />
     <Content Include="reportes-recurrentes.html" />
     <Content Include="reportes-valorizacion.html" />
+    <Content Include="reportes\aviso-legal.html" />
     <Content Include="reportes\CuentaCorriente.aspx" />
     <Content Include="reportes\DetalleOperaciones.aspx" />
     <Content Include="reportes\Error.aspx" />
@@ -338,6 +339,7 @@
     <Content Include="reportes\img\r.jpg" />
     <Content Include="reportes\img\up.jpg" />
     <Content Include="reportes\img\visualizar.jpg" />
+    <Content Include="reportes\seguridad.html" />
     <Content Include="research-medios.html" />
     <Content Include="Scripts\kallpa\reportes.js" />
     <Content Include="Styles\Site.css" />
@@ -498,9 +500,9 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>3120</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://192.168.1.214/Kallpa</IISUrl>
+          <IISUrl>http://localhost/Kallpa</IISUrl>
           <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
-          <IISAppRootUrl>http://192.168.1.214/Kallpa</IISAppRootUrl>
+          <IISAppRootUrl>http://localhost/Kallpa</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>http://192.168.1.9/Kallpa</CustomServerUrl>

@@ -15,14 +15,14 @@
 	<form id="Form1" runat="server">
 	<div class="contenedor">
 	<div class="header">
-	  <div class="logo"><img src="../img/logo.jpg" width="290" height="60" /></div>
-	  <div class="cabecera-der">
-		<div style="float:left; margin-right:2px;"><a href="#" style="text-decoration:none"> <span class="texto13azul">Manual de usos del aplicativo</span></a></div>
-			<div style="float:left; margin-right:20px;"><a href="#" style="text-decoration:none"><img src="img/pdf.jpg" width="16" height="18" border="0" /></a></div>
-		<div style="float:left; margin-right:5px;"> <a href="#" style="text-decoration:none"><span class="texto13azul">salir</span></a></div>
-			<div style="float:left;"><a href="#" style="text-decoration:none"><img src="img/cerrar.png" width="17" height="17" border="0" /></a></div>
-	  </div>
-	</div>
+	  <div class="logo"><img src="img/logo.jpg" width="290" height="60" /></div>
+      <div class="cabecera-der">
+       	<%--<div style="float:left; margin-right:2px;"><a href="#" style="text-decoration:none"> <span class="texto13azul">Manual de usos del aplicativo</span></a></div>
+            <div style="float:left; margin-right:20px;"><a href="#" style="text-decoration:none"><img src="img/pdf.jpg" width="16" height="18" border:"0" /></a></div>
+        <div style="float:left; margin-right:5px;"> <a href="#" style="text-decoration:none"><span class="texto13azul">salir</span></a></div>
+            <div style="float:left;"><a href="#" style="text-decoration:none"><img src="img/cerrar.png" width="17" height="17" border:"0" /></a></div>--%>
+      </div>
+    </div>
   <div class="menu">
 	<a href="Portafolio.aspx" target="_self">
     <div class="e" style="float:left; margin-right:33px; padding-bottom:5px; padding-top:7px; padding-left:5px; padding-right:5px;"><span class="texto18e">Portafolio</span></div>
@@ -39,7 +39,7 @@
    <a href="Poliza.aspx" target="_self">
      <div class="e" style="float:left; padding-bottom:5px; padding-top:7px; padding-left:5px; padding-right:5px;"><span class="texto18e">Polizas</span></div>
      </a>
-   <div style="float:right; margin-top:5px; margin-right:5px;"> <a href="login.aspx" style="text-decoration:none"><span class="texto13azul">salir</span></a></div>
+   <div style="float:right; margin-top:5px; margin-right:5px;"> <a href="login.aspx" style="text-decoration:none"><span class="texto13azul">&nbsp;Salir</span></a></div>
 	<div style="float:right; margin-top:5px;"> <a href="login.aspx" style="text-decoration:none"><img src="img/cerrar.png" width="17" height="17" border="0" /></a></div>            
   </div>
 	<div class="portada-imagen">
@@ -103,13 +103,13 @@
 	  </div>
 	  <asp:Panel id="CuentaCorrientePanel" runat="server" Visible="false" class="contenedor-reportes">
 		<div style="overflow:hidden; margin-top:15px;text-align:left;">
-			<span class="texto13azul" style="padding-right:10px;">imprimir</span>
-			<img src="img/imp.gif" width="21" height="18" />
+			<%--<span class="texto13azul" style="padding-right:10px;">imprimir</span>
+			<img src="img/imp.gif" width="21" height="18" />--%>
 		</div>
 		<div style="overflow:hidden; margin-top:10px;">
-			Soles
+			Nuevos Soles
 			<table>
-				<thead>
+				<%--<thead>
 					<tr>
 						<td>Fecha Operacion</td>
 						<td>Fecha Liquidacion</td>
@@ -119,7 +119,7 @@
 						<td>Abono</td>
 						<td>Saldo</td>
 					</tr>
-				</thead>
+				</thead>--%>
 				<tbody>
 					<tr>
 						<td></td>
@@ -133,69 +133,62 @@
 				</tbody>
 			</table>
 			Operaciones vencidas
-			<asp:GridView ID="CuentaCorrienteVSolesGridView" runat="server"
-				AutoGenerateColumns="False" BackColor="White" ShowHeader="true" >
+			<asp:GridView ID="CuentaCorrienteVSolesGridView" runat="server" BorderWidth=0
+				AutoGenerateColumns="False" BackColor="White" ShowHeaderWhenEmpty="true" >
 				<EmptyDataTemplate>
-					<div>
-						No hay registros que mostrar
-					</div>
+					<label id=lbl style="color:GrayText">No hay registros que mostrar</label>
 				</EmptyDataTemplate>
 				<headerstyle backcolor="#758a9d" HorizontalAlign="Center" CssClass="texto13blanco"></headerstyle>
-				<alternatingrowstyle backcolor="White"></alternatingrowstyle>
-				<RowStyle backcolor="#d2d9df" />
+				<alternatingrowstyle backcolor="White" ForeColor="GrayText" ></alternatingrowstyle>
+				<RowStyle backcolor="#d2d9df" ForeColor="GrayText"  />
 				<Columns>
-					<asp:BoundField ItemStyle-Width="72" 
-						DataField="FechaOperacion" DataFormatString="{0:d}">
+					<asp:BoundField HeaderStyle-Width="72" 
+						DataField="FechaOperacion" HeaderText="Fecha Operacion" DataFormatString="{0:d}">
 					</asp:BoundField>
-					<asp:BoundField ItemStyle-Width="103" 
-						DataField="FechaValor" DataFormatString="{0:d}" >
+					<asp:BoundField HeaderStyle-Width="103" 
+						DataField="FechaValor"  HeaderText="Fecha Liquidacion" DataFormatString="{0:d}" >
 					</asp:BoundField>
-					<asp:BoundField ItemStyle-Width="104" DataField="DocumentoPagoNumero" >
+					<asp:BoundField HeaderStyle-Width="104" HeaderText="Poliza" DataField="DocumentoPagoNumero" >
 					</asp:BoundField>
-					<asp:BoundField ItemStyle-Width="81" 
-						DataField="Observacion" >
+					<asp:BoundField HeaderStyle-Width="300" HeaderText="Descripción" DataField="Observacion" >
 					</asp:BoundField>
-					<asp:BoundField DataField="Egresos" DataFormatString="{0:N2}" />
-					<asp:BoundField ItemStyle-Width="111" DataFormatString="{0:N2}"
-						DataField="Ingresos" >
+					<asp:BoundField HeaderStyle-Width="111" DataField="Egresos" HeaderText="Cargo" DataFormatString="{0:N2}" />
+					<asp:BoundField HeaderStyle-Width="111" DataFormatString="{0:N2}" HeaderText="Abono"  DataField="Ingresos" >
 					</asp:BoundField>
-					<asp:BoundField DataField="Saldo" DataFormatString="{0:N2}"/>
+					<asp:BoundField HeaderStyle-Width="111" DataField="Saldo" HeaderText="Saldo" DataFormatString="{0:N2}"/>
 				</Columns>
 			</asp:GridView>
+            <BR/><BR/>
 			Operaciones por vencer
-			<asp:GridView ID="CuentaCorrientePVSolesGridView" runat="server" 
+			<asp:GridView ID="CuentaCorrientePVSolesGridView" runat="server" BorderWidth=0
 				AutoGenerateColumns="False" BackColor="White" ShowHeaderWhenEmpty="false" >
 				<EmptyDataTemplate>
-					<div>
-						No hay registros que mostrar
-					</div>
+					<label id=lbl style="color:GrayText">No hay registros que mostrar</label>
 				</EmptyDataTemplate>
 				<headerstyle backcolor="#758a9d" HorizontalAlign="Center" CssClass="texto13blanco"></headerstyle>
-				<alternatingrowstyle backcolor="White"></alternatingrowstyle>
-				<RowStyle backcolor="#d2d9df" />
+				<alternatingrowstyle HorizontalAlign="Center" ForeColor="GrayText"  backcolor="White"></alternatingrowstyle>
+				<RowStyle HorizontalAlign="Center" ForeColor="GrayText"  backcolor="#d2d9df" />
 				<Columns>
-					<asp:BoundField ItemStyle-Width="72" DataFormatString="{0:d}"
-						DataField="FechaOperacion" >
+					<asp:BoundField HeaderStyle-Width="72" 
+						DataField="FechaOperacion" HeaderText="Fecha Operacion" DataFormatString="{0:d}">
 					</asp:BoundField>
-					<asp:BoundField ItemStyle-Width="103" DataFormatString="{0:d}"
-						DataField="FechaValor" >
+					<asp:BoundField HeaderStyle-Width="103" 
+						DataField="FechaValor"  HeaderText="Fecha Liquidacion" DataFormatString="{0:d}" >
 					</asp:BoundField>
-					<asp:BoundField ItemStyle-Width="104" DataField="DocumentoPagoNumero" >
+					<asp:BoundField HeaderStyle-Width="104" HeaderText="Poliza" DataField="DocumentoPagoNumero" >
 					</asp:BoundField>
-					<asp:BoundField ItemStyle-Width="81" 
-						DataField="Observacion" >
+					<asp:BoundField HeaderStyle-Width="300" HeaderText="Descripción" DataField="Observacion" >
 					</asp:BoundField>
-					<asp:BoundField DataField="Egresos" DataFormatString="{0:N2}"/>
-					<asp:BoundField ItemStyle-Width="111" DataFormatString="{0:N2}"
-						DataField="Ingresos" >
+					<asp:BoundField HeaderStyle-Width="111" DataField="Egresos" HeaderText="Cargo" DataFormatString="{0:N2}" />
+					<asp:BoundField HeaderStyle-Width="111" DataFormatString="{0:N2}" HeaderText="Abono"  DataField="Ingresos" >
 					</asp:BoundField>
-					<asp:BoundField DataField="Saldo" DataFormatString="{0:N2}"/>
+					<asp:BoundField HeaderStyle-Width="111" DataField="Saldo" HeaderText="Saldo" DataFormatString="{0:N2}"/>
 				</Columns>
 			</asp:GridView>
 			<br/><br/>
 			Dolares
 			<table>
-				<thead>
+				<%--<thead>
 					<tr>
 						<td>Fecha Operacion</td>
 						<td>Fecha Liquidacion</td>
@@ -205,7 +198,7 @@
 						<td>Abono</td>
 						<td>Saldo</td>
 					</tr>
-				</thead>
+				</thead>--%>
 				<tbody>
 					<tr>
 						<td></td>
@@ -219,63 +212,56 @@
 				</tbody>
 			</table>
 			Operaciones vencidas
-			<asp:GridView ID="CuentaCorrienteVDolaresGridView" runat="server" 
+			<asp:GridView ID="CuentaCorrienteVDolaresGridView" runat="server" BorderWidth=0 
 				AutoGenerateColumns="False" BackColor="White" ShowHeaderWhenEmpty="true" >
 				<EmptyDataTemplate>
-					<div>
-						No hay registros que mostrar
-					</div>
+					<label id=lbl style="color:GrayText">No hay registros que mostrar</label>
 				</EmptyDataTemplate>
-				<headerstyle CssClass="texto13blanco grilla-header-datos"></headerstyle>
-				<alternatingrowstyle backcolor="White"></alternatingrowstyle>
-				<RowStyle backcolor="#d2d9df" />
+				<headerstyle backcolor="#758a9d" HorizontalAlign="Center" CssClass="texto13blanco"></headerstyle>
+				<alternatingrowstyle HorizontalAlign="Center" ForeColor="GrayText"  backcolor="White"></alternatingrowstyle>
+				<RowStyle HorizontalAlign="Center" ForeColor="GrayText"  backcolor="#d2d9df" />
 				<Columns>
-					<asp:BoundField ItemStyle-Width="72" DataFormatString="{0:d}"
-						DataField="FechaOperacion" >
+					<asp:BoundField HeaderStyle-Width="72" 
+						DataField="FechaOperacion" HeaderText="Fecha Operacion" DataFormatString="{0:d}">
 					</asp:BoundField>
-					<asp:BoundField ItemStyle-Width="103" DataFormatString="{0:d}"
-						DataField="FechaValor" >
+					<asp:BoundField HeaderStyle-Width="103" 
+						DataField="FechaValor"  HeaderText="Fecha Liquidacion" DataFormatString="{0:d}" >
 					</asp:BoundField>
-					<asp:BoundField ItemStyle-Width="104" DataField="DocumentoPagoNumero" >
+					<asp:BoundField HeaderStyle-Width="104" HeaderText="Poliza" DataField="DocumentoPagoNumero" >
 					</asp:BoundField>
-					<asp:BoundField ItemStyle-Width="81" 
-						DataField="Observacion" >
+					<asp:BoundField HeaderStyle-Width="300" HeaderText="Descripción" DataField="Observacion" >
 					</asp:BoundField>
-					<asp:BoundField DataField="Egresos" DataFormatString="{0:N2}" />
-					<asp:BoundField ItemStyle-Width="111" DataFormatString="{0:N2}" 
-						DataField="Ingresos" >
+					<asp:BoundField HeaderStyle-Width="111" DataField="Egresos" HeaderText="Cargo" DataFormatString="{0:N2}" />
+					<asp:BoundField HeaderStyle-Width="111" DataFormatString="{0:N2}" HeaderText="Abono"  DataField="Ingresos" >
 					</asp:BoundField>
-					<asp:BoundField DataField="Saldo" DataFormatString="{0:N2}"/>
+					<asp:BoundField HeaderStyle-Width="111" DataField="Saldo" HeaderText="Saldo" DataFormatString="{0:N2}"/>
 				</Columns>
 			</asp:GridView>
+            <br/><br/>
 			Operaciones por vencer
-			<asp:GridView ID="CuentaCorrientePVDolaresGridView" runat="server" 
+			<asp:GridView ID="CuentaCorrientePVDolaresGridView" runat="server"  BorderWidth="0"
 				AutoGenerateColumns="False" BackColor="White" ShowHeaderWhenEmpty="true" >
-				<EmptyDataTemplate>
-					<div>
-						No hay registros que mostrar
-					</div>
+				<EmptyDataTemplate >
+					<label id=lbl style="color:GrayText">No hay registros que mostrar</label>
 				</EmptyDataTemplate>
-				<headerstyle CssClass="texto13blanco grilla-header-datos"></headerstyle>
-				<alternatingrowstyle backcolor="White"></alternatingrowstyle>
-				<RowStyle backcolor="#d2d9df" />
+				<headerstyle backcolor="#758a9d" HorizontalAlign="Center" CssClass="texto13blanco"></headerstyle><headerstyle CssClass="texto13blanco grilla-header-datos"></headerstyle>
+				<alternatingrowstyle HorizontalAlign="Center" ForeColor="GrayText"  backcolor="White"></alternatingrowstyle>
+				<RowStyle HorizontalAlign="Center" ForeColor="GrayText"  backcolor="#d2d9df" />
 				<Columns>
-					<asp:BoundField ItemStyle-Width="72" DataFormatString="{0:d}"
-						DataField="FechaOperacion" >
+					<asp:BoundField HeaderStyle-Width="72" 
+						DataField="FechaOperacion" HeaderText="Fecha Operacion" DataFormatString="{0:d}">
 					</asp:BoundField>
-					<asp:BoundField ItemStyle-Width="103" DataFormatString="{0:d}"
-						DataField="FechaValor" >
+					<asp:BoundField HeaderStyle-Width="103" 
+						DataField="FechaValor"  HeaderText="Fecha Liquidacion" DataFormatString="{0:d}" >
 					</asp:BoundField>
-					<asp:BoundField ItemStyle-Width="104" DataField="DocumentoPagoNumero" >
+					<asp:BoundField HeaderStyle-Width="104" HeaderText="Poliza" DataField="DocumentoPagoNumero" >
 					</asp:BoundField>
-					<asp:BoundField ItemStyle-Width="81" 
-						DataField="Observacion" >
+					<asp:BoundField HeaderStyle-Width="300" HeaderText="Descripción" DataField="Observacion" >
 					</asp:BoundField>
-					<asp:BoundField DataField="Egresos" DataFormatString="{0:N2}" />
-					<asp:BoundField ItemStyle-Width="111" DataFormatString="{0:N2}"
-						DataField="Ingresos" >
+					<asp:BoundField HeaderStyle-Width="111" DataField="Egresos" HeaderText="Cargo" DataFormatString="{0:N2}" />
+					<asp:BoundField HeaderStyle-Width="111" DataFormatString="{0:N2}" HeaderText="Abono"  DataField="Ingresos" >
 					</asp:BoundField>
-					<asp:BoundField DataFormatString="{0:N2}" DataField="Saldo" />
+					<asp:BoundField HeaderStyle-Width="111" DataField="Saldo" HeaderText="Saldo" DataFormatString="{0:N2}"/>
 				</Columns>
 			</asp:GridView>
 		</div>
@@ -284,11 +270,11 @@
 	</asp:Panel>
 
 	<div class="submenu">
-		<div class="se" style="float:left; margin-right:32px;"><span class="texto18azul"><a href="#">Política de cliente </a></span></div>
-		<div class="se" style="float:left; margin-right:32px;"><span class="texto18azul"><a href="#">Aviso Legal</a></span></div>
-		<div class="se" style="float:left; margin-right:32px;"><span class="texto18azul"><a href="#">Seguridad </a></span></div>
-		<div class="se" style="float:left;"><span class="texto18azul"><a href="#">Cuentas corrientes</a></span></div>
-	</div>
+	<div class="se" style="float:left; margin-right:32px;"><span class="texto18azul"><a href="Politica de Clientes.pdf">Política de cliente </a></span></div>
+    <div class="se" style="float:left; margin-right:32px;"><span class="texto18azul"><a href="aviso-legal.html">Aviso Legal</a></span></div>
+    <div class="se" style="float:left; margin-right:32px;"><span class="texto18azul"><a href="seguridad.html">Seguridad</a> </span></div>
+    <%--<div class="se" style="float:left;"><span class="texto18azul"><a href="#">Cuentas corrientes</a></span></div>--%>
+ </div>
 	
 	<footer class="section">
 		<div class="wrapper group">

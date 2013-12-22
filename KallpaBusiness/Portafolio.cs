@@ -23,5 +23,30 @@ namespace KallpaBusiness
             catch (Exception ex) { return ds; }
         }
 
+
+        public static DataSet getRpteTptdoSQL(string strFecha, int intCodCavali, string Dato)
+        {
+            DataSet ds = null;
+            try
+            {
+                ds = PortafolioDA.getRpteTptdoSQL(strFecha, intCodCavali);
+                DataTable dt = ds.Tables[0];
+                DataView dv = dt.DefaultView;
+                dv.RowFilter = "Grupo='" + Dato + "'";
+                return ds;
+            }
+            catch (Exception ex) { return ds; }
+        }
+
+        public static DataSet getMargen(string strFecha, int intCodCavali)
+        {
+            DataSet ds = null;
+            try
+            {
+                return PortafolioDA.getMargenSQL(strFecha, intCodCavali);
+            }
+            catch (Exception ex) { return ds; }
+        }
+
     }
 }

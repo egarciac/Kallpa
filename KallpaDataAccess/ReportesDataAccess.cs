@@ -506,7 +506,7 @@ namespace KallpaDataAccess
 					{
 						var cuentaCorriente = new CuentaCorriente
 							{
-								Fecha = reader.GetDateTime(indexFecha),
+                                Fecha = reader.GetDateTime(reader.GetOrdinal("Fecha")),
 								FechaOperacion = reader.GetDateTime(indexFechaOperacion),
 								FechaValor = reader.GetDateTime(indexFechaValor),
 								Movimiento = reader.GetString(indexMovimiento),

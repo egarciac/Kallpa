@@ -15,14 +15,14 @@
 	<form id="Form1" runat="server">
 	<div class="contenedor">
 	<div class="header">
-	  <div class="logo"><img src="../img/logo.jpg" width="290" height="60" /></div>
-	  <div class="cabecera-der">
-		<!--<div style="float:left; margin-right:2px;"><a href="#" style="text-decoration:none"> <span class="texto13azul">Manual de usos del aplicativo</span></a></div>-->
-		<!--<div style="float:left; margin-right:20px;"><a href="#" style="text-decoration:none"><img src="img/pdf.jpg" width="16" height="18" border="0" /></a></div>-->
-		<div style="float:left; margin-right:5px;"> <a href="Login.aspx" style="text-decoration:none"><span class="texto13azul">salir</span></a></div>
-		<div style="float:left;"><a href="Login.aspx" style="text-decoration:none"><img src="img/cerrar.png" width="17" height="17" border="0" /></a></div>
-	  </div>
-	</div>
+	  <div class="logo"><img src="img/logo.jpg" width="290" height="60" /></div>
+      <div class="cabecera-der">
+       	<%--<div style="float:left; margin-right:2px;"><a href="#" style="text-decoration:none"> <span class="texto13azul">Manual de usos del aplicativo</span></a></div>
+            <div style="float:left; margin-right:20px;"><a href="#" style="text-decoration:none"><img src="img/pdf.jpg" width="16" height="18" border:"0" /></a></div>
+        <div style="float:left; margin-right:5px;"> <a href="#" style="text-decoration:none"><span class="texto13azul">salir</span></a></div>
+            <div style="float:left;"><a href="#" style="text-decoration:none"><img src="img/cerrar.png" width="17" height="17" border:"0" /></a></div>--%>
+      </div>
+    </div>
   <div class="menu">
 	<a href="Portafolio.aspx" target="_self">
     <div class="e" style="float:left; margin-right:33px; padding-bottom:5px; padding-top:7px; padding-left:5px; padding-right:5px;"><span class="texto18e">Portafolio</span></div>
@@ -39,7 +39,7 @@
    <a href="Poliza.aspx" target="_self">
      <div class="e" style="float:left; padding-bottom:5px; padding-top:7px; padding-left:5px; padding-right:5px;"><span class="texto18e">Polizas</span></div>
      </a>
-   <div style="float:right; margin-top:5px; margin-right:5px;"> <a href="login.aspx" style="text-decoration:none"><span class="texto13azul">salir</span></a></div>
+   <div style="float:right; margin-top:5px; margin-right:5px;"> <a href="login.aspx" style="text-decoration:none"><span class="texto13azul">&nbsp;Salir</span></a></div>
 	<div style="float:right; margin-top:5px;"> <a href="login.aspx" style="text-decoration:none"><img src="img/cerrar.png" width="17" height="17" border="0" /></a></div>            
    </div>
 	<div class="portada-imagen">
@@ -133,33 +133,31 @@
 		<div style="overflow:hidden; margin-top:10px;">
 			Soles
 			<asp:GridView ID="PolizaSolesGridView" runat="server" 
-				AutoGenerateColumns="False" BackColor="White" 
+				AutoGenerateColumns="False" BackColor="White" Border="0" ShowHeaderWhenEmpty="true"
 				onrowcommand="PolizaSolesGridView_RowCommand" >
 				<EmptyDataTemplate>
-					<div>
-						No hay registros que mostrar
-					</div>
+					<label id=lbl style="color:GrayText">No hay registros que mostrar</label>
 				</EmptyDataTemplate>
 				<headerstyle backcolor="#758a9d" HorizontalAlign="Center" CssClass="texto13blanco"></headerstyle>
 				<alternatingrowstyle backcolor="White" ForeColor="GrayText" ></alternatingrowstyle>
 				<RowStyle backcolor="#d2d9df" ForeColor="GrayText"  />
 				<Columns>
-					<asp:BoundField ItemStyle-Width="72" HeaderText="Fecha" 
+					<asp:BoundField HeaderStyle-Width="72" HeaderText="Fecha" 
 						DataField="FechaPoliza" DataFormatString="{0:d}" >
 					<ItemStyle Width="72px" HorizontalAlign="Center" />
 					</asp:BoundField>
-					<asp:BoundField ItemStyle-Width="103" HeaderText="N° Poliza" 
+					<asp:BoundField HeaderStyle-Width="103" HeaderText="N° Poliza" 
 						DataField="NumeroPoliza" >
 					<ItemStyle Width="103px" HorizontalAlign="Center" />
 					</asp:BoundField>
-					<asp:BoundField ItemStyle-Width="104" HeaderText="Valor" DataField="Valor" >
+					<asp:BoundField HeaderStyle-Width="104" HeaderText="Valor" DataField="Valor" >
 					<ItemStyle Width="104px" HorizontalAlign="Center" />
 					</asp:BoundField>
-					<asp:BoundField ItemStyle-Width="81" HeaderText="Cantidad Acciones" 
+					<asp:BoundField HeaderStyle-Width="81" HeaderText="Cantidad Acciones" 
 						DataField="CantidadAcciones" >
 					<ItemStyle Width="81px" HorizontalAlign="Center" />
 					</asp:BoundField>
-					<asp:BoundField ItemStyle-Width="111" HeaderText="Monto Neto" 
+					<asp:BoundField HeaderStyle-Width="111" HeaderText="Monto Neto" 
 						DataField="MontoNeto" DataFormatString="{0:N2}" >
 					<ItemStyle Width="111px" HorizontalAlign="Center" />
 					</asp:BoundField>
@@ -173,7 +171,7 @@
 			</asp:GridView>
 			<br/><br/>
 			Dolares
-			<asp:GridView ID="PolizaDolaresGridView" runat="server" AutoGenerateColumns="false" BackColor="#FFFFFF" onrowcommand="PolizaSolesGridView_RowCommand" >
+			<asp:GridView ID="PolizaDolaresGridView" Border="0" runat="server" AutoGenerateColumns="false" BackColor="#FFFFFF" onrowcommand="PolizaSolesGridView_RowCommand" >
 				<EmptyDataTemplate>
 					<div>
 						No hay registros que mostrar
@@ -232,7 +230,7 @@
 		</div>
 		<div class="bienvenida-intern2">
 			<div class="cont-poliza">
-				<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<table border="0" cellspacing="0" cellpadding="0" bgcolor=#ffffff>
 					<tr>
 						<td>
 							<table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -592,11 +590,11 @@
 	  </asp:Panel>
 	
 	<div class="submenu">
-		<div class="se" style="float:left; margin-right:32px;"><span class="texto18azul"><a href="#">Política de cliente </a></span></div>
-		<div class="se" style="float:left; margin-right:32px;"><span class="texto18azul"><a href="#">Aviso Legal</a></span></div>
-		<div class="se" style="float:left; margin-right:32px;"><span class="texto18azul"><a href="#">Seguridad </a></span></div>
-		<div class="se" style="float:left;"><span class="texto18azul"><a href="#">Cuentas corrientes</a></span></div>
-	</div>
+	<div class="se" style="float:left; margin-right:32px;"><span class="texto18azul"><a href="Politica de Clientes.pdf">Política de cliente </a></span></div>
+    <div class="se" style="float:left; margin-right:32px;"><span class="texto18azul"><a href="aviso-legal.html">Aviso Legal</a></span></div>
+    <div class="se" style="float:left; margin-right:32px;"><span class="texto18azul"><a href="seguridad.html">Seguridad</a> </span></div>
+    <%--<div class="se" style="float:left;"><span class="texto18azul"><a href="#">Cuentas corrientes</a></span></div>--%>
+ </div>
 	
 	<footer class="section">
 		<div class="wrapper group">

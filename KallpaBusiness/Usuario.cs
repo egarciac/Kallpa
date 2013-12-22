@@ -30,5 +30,17 @@ namespace KallpaBusiness
                 return 0;
             }
         }
+
+        public static decimal ObtenerTipoCambio(string Fecha)
+        {
+            try
+            {
+                return UsuarioDA.ObtenerTipoCambio(Fecha);
+            }
+            catch
+            {
+                return 0;
+            }
+        }
     }
 }

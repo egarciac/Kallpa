@@ -105,19 +105,6 @@ namespace KallpaDataAccess
                 conn.Close();
                 return ds;
 
-                //SqlDataReader reader = command.ExecuteReader();
-                //if (!reader.HasRows)
-                //{
-                //    throw new ApplicationException("El usuario no existe: " + usuario);
-                //}
-                //reader.Read();
-                //string strB = reader["Password"].ToString();
-                //str = reader["IDUsuarioEmpresa"].ToString();
-                //if (string.CompareOrdinal(password, strB) != 0)
-                //{
-                //    throw new ApplicationException("Usuario o contrase\x00f1a no validos");
-                //}
-                conn.Close();
             }
             catch (Exception exception1)
             {
@@ -140,6 +127,88 @@ namespace KallpaDataAccess
             //login.ValidarUsuario(ConfigurationManager.AppSettings["NombreEmpresa"], usuario, password);
             //ObtenerCliente();
         }
+
+
+        public static DataSet getRpteTptdoSQL(string strFecha, int intCodCavali)
+        {
+            SqlConnection conn = null;
+            //DataSet ds = null;
+            string str = string.Empty;
+            try
+            {
+                conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SQLConnection"].ConnectionString);
+                SqlCommand command = new SqlCommand("select  * from fnt_rptWebSAB_Portafolio_ReportadoReportante('" + strFecha + "'," + intCodCavali + ")", conn);
+
+                //command.Connection = conn;
+                conn.Open();
+
+                SqlDataAdapter da = new SqlDataAdapter(command);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                conn.Close();
+                return ds;
+
+            }
+            catch (Exception exception1)
+            {
+                Exception innerException = exception1;
+                str = string.Empty;
+                if ((conn != null) && (conn.State != ConnectionState.Open))
+                {
+                    conn.Close();
+                }
+                if (innerException is ApplicationException)
+                {
+                    throw innerException;
+                }
+                throw new ApplicationException("Error al validar usuario", innerException);
+
+            }
+
+        }
+
+        public static DataSet getMargenSQL(string strFecha, int intCodCavali)
+        {
+            SqlConnection conn = null;
+            //DataSet ds = null;
+            string str = string.Empty;
+            try
+            {
+                conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SQLConnection"].ConnectionString);
+                SqlCommand command = new SqlCommand("select  * from fnt_rptWebSAB_Portafolio_MargenGarantia('" + strFecha + "'," + intCodCavali + ")", conn);
+
+                //command.Connection = conn;
+                conn.Open();
+
+                SqlDataAdapter da = new SqlDataAdapter(command);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                conn.Close();
+                return ds;
+
+            }
+            catch (Exception exception1)
+            {
+                Exception innerException = exception1;
+                str = string.Empty;
+                if ((conn != null) && (conn.State != ConnectionState.Open))
+                {
+                    conn.Close();
+                }
+                if (innerException is ApplicationException)
+                {
+                    throw innerException;
+                }
+                throw new ApplicationException("Error al validar usuario", innerException);
+
+            }
+
+            //return ds;
+            //Login login = new Login();
+            //login.ValidarUsuario(ConfigurationManager.AppSettings["NombreEmpresa"], usuario, password);
+            //ObtenerCliente();
+        }
+
 
         public static int ObtenerID(string codCavali)
         {

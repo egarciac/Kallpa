@@ -36,7 +36,7 @@
    <a href="Poliza.aspx" target="_self">
      <div class="e" style="float:left; padding-bottom:5px; padding-top:7px; padding-left:5px; padding-right:5px;"><span class="texto18e">Polizas</span></div>
      </a>
-   <div style="float:right; margin-top:5px; margin-right:5px;"> <a href="login.aspx" style="text-decoration:none"><span class="texto13azul">salir</span></a></div>
+   <div style="float:right; margin-top:5px; margin-right:5px;"> <a href="login.aspx" style="text-decoration:none"><span class="texto13azul">&nbsp;Salir</span></a></div>
 	<div style="float:right; margin-top:5px;"> <a href="login.aspx" style="text-decoration:none"><img src="img/cerrar.png" width="17" height="17" border="0" /></a></div>            
    </div>
     <div class="portada-imagen">
@@ -53,20 +53,20 @@
    	  <div class="bienvenida">
 
             <div style="margin-top:25px">
-            	<span class="texto14azul"><strong><img src="../img/cuadrado.gif" width="6" height="6" />&nbsp;&nbsp;&nbsp;Podrá recoger las pólizas en físico al día siguiente de realizada la operación, en nuestras oficinas. </strong></span>
+            	<span class="texto14azul"><strong><img src="../img/cuadrado.gif" width="6" height="6" />&nbsp;&nbsp;&nbsp;Usted podrá recoger sus pólizas en físico, al día siguiente de efectuada la operación. </strong></span>
           </div>
           <div style="margin-top:18px">
-            	<span class="texto14azul"><strong><img src="../img/cuadrado.gif" width="6" height="6" />&nbsp;&nbsp;&nbsp;Para un mejor uso de este aplicativo web, por favor descargue el manual de uso</strong></span> <span class="texto14marron"><b>aqui</b></span> 
-                <span class="texto14verde"><b>></b></span>
+            	<span class="texto14azul"><strong><img src="../img/cuadrado.gif" width="6" height="6" />&nbsp;&nbsp;&nbsp;Para un mejor uso de este entorno web, sírvase a descargarse el <u>manual de uso</u></strong></span> <%--<span class="texto14marron"><b>aqui</b></span>--%> 
+                <%--<span class="texto14verde"><b>></b></span>--%>
           </div>
       </div>
     </div>
     
      <div class="submenu">
-	<div class="se" style="float:left; margin-right:32px;"><span class="texto18azul"><a href="#">Política de cliente </a></span></div>
-    <div class="se" style="float:left; margin-right:32px;"><span class="texto18azul"><a href="#">Aviso Legal</a></span></div>
-    <div class="se" style="float:left; margin-right:32px;"><span class="texto18azul"><a href="#">Seguridad</a> </span></div>
-    <div class="se" style="float:left;"><span class="texto18azul"><a href="#">Cuentas corrientes</a></span></div>
+	<div class="se" style="float:left; margin-right:32px;"><span class="texto18azul"><a href="Politica de Clientes.pdf">Política de cliente </a></span></div>
+    <div class="se" style="float:left; margin-right:32px;"><span class="texto18azul"><a href="aviso-legal.html">Aviso Legal</a></span></div>
+    <div class="se" style="float:left; margin-right:32px;"><span class="texto18azul"><a href="seguridad.html">Seguridad</a> </span></div>
+    <%--<div class="se" style="float:left;"><span class="texto18azul"><a href="#">Cuentas corrientes</a></span></div>--%>
  </div>
     
     
