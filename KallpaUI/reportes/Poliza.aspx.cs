@@ -13,17 +13,19 @@ namespace KallpaUI.reportes
 {
     public partial class Poliza : Page
     {
+        private decimal importeTotal = 0m;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             try
             {
                 if (!IsPostBack)
                 {
-                var dt = (DataTable)Session["SetValues"];
-                lblNombre.Text = dt.Rows[0][0].ToString();
-                lblDireccion.Text = dt.Rows[0][1].ToString();
-                lblCavali.Text = dt.Rows[0][2].ToString();
-                lblTrader.Text = dt.Rows[0][3].ToString();
+                    var dt = (DataTable)Session["SetValues"];
+                    lblNombre.Text = dt.Rows[0][0].ToString();
+                    lblDireccion.Text = dt.Rows[0][1].ToString();
+                    lblCavali.Text = dt.Rows[0][2].ToString();
+                    lblTrader.Text = dt.Rows[0][3].ToString();
 
                 LoadAllControls();
                 }
@@ -137,9 +139,10 @@ namespace KallpaUI.reportes
         private void CargarDetalle(int idPoliza, bool sqlReport)
         {
             var detallePoliza = new Reportes().ReporteDetallePoliza(idPoliza, sqlReport);
-            CargarCabeceraDetalle(detallePoliza);
-            CargarGrillaDetalle(detallePoliza);
-            CargarResumenDetalle(detallePoliza);
+            var detallePolizas = detallePoliza as IList<DetallePoliza> ?? detallePoliza.ToList();
+            CargarCabeceraDetalle(detallePolizas.FirstOrDefault());
+            CargarGrillaDetalle(detallePolizas);
+            CargarResumenDetalle(detallePolizas);
         }
 
         private void CargarCabeceraDetalle(DetallePoliza detallePoliza)
@@ -152,32 +155,45 @@ namespace KallpaUI.reportes
             CavaliLabel.Text = detallePoliza.Cavali;
         }
 
-        private void CargarGrillaDetalle(DetallePoliza detallePoliza)
+        private void CargarGrillaDetalle(IEnumerable<DetallePoliza> detallePoliza)
         {
-            ValorLabel.Text = detallePoliza.Valor;
-            CantidadLabel.Text = detallePoliza.Cantidad.ToString();
-            PrecioLabel.Text = detallePoliza.Precio.ToString("0,0.00", CultureInfo.InvariantCulture);
-            ImporteLabel.Text = detallePoliza.Importe.ToString("0,0.00", CultureInfo.InvariantCulture);
-            ImporteTotalLabel.Text = detallePoliza.Importe.ToString("0,0.00", CultureInfo.InvariantCulture);
-            FechaLiquidacionLabel.Text = detallePoliza.FechaLiquidacion.ToShortDateString();
+            DetallePolizaGridView.DataSource = detallePoliza;
+            DetallePolizaGridView.DataBind();
+            var firstOrDefault = detallePoliza.FirstOrDefault();
+            if (firstOrDefault != null)
+                FechaLiquidacionLabel.Text = firstOrDefault.FechaLiquidacion.ToShortDateString();
         }
 
-        private void CargarResumenDetalle(DetallePoliza detallePoliza)
+        private void CargarResumenDetalle(IEnumerable<DetallePoliza> detallePoliza)
         {
-            ComisionSABLabel.Text = detallePoliza.ComisionSAB.ToString("0,0.00", CultureInfo.InvariantCulture);
-            ComisionCONASEVLabel.Text = detallePoliza.ComisionCONASEV.ToString("0,0.00", CultureInfo.InvariantCulture);
-            CuotaBVLLabel.Text = detallePoliza.ComisionBVL.ToString("0,0.00", CultureInfo.InvariantCulture);
-            FondoGarantiaBVLLabel.Text = detallePoliza.ComisionFondoBVL.ToString("0,0.00", CultureInfo.InvariantCulture);
-            RedistribucionCAVALILabel.Text = detallePoliza.ComisionCAVALI.ToString("0,0.00", CultureInfo.InvariantCulture);
-            FondoGarantiaCAVALILabel.Text = detallePoliza.ComisionFondoCAVALI.ToString("0,0.00", CultureInfo.InvariantCulture);
-            IGVLabel.Text = detallePoliza.IGV.ToString("0,0.00", CultureInfo.InvariantCulture);
-            TotalLabel.Text = detallePoliza.Total.ToString("0,0.00", CultureInfo.InvariantCulture);
+            var detallePolizas = detallePoliza as IList<DetallePoliza> ?? detallePoliza.ToList();
+            ComisionSABLabel.Text = detallePolizas.Sum(d=>d.ComisionSAB).ToString("0,0.00", CultureInfo.InvariantCulture);
+            ComisionCONASEVLabel.Text = detallePolizas.Sum(d=>d.ComisionCONASEV).ToString("0,0.00", CultureInfo.InvariantCulture);
+            CuotaBVLLabel.Text = detallePolizas.Sum(d => d.ComisionBVL).ToString("0,0.00", CultureInfo.InvariantCulture);
+            FondoGarantiaBVLLabel.Text = detallePolizas.Sum(d => d.ComisionFondoBVL).ToString("0,0.00", CultureInfo.InvariantCulture);
+            RedistribucionCAVALILabel.Text = detallePolizas.Sum(d => d.ComisionCAVALI).ToString("0,0.00", CultureInfo.InvariantCulture);
+            FondoGarantiaCAVALILabel.Text = detallePolizas.Sum(d => d.ComisionFondoCAVALI).ToString("0,0.00", CultureInfo.InvariantCulture);
+            IGVLabel.Text = detallePolizas.Sum(d => d.IGV).ToString("0,0.00", CultureInfo.InvariantCulture);
+            TotalLabel.Text = detallePolizas.Sum(d => d.Total).ToString("0,0.00", CultureInfo.InvariantCulture);
         }
 
         protected void RegresarLinkButton_Click(object sender, EventArgs e)
         {
             DetallePolizaPanel.Visible = false;
             MainPanel.Visible = true;
+        }
+
+        protected void DetallePolizaGridView_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                importeTotal += Convert.ToDecimal(DataBinder.Eval(e.Row.DataItem, "Importe"));
+            }
+            if (e.Row.RowType == DataControlRowType.Footer)
+            {
+                e.Row.Cells[2].Text = "Total";
+                e.Row.Cells[3].Text = importeTotal.ToString();
+            }
         }
     }
 }

@@ -16,20 +16,20 @@
 	<div class="contenedor">
 	<div class="header">
 	  <div class="logo"><img src="img/logo.jpg" width="290" height="60" /></div>
-      <div class="cabecera-der">
-       	<%--<div style="float:left; margin-right:2px;"><a href="#" style="text-decoration:none"> <span class="texto13azul">Manual de usos del aplicativo</span></a></div>
-            <div style="float:left; margin-right:20px;"><a href="#" style="text-decoration:none"><img src="img/pdf.jpg" width="16" height="18" border:"0" /></a></div>
-        <div style="float:left; margin-right:5px;"> <a href="#" style="text-decoration:none"><span class="texto13azul">salir</span></a></div>
-            <div style="float:left;"><a href="#" style="text-decoration:none"><img src="img/cerrar.png" width="17" height="17" border:"0" /></a></div>--%>
-      </div>
-    </div>
+	  <div class="cabecera-der">
+		<%--<div style="float:left; margin-right:2px;"><a href="#" style="text-decoration:none"> <span class="texto13azul">Manual de usos del aplicativo</span></a></div>
+			<div style="float:left; margin-right:20px;"><a href="#" style="text-decoration:none"><img src="img/pdf.jpg" width="16" height="18" border:"0" /></a></div>
+		<div style="float:left; margin-right:5px;"> <a href="#" style="text-decoration:none"><span class="texto13azul">salir</span></a></div>
+			<div style="float:left;"><a href="#" style="text-decoration:none"><img src="img/cerrar.png" width="17" height="17" border:"0" /></a></div>--%>
+	  </div>
+	</div>
   <div class="menu">
 	<a href="Portafolio.aspx" target="_self">
-    <div class="e" style="float:left; margin-right:33px; padding-bottom:5px; padding-top:7px; padding-left:5px; padding-right:5px;"><span class="texto18e">Portafolio</span></div>
-    </a>
-    <a href="DetalleOperaciones.aspx" target="_self">
-    <div class="e"  style="float:left; margin-right:33px; padding-bottom:5px; padding-top:7px; padding-left:5px; padding-right:5px;"><span class="texto18e">Detalle operaciones</span></div>
-    </a>
+	<div class="e" style="float:left; margin-right:33px; padding-bottom:5px; padding-top:7px; padding-left:5px; padding-right:5px;"><span class="texto18e">Portafolio</span></div>
+	</a>
+	<a href="DetalleOperaciones.aspx" target="_self">
+	<div class="e"  style="float:left; margin-right:33px; padding-bottom:5px; padding-top:7px; padding-left:5px; padding-right:5px;"><span class="texto18e">Detalle operaciones</span></div>
+	</a>
    <a href="CuentaCorriente.aspx" target="_self"> 
    <div class="e" style="float:left; margin-right:33px; padding-bottom:5px; padding-top:7px; padding-left:5px; padding-right:5px;"><span class="texto18e">Cuenta corriente</span></div>
    </a>
@@ -37,8 +37,8 @@
    <div class="e" style="float:left; margin-right:33px; padding-bottom:5px; padding-top:7px; padding-left:5px; padding-right:5px;"><span class="texto18e">Órdenes</span></div>
    </a>
    <a href="Poliza.aspx" target="_self">
-     <div class="e" style="float:left; padding-bottom:5px; padding-top:7px; padding-left:5px; padding-right:5px;"><span class="texto18e">Polizas</span></div>
-     </a>
+	 <div class="e" style="float:left; padding-bottom:5px; padding-top:7px; padding-left:5px; padding-right:5px;"><span class="texto18e">Polizas</span></div>
+	 </a>
    <div style="float:right; margin-top:5px; margin-right:5px;"> <a href="login.aspx" style="text-decoration:none"><span class="texto13azul">&nbsp;Salir</span></a></div>
 	<div style="float:right; margin-top:5px;"> <a href="login.aspx" style="text-decoration:none"><img src="img/cerrar.png" width="17" height="17" border="0" /></a></div>            
    </div>
@@ -202,7 +202,7 @@
 					</asp:BoundField>
 					<asp:TemplateField>
 						<ItemTemplate>
-						    <asp:HiddenField runat="server" ID="sqlHiddenField" Value='<%# Bind("Sql") %>'></asp:HiddenField>
+							<asp:HiddenField runat="server" ID="sqlHiddenField" Value='<%# Bind("Sql") %>'></asp:HiddenField>
 							<asp:LinkButton ID="VerPolizaDolaresLinkButton" runat="server" CommandName="Detalle" CommandArgument='<%# Bind("IdPoliza") %>'>Ver poliza ></asp:LinkButton>
 						</ItemTemplate>
 					</asp:TemplateField>
@@ -340,73 +340,15 @@
 					</tr>
 					<tr>
 						<td>
-							<table width="597" border="0" cellspacing="0" cellpadding="0">
-								<tr>
-									<td>
-										<table width="597" border="0">
-											<tr>
-												<td width="127" align="center" bgcolor="#758a9c">
-													<strong>VALOR</strong>
-												</td>
-												<td width="127" align="center" bgcolor="#758a9c" >
-													<strong>CANTIDAD</strong>
-												</td>
-												<td width="127" align="center" bgcolor="#758a9c">
-													<strong>PRECIO (S/.)</strong>
-												</td>
-												<td width="160" align="center" bgcolor="#758a9c">
-													<strong>IMPORTE (S/.)</strong>
-												</td>
-											</tr>
-										</table>
-									</td>
-								</tr>
-								<tr>
-									<td valign="top">
-										<table width="597" border="0" cellspacing="2" cellpadding="0">
-											<tr>
-												<td width="127" align="center" bgcolor="#d2d9df">
-												    <asp:Label runat="server" ID="ValorLabel"></asp:Label>
-												</td>
-												<td width="127" align="center" bgcolor="#d2d9df">
-												    <asp:Label runat="server" ID="CantidadLabel"></asp:Label>
-												</td>
-												<td width="127" align="center" bgcolor="#d2d9df">
-												    <asp:Label runat="server" ID="PrecioLabel"></asp:Label>
-												</td>
-												<td width="160" align="center" bgcolor="#d2d9df">
-												    <asp:Label runat="server" ID="ImporteLabel"></asp:Label>
-												</td>
-											</tr>
-										</table>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<table width="450" border="0" align="right" cellpadding="0" cellspacing="2">
-											<tr>
-												<td width="195" align="right">
-													<strong>(S/.)</strong>
-												</td>
-												<td width="160">
-													<table width="177" border="0" align="right" cellpadding="0" cellspacing="0" >
-														<tr>
-															<td align="center">
-																<strong>
-																    <asp:Label runat="server" ID="ImporteTotalLabel"></asp:Label>
-																</strong>
-															</td>
-														</tr>
-													</table>
-												</td>
-											</tr>
-										</table>
-									</td>
-								</tr>
-								<tr>
-									<td>...............................................................................................................................................................................</td>
-								</tr>
-							</table>
+							<asp:GridView runat="server" ID="DetallePolizaGridView" 
+								AutoGenerateColumns="False" ShowFooter="True" onrowdatabound="DetallePolizaGridView_RowDataBound">
+								<Columns>
+									<asp:BoundField DataField="Valor" HeaderText="Valor" />
+									<asp:BoundField DataField="Cantidad" HeaderText="Cantidad" />
+									<asp:BoundField DataField="Precio" HeaderText="Precio" />
+									<asp:BoundField DataField="Importe" HeaderText="Importe" />
+								</Columns>
+							</asp:GridView>
 						</td>
 					</tr>
 					<tr>
@@ -437,7 +379,7 @@
 																		<td>&nbsp;&nbsp;Comisión SAB</td>
 																		<td width="90">&nbsp;</td>
 																		<td width="40">
-																		    <asp:Label runat="server" ID="ComisionSABLabel"></asp:Label>
+																			<asp:Label runat="server" ID="ComisionSABLabel"></asp:Label>
 																		</td>
 																	</tr>
 																</table>
@@ -453,7 +395,7 @@
 																		<td>&nbsp;&nbsp;Contribución CONASEV </td>
 																		<td width="90">&nbsp;</td>
 																		<td width="40">
-																		    <asp:Label runat="server" ID="ComisionCONASEVLabel"></asp:Label>
+																			<asp:Label runat="server" ID="ComisionCONASEVLabel"></asp:Label>
 																		</td>
 																	</tr>
 																</table>
@@ -469,7 +411,7 @@
 																		<td>&nbsp;&nbsp;Cuota BVL</td>
 																		<td width="90">&nbsp;</td>
 																		<td width="40">
-																		    <asp:Label runat="server" ID="CuotaBVLLabel"></asp:Label>
+																			<asp:Label runat="server" ID="CuotaBVLLabel"></asp:Label>
 																		</td>
 																	</tr>
 																</table>
@@ -485,7 +427,7 @@
 																		<td>&nbsp;&nbsp;Fondo de Garantía BVL</td>
 																		<td width="90">&nbsp;</td>
 																		<td width="40">
-																		    <asp:Label runat="server" ID="FondoGarantiaBVLLabel"></asp:Label>
+																			<asp:Label runat="server" ID="FondoGarantiaBVLLabel"></asp:Label>
 																		</td>
 																	</tr>
 																</table>
@@ -501,7 +443,7 @@
 																		<td>&nbsp;&nbsp;Retribución CAVALI</td>
 																		<td width="90">&nbsp;</td>
 																		<td width="40">
-																		    <asp:Label runat="server" ID="RedistribucionCAVALILabel"></asp:Label>
+																			<asp:Label runat="server" ID="RedistribucionCAVALILabel"></asp:Label>
 																		</td>
 																	</tr>
 																</table>
@@ -517,7 +459,7 @@
 																		<td>&nbsp;&nbsp;Fondo de Garantía CAVALI</td>
 																		<td width="90">&nbsp;</td>
 																		<td width="40">
-																		    <asp:Label runat="server" ID="FondoGarantiaCAVALILabel"></asp:Label>
+																			<asp:Label runat="server" ID="FondoGarantiaCAVALILabel"></asp:Label>
 																		</td>
 																	</tr>
 																</table>
@@ -533,7 +475,7 @@
 																		<td>&nbsp;&nbsp;IGV</td>
 																		<td width="90">&nbsp;</td>
 																		<td width="40">
-																		    <asp:Label runat="server" ID="IGVLabel"></asp:Label>
+																			<asp:Label runat="server" ID="IGVLabel"></asp:Label>
 																		</td>
 																	</tr>
 																</table>
@@ -551,7 +493,7 @@
 															</td>
 															<td>
 																<span class="texto18negro">
-																    <asp:Label runat="server" ID="TotalLabel"></asp:Label>
+																	<asp:Label runat="server" ID="TotalLabel"></asp:Label>
 																</span>
 															</td>
 														</tr>
@@ -591,9 +533,9 @@
 	
 	<div class="submenu">
 	<div class="se" style="float:left; margin-right:32px;"><span class="texto18azul"><a href="Politica de Clientes.pdf">Política de cliente </a></span></div>
-    <div class="se" style="float:left; margin-right:32px;"><span class="texto18azul"><a href="aviso-legal.html">Aviso Legal</a></span></div>
-    <div class="se" style="float:left; margin-right:32px;"><span class="texto18azul"><a href="seguridad.html">Seguridad</a> </span></div>
-    <%--<div class="se" style="float:left;"><span class="texto18azul"><a href="#">Cuentas corrientes</a></span></div>--%>
+	<div class="se" style="float:left; margin-right:32px;"><span class="texto18azul"><a href="aviso-legal.html">Aviso Legal</a></span></div>
+	<div class="se" style="float:left; margin-right:32px;"><span class="texto18azul"><a href="seguridad.html">Seguridad</a> </span></div>
+	<%--<div class="se" style="float:left;"><span class="texto18azul"><a href="#">Cuentas corrientes</a></span></div>--%>
  </div>
 	
 	<footer class="section">

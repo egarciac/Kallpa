@@ -229,49 +229,13 @@ namespace KallpaUI.reportes {
         protected global::System.Web.UI.WebControls.Label CavaliLabel;
         
         /// <summary>
-        /// ValorLabel control.
+        /// DetallePolizaGridView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ValorLabel;
-        
-        /// <summary>
-        /// CantidadLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label CantidadLabel;
-        
-        /// <summary>
-        /// PrecioLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label PrecioLabel;
-        
-        /// <summary>
-        /// ImporteLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ImporteLabel;
-        
-        /// <summary>
-        /// ImporteTotalLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ImporteTotalLabel;
+        protected global::System.Web.UI.WebControls.GridView DetallePolizaGridView;
         
         /// <summary>
         /// FechaLiquidacionLabel control.

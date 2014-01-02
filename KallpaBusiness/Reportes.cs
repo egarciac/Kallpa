@@ -23,7 +23,7 @@ namespace KallpaBusiness
             return new SourceSelector().GetReportData(request, _db.ReportePolizasSql, _db.ReportePolizasOracle);
         }
 
-        public DetallePoliza ReporteDetallePoliza(int idPoliza, bool sqlReport)
+        public IEnumerable<DetallePoliza> ReporteDetallePoliza(int idPoliza, bool sqlReport)
         {
             return sqlReport ? _db.ReporteDetallePolizaSql(idPoliza) : _db.ReporteDetallePolizaOracle(idPoliza);
         }
